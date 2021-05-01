@@ -1,0 +1,47 @@
+:root {
+  --background: rgb(43, 44, 44);
+  --text: #fafafa;
+}
+
+.info {
+  padding-top: 50px;
+  flex: 1;
+  font-size: 1.6rem;
+  text-align: center;
+  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+}
+
+.info > figure {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+.info > figure > img {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.info > figure > h2 {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 2rem;
+  color: var(--text);
+  font-size: 3.75rem;
+  width: 100%;
+  font-family: "Dancing Script", cursive;
+}
+
+.info > p {
+  font-size: 1.8rem;
+  margin: 1.2rem 0;
+  font-weight: 800;
+}
+
+@media screen and (min-width: 768px) {
+  .info > figure > img {
+    width: 70%;
+  }
+}

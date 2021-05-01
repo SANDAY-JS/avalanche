@@ -1,0 +1,24 @@
+:root {
+  --background: rgb(43, 44, 44);
+  --text: #fafafa;
+}
+
+.news {
+  color: var(--background);
+  text-align: center;
+}
+
+.news > h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.news > p {
+  font-size: 1.6rem;
+}
+
+@media screen and (min-width: 768px) {
+  .news {
+    padding-bottom: 4rem;
+  }
+}
