@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/avalanche/static/css/main.0213f068.chunk.css",
-    "main.js": "/avalanche/static/js/main.2d292bbe.chunk.js",
-    "main.js.map": "/avalanche/static/js/main.2d292bbe.chunk.js.map",
+    "main.js": "/avalanche/static/js/main.553d4f76.chunk.js",
+    "main.js.map": "/avalanche/static/js/main.553d4f76.chunk.js.map",
     "runtime-main.js": "/avalanche/static/js/runtime-main.68b27ec7.js",
     "runtime-main.js.map": "/avalanche/static/js/runtime-main.68b27ec7.js.map",
     "static/css/2.0ccb862f.chunk.css": "/avalanche/static/css/2.0ccb862f.chunk.css",
@@ -22,6 +22,6 @@
     "static/css/2.0ccb862f.chunk.css",
     "static/js/2.7be0ee74.chunk.js",
     "static/css/main.0213f068.chunk.css",
-    "static/js/main.2d292bbe.chunk.js"
+    "static/js/main.553d4f76.chunk.js"
   ]
 }
