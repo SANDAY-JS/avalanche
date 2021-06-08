@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router basename="/avalanche-shiga">
+    <Router basename="/avalanche">
       <StateProvider>
         <App />
       </StateProvider>
