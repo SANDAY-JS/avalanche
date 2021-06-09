@@ -34,7 +34,18 @@
   font-family: "Dancing Script", cursive;
 }
 
-.info > p {
+/* Info Table */
+.info__table {
+  width: 75%;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: left;
+}
+.info__table > h3 {
+  text-align: center;
+}
+
+.info__table p {
   font-size: 1.8rem;
   margin: 1.2rem 0;
   font-weight: 800;
@@ -43,5 +54,8 @@
 @media screen and (min-width: 768px) {
   .info > figure > img {
     width: 70%;
+  }
+  .info {
+    padding-bottom: 3rem;
   }
 }

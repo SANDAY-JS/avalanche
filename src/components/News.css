@@ -7,13 +7,23 @@
   color: var(--background);
   text-align: center;
 }
-
 .news > h2 {
   font-size: 3rem;
   margin-bottom: 20px;
 }
 
-.news > p {
+.news__table {
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.news__table > h3 {
+  font-size: 2.2rem;
+}
+
+.news__table > p {
   font-size: 1.6rem;
 }
 
