@@ -1,0 +1,31 @@
+:root {
+  --background: rgb(43, 44, 44);
+  --text: #fafafa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  font-size: 0.65rem;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Amiri", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
