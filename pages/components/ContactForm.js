@@ -1,5 +1,5 @@
 import React from "react";
-import "./ContactForm.module.css";
+import styles from "./ContactForm.module.css";
 import { useForm, ValidationError } from "@formspree/react";
 
 function ContactForm() {
@@ -10,7 +10,7 @@ function ContactForm() {
   }
 
   return (
-    <div className="contactForm">
+    <div className={styles.contactForm}>
       <form
         onSubmit={handleSubmit}
         method="POST"

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useAuth } from "./StateProvider";
 import { useRouter } from "next/router";
+import styles from "../styles/pages/SignInForm.css";
 
 export default function UpdateProfile() {
   const { currentUser, updatePassword, updateName, updateEmail } = useAuth();
@@ -57,10 +58,10 @@ export default function UpdateProfile() {
   };
 
   return (
-    <div className="update-profile">
-      <div className="update-profile__container">
+    <div className={styles.updateProfile}>
+      <div className={styles.updateProfile__container}>
         <h2>アカウントの更新</h2>
-        {error && <p className="error">{error}</p>}
+        {error && <p className={styles.error}>{error}</p>}
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">Name</label>
           <input

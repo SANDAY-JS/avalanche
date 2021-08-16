@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useAuth } from "./StateProvider";
-import "../styles/pages/SignInForm.module.css";
+import styles from "../styles/pages/SignInForm.module.css";
 
 export default function Login() {
   const { login } = useAuth();
@@ -28,10 +28,10 @@ export default function Login() {
   };
 
   return (
-    <div className="login">
-      <div className="login__container">
+    <div className={styles.login}>
+      <div className={styles.login__container}>
         <h2>Login</h2>
-        {error && <p className="error">{error}</p>}
+        {error && <p className={styles.error}>{error}</p>}
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">Email</label>
           <input ref={emailRef} type="email" id="email" />
@@ -41,8 +41,12 @@ export default function Login() {
             Login
           </button>
         </form>
-        <Link href="/password-reset">パスワードをお忘れの場合</Link>
-        <Link href="/signup">アカウントをお持ちでない方</Link>
+        <Link href="/password-reset">
+          <a>パスワードをお忘れの場合</a>
+        </Link>
+        <Link href="/signup">
+          <a>アカウントをお持ちでない方</a>
+        </Link>
       </div>
     </div>
   );

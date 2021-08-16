@@ -8,17 +8,18 @@ function News() {
       <h2>~News~</h2>
       <div className={styles.news__container}>
         <div className={styles.news__container__block}>
-          <Link
-            className={styles.news__container__block__link}
-            href="/information"
-          >
-            <a>新着ライブ情報</a>
+          <Link href="/information">
+            <a className={styles.news__container__block__link}>
+              新着ライブ情報
+            </a>
           </Link>
         </div>
 
         <div className={styles.news__container__block}>
-          <Link className={styles.news__container__block__link} href="/profile">
-            <a>AVALANCHEアカウント、始動</a>
+          <Link href="/profile">
+            <a className={styles.news__container__block__link}>
+              AVALANCHEアカウント、始動
+            </a>
           </Link>
         </div>
       </div>

@@ -1,13 +1,13 @@
 import React from "react";
 import ContactForm from "./components/ContactForm";
-import "../styles/pages/Contact.module.css";
+import styles from "../styles/pages/Contact.module.css";
 
 function Contact() {
   return (
-    <div className="contact">
+    <div className={styles.contact}>
       <h2>Contact</h2>
       <ContactForm />
-      <div className="contact__other__means">
+      <div className={styles.contact__other__means}>
         <h4>こちらからもご連絡いただけます。</h4>
         <div>
           <a target="_blank" href="https://twitter.com/avalanche_shiga">

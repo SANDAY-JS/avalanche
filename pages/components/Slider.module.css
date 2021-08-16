@@ -12,7 +12,11 @@
 }
 
 .slider figure {
+  position: relative;
   text-align: center;
+}
+.slider figure img {
+  object-fit: cover;
 }
 
 .slider svg {

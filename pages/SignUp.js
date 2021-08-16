@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useAuth } from "./StateProvider";
-import "../styles/pages/SignInForm.module.css";
+import styles from "../styles/pages/SignInForm.module.css";
 
 export default function SignUp() {
   const { signup } = useAuth();
@@ -38,10 +38,10 @@ export default function SignUp() {
   };
 
   return (
-    <div className="signup">
-      <div className="signup__container">
+    <div className={styles.signup}>
+      <div className={styles.signup__container}>
         <h2>Sign Up</h2>
-        {error && <p className="error">{error}</p>}
+        {error && <p className={styles.error}>{error}</p>}
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">Name</label>
           <input ref={nameRef} type="text" id="name" />
@@ -59,7 +59,9 @@ export default function SignUp() {
             Sign Up
           </button>
         </form>
-        <Link href="/login">既にアカウントをお持ちですか？</Link>
+        <Link href="/login">
+          <a>既にアカウントをお持ちですか？</a>
+        </Link>
       </div>
     </div>
   );

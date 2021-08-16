@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/pages/Profile.module.css";
+import styles from "../styles/pages/Profile.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useAuth } from "./StateProvider";
@@ -24,12 +24,12 @@ export default function Profile() {
   };
 
   return (
-    <div className="profile">
+    <div className={styles.profile}>
       <h2>
         <FaUserAlt /> Your Profile
       </h2>
-      {error && <p className="error">{error}</p>}
-      <div className="profile__details">
+      {error && <p className={styles.error}>{error}</p>}
+      <div className={styles.profile__details}>
         {currentUser ? (
           <>
             <p>
@@ -38,22 +38,26 @@ export default function Profile() {
             <p>
               Your Email: <span>{currentUser.email}</span>
             </p>
-            <Link className="edit-profile" href="/update-profile">
+            <Link className={styles.editProfile} href="/update-profile">
               <a>登録情報を編集する</a>
             </Link>
-            <Link className="btn signout" href="/login" onClick={handleLogout}>
+            <Link
+              className={`${styles.btn} ${styles.signout}`}
+              href="/login"
+              onClick={handleLogout}
+            >
               <a>Sign Out</a>
             </Link>
           </>
         ) : (
           <>
-            <p className="no-user">アカウントが登録されていません。</p>
+            <p className={styles.noUser}>アカウントが登録されていません。</p>
             <span onClick={() => setDetail(!detail)}>
               {detail ? <FiArrowUpCircle /> : <FiArrowDownCircle />} AVALANCHE
               アカウントとは？
             </span>
             {detail && (
-              <p className="detail">
+              <p className={styles.detail}>
                 お名前とメールアドレスを登録するだけで、"AVALANCHEアカウント"に登録することができます。
                 <br />
                 AVALANCHEのライブに関する情報やグッズ情報などをいち早く知ることが出来ます。
@@ -62,13 +66,13 @@ export default function Profile() {
             <Link href="/signup">
               <a>新しくAVALANCHEアカウントを作る</a>
             </Link>
-            <Link className="btn" href="/signup">
+            <Link className={styles.btn} href="/signup">
               <a>Sign Up</a>
             </Link>
             <Link href="/login">
               <a>既にアカウントをお持ちですか？</a>
             </Link>
-            <Link className="btn" href="/login">
+            <Link className={styles.btn} href="/login">
               <a>Login</a>
             </Link>
           </>

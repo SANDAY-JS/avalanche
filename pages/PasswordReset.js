@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "./StateProvider";
-import "../styles/pages/PasswordReset.module.css";
+import styles from "../styles/pages/PasswordReset.module.css";
 
 export default function PasswordReset() {
   const { resetPassword } = useAuth();
@@ -29,13 +29,13 @@ export default function PasswordReset() {
   };
 
   return (
-    <div className="password-reset">
+    <div className={styles.passwordReset}>
       <h2>パスワードのリセット</h2>
       <p>
         ご指定のメールアドレスにパスワードを設定しなおすための通知メールが届きます。
       </p>
-      {error && <p className="error">{error}</p>}
-      {success && <p className="success">{success}</p>}
+      {error && <p className={styles.error}>{error}</p>}
+      {success && <p className={styles.success}>{success}</p>}
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">メールアドレス</label>
         <input ref={emailRef} type="email" id="email" />

@@ -50,30 +50,30 @@
   bottom: 2rem;
 }
 
-.no-user {
+.noUser {
   text-align: center;
 }
 
-.no-user ~ span {
+.noUser ~ span {
   font-size: 2rem;
   text-decoration: underline;
   cursor: pointer;
 }
-.no-user ~ span > svg {
+.noUser ~ span > svg {
   vertical-align: middle;
 }
-.no-user ~ a:not(.btn) {
+.noUser ~ a:not(.btn) {
   font-size: 1.8rem;
   color: var(--background);
   line-height: 3rem;
   margin-top: 1rem;
 }
-.no-user ~ .btn {
+.noUser ~ .btn {
   width: 40%;
   text-align: center;
   margin-bottom: 3rem;
 }
-a.edit-profile {
+a.editProfile {
   font-size: 1.6rem;
   text-decoration: underline;
 }

@@ -1,16 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import img from "../public/images/about_us.jpg";
-import "../styles/pages/About.module.css";
+import styles from "../styles/pages/About.module.css";
 
 function About() {
   return (
-    <div className="about">
+    <div className={styles.about}>
       <figure>
         <Image src={img} width={500} height={500} />
       </figure>
       <h2>About Us</h2>
-      <div className="about__band">
+      <div className={styles.about__band}>
         <h3>AVALANCHE</h3>
         <div>
           <p>
@@ -22,7 +22,7 @@ function About() {
         </div>
       </div>
 
-      <div className="about__member">
+      <div className={styles.about__member}>
         <h3> MEMBERS </h3>
         <div>
           <p>
