@@ -1,5 +1,6 @@
 .info {
   padding-top: 50px;
+  padding-bottom: 72px;
   flex: 1;
   font-size: 1.6rem;
   text-align: center;
@@ -38,6 +39,7 @@
 }
 .info__table > h3 {
   text-align: center;
+  font-size: 28px;
 }
 
 .info__table p {
