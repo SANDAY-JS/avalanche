@@ -1,31 +1,43 @@
 import React from "react";
 import Link from "next/link";
 import { FaUserCircle } from "react-icons/fa";
-import "./Footer.module.css";
+import styles from "./Footer.module.css";
 
 function Footer() {
   return (
-    <div className="footer">
-      <div className="footer__logo">
+    <div className={styles.footer}>
+      <div className={styles.footer__logo}>
         <Link href="/">
-          <h3>AVALANCHE</h3>
+          <a>
+            <h3>AVALANCHE</h3>
+          </a>
         </Link>
       </div>
 
-      <div className="footer__links">
-        <div className="footer__pages">
+      <div className={styles.footer__links}>
+        <div className={styles.footer__pages}>
           <ul>
-            <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
-            <Link href="/information">Information</Link>
-            <Link href="/contact">Contact</Link>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
+            <Link href="/information">
+              <a>Information</a>
+            </Link>
+            <Link href="/contact">
+              <a>Contact</a>
+            </Link>
             <Link href="/profile">
-              <FaUserCircle />
+              <a>
+                <FaUserCircle />
+              </a>
             </Link>
           </ul>
         </div>
 
-        <div className="footer__sns">
+        <div className={styles.footer__sns}>
           <ul>
             <a target="_blank" href="https://twitter.com/avalanche_shiga">
               <i className="fab fa-twitter"></i>
@@ -46,7 +58,7 @@ function Footer() {
         </div>
       </div>
 
-      <div className="footer__copyright">
+      <div className={styles.footer__copyright}>
         <small>© 2021 AVALANCHE</small>
       </div>
     </div>

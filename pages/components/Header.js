@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useAuth } from "../StateProvider";
 import { FaUserAlt } from "react-icons/fa";
-import "./Header.module.css";
+import styles from "./Header.module.css";
 
 function Header() {
   const { currentUser, logout } = useAuth();
@@ -35,23 +35,35 @@ function Header() {
   // };
 
   return (
-    <div className="header">
-      <div className="header__logo">
+    <div className={styles.header}>
+      <div className={styles.header__logo}>
         <Link href="/" onClick={() => setMenu(false)}>
-          <h1>AVALANCHE</h1>
+          <a>
+            <h1>AVALANCHE</h1>
+          </a>
         </Link>
       </div>
-      <ul className="header__links" onClick={() => setMenu(!menu)}>
+      <ul className={styles.header__links} onClick={() => setMenu(!menu)}>
         {deviceWidth ? (
           <>
-            <span className={menu ? "active" : ""}></span>
-            <div className={menu ? "header__menu active" : "header__menu"}>
+            <span className={menu && styles.active}></span>
+            <div
+              className={
+                menu
+                  ? `${styles.header__menu} ${styles.active}`
+                  : styles.header__menu
+              }
+            >
               {error && <p className="error">{error}</p>}
-              <div className="signin-form">
+              <div className={styles.signinForm}>
                 {!currentUser && (
                   <>
-                    <Link href="/login">Login</Link>
-                    <Link href="/signup">Sign Up</Link>
+                    <Link href="/login">
+                      <a>Login</a>
+                    </Link>
+                    <Link href="/signup">
+                      <a>Sign Up</a>
+                    </Link>
                   </>
                 )}
                 <Link href="/profile">
@@ -61,18 +73,34 @@ function Header() {
                   </a>
                 </Link>
               </div>
-              <Link href="/">Home</Link>
-              <Link href="/about">About</Link>
-              <Link href="/information">Information</Link>
-              <Link href="/contact">Contact</Link>
+              <Link href="/">
+                <a>Home</a>
+              </Link>
+              <Link href="/about">
+                <a>About</a>
+              </Link>
+              <Link href="/information">
+                <a>Information</a>
+              </Link>
+              <Link href="/contact">
+                <a>Contact</a>
+              </Link>
             </div>
           </>
         ) : (
           <>
-            <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
-            <Link href="/information">Information</Link>
-            <Link href="/contact">Contact</Link>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
+            <Link href="/information">
+              <a>Information</a>
+            </Link>
+            <Link href="/contact">
+              <a>Contact</a>
+            </Link>
             <Link href="/profile">
               <a>
                 <FaUserAlt /> {currentUser ? currentUser.displayName : "ゲスト"}

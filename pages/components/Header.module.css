@@ -111,7 +111,7 @@
   pointer-events: all;
 }
 
-.header__links > .header__menu > .signin-form {
+.header__links > .header__menu > .signinForm {
   position: absolute;
   transform: translateX(-50%);
   top: 1rem;
@@ -122,7 +122,7 @@
   width: 100%;
   pointer-events: all;
 }
-.header__links > .header__menu > .signin-form > a:not(:last-child) {
+.header__links > .header__menu > .signinForm > a:not(:last-child) {
   color: var(--text);
   font-size: 2rem;
   text-align: center;
@@ -131,18 +131,18 @@
   padding: 0 1rem;
 }
 /* Person Link Box */
-.header__links > .header__menu > .signin-form > a:last-child {
+.header__links > .header__menu > .signinForm > a:last-child {
   color: var(--text);
   font-size: 2rem;
   border: 2px solid var(--text);
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
-.header__links > .header__menu > .signin-form > a:hover {
+.header__links > .header__menu > .signinForm > a:hover {
   background-color: var(--text);
   color: var(--background);
 }
-.header__links > .header__menu > .signin-form > a > svg,
+.header__links > .header__menu > .signinForm > a > svg,
 .header__links > a > svg {
   vertical-align: middle;
   padding-bottom: 0.2rem;
