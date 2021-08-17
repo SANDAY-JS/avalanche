@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useAuth } from "./StateProvider";
+import { useAuth } from "../assets/StateProvider";
 import styles from "../styles/pages/SignInForm.module.css";
 import Layout from "./components/Layout";
 
@@ -20,7 +20,7 @@ export default function Login() {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      router.push("/");
+      router.push("/profile");
     } catch {
       setError("入力内容に誤りがあります");
     }

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { useAuth } from "../StateProvider";
-import { FaUserAlt } from "react-icons/fa";
 import styles from "../../styles/components/Header.module.css";
+import { useAuth } from "../../assets/StateProvider";
+import { FaUserAlt } from "react-icons/fa";
+// import { useRouter } from "next/router";
 
 function Header() {
   const { currentUser, logout } = useAuth();
   const [menu, setMenu] = useState(false);
   const [deviceWidth, setDeviceWidth] = useState(true);
   const [error, setError] = useState("");
-  const router = useRouter();
+  // const router = useRouter();
 
   useEffect(() => {
     checkWidth();
@@ -22,6 +22,8 @@ function Header() {
     if (match.matches) return setDeviceWidth(true);
     if (!match.matches) return setDeviceWidth(false);
   };
+
+  // ↓ You can set 'logout' anytime.
 
   // const handleLogout = async () => {
   //   setError("");
@@ -46,7 +48,7 @@ function Header() {
       <ul className={styles.header__links} onClick={() => setMenu(!menu)}>
         {deviceWidth ? (
           <>
-            <span className={menu && styles.active}></span>
+            <span className={menu ? styles.active : undefined}></span>
             <div
               className={
                 menu

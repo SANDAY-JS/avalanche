@@ -5,7 +5,7 @@ import styles from "../styles/pages/TopPage.module.css";
 
 function TopPage() {
   return (
-    <div className={styles.topPage}>
+    <div className={styles.toppage}>
       <Slider />
       <News />
     </div>

@@ -23,7 +23,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
+#root,
+body > div {
   width: 100%;
   min-height: 100vh;
   display: flex;

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { useAuth } from "./StateProvider";
+import { useAuth } from "../assets/StateProvider";
 import styles from "../styles/pages/SignInForm.module.css";
 import Layout from "./components/Layout";
 
@@ -30,7 +30,7 @@ export default function SignUp() {
         passwordRef.current.value,
         nameRef.current.value
       );
-      router.push("/");
+      router.push("/profile");
     } catch {
       setError("入力内容に誤りがあります");
     }

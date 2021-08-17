@@ -1,4 +1,4 @@
-.contactForm {
+.contact_form {
   background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
   position: relative;
   border: 3px solid var(--background);
@@ -7,7 +7,7 @@
   padding: 1rem;
 }
 
-.contactForm > form > div {
+.contact_form > form > div {
   width: 100%;
   padding: 1rem;
   display: flex;
@@ -15,22 +15,22 @@
   align-items: center;
 }
 
-.contactForm > form > div > * {
+.contact_form > form > div > * {
   display: block;
   width: 80%;
 }
 
-.contactForm > form > div > label {
+.contact_form > form > div > label {
   font-size: 1.8rem;
   color: var(--background);
 }
 
-.contactForm > form > div > input {
+.contact_form > form > div > input {
   text-align: center;
 }
 
-.contactForm > form > div > input,
-.contactForm > form > div > textarea {
+.contact_form > form > div > input,
+.contact_form > form > div > textarea {
   border: 1px solid var(--background);
   border-radius: 5px;
   background: var(--text);
@@ -38,12 +38,12 @@
   padding: 3px 5px;
 }
 
-.contactForm > form > div > textarea {
+.contact_form > form > div > textarea {
   resize: none;
   height: 8rem;
 }
 
-.contactForm > form > button {
+.contact_form > form > button {
   background-image: linear-gradient(to top, #8699bd 0%, #bac8e0 100%);
   color: var(--text);
   outline: none;
@@ -53,16 +53,16 @@
   margin: 1rem 0;
   cursor: pointer;
 }
-.contactForm > form > button:hover {
+.contact_form > form > button:hover {
   background: transparent;
 }
 
 @media screen and (min-width: 768px) {
-  .contactForm {
+  .contact_form {
     width: 40%;
     margin: 0 auto;
   }
-  .contactForm > form > div > textarea {
+  .contact_form > form > div > textarea {
     height: 20rem;
   }
 }

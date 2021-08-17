@@ -15,7 +15,7 @@ function Information() {
         <div className={styles.information__table}>
           <h3>ライブ予定↓</h3>
           <p>イベント名：後ほどお知らせします。</p>
-          <p>日時：8月中旬</p>
+          <p>日時：８月中旬</p>
           <p>場所：後ほどお知らせします。</p>
           <small>＊詳細は後ほど掲載いたします。</small>
         </div>

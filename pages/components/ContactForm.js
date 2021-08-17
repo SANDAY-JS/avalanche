@@ -10,7 +10,7 @@ function ContactForm() {
   }
 
   return (
-    <div className={styles.contactForm}>
+    <div className={styles.contact_form}>
       <form
         onSubmit={handleSubmit}
         method="POST"

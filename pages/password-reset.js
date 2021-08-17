@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { useAuth } from "./StateProvider";
+import { useAuth } from "../assets/StateProvider";
 import styles from "../styles/pages/PasswordReset.module.css";
 import Layout from "./components/Layout";
 

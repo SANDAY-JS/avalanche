@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "../styles/pages/Profile.module.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { useAuth } from "./StateProvider";
+import { useAuth } from "../assets/StateProvider";
 import { FaUserAlt } from "react-icons/fa";
 import { FiArrowUpCircle, FiArrowDownCircle } from "react-icons/fi";
 import Layout from "./components/Layout";
@@ -40,15 +40,11 @@ export default function Profile() {
               <p>
                 Your Email: <span>{currentUser.email}</span>
               </p>
-              <Link className={styles.editProfile} href="/update-profile">
-                <a>登録情報を編集する</a>
+              <Link href="/update-profile">
+                <a className={styles.editProfile}>登録情報を編集する</a>
               </Link>
-              <Link
-                className={`${styles.btn} ${styles.signout}`}
-                href="/login"
-                onClick={handleLogout}
-              >
-                <a>Sign Out</a>
+              <Link href="/login" onClick={handleLogout}>
+                <a className={`${styles.btn} ${styles.signout}`}>Sign Out</a>
               </Link>
             </>
           ) : (
@@ -68,14 +64,14 @@ export default function Profile() {
               <Link href="/signup">
                 <a>新しくAVALANCHEアカウントを作る</a>
               </Link>
-              <Link className={styles.btn} href="/signup">
-                <a>Sign Up</a>
+              <Link href="/signup">
+                <a className={styles.btn}>Sign Up</a>
               </Link>
               <Link href="/login">
                 <a>既にアカウントをお持ちですか？</a>
               </Link>
-              <Link className={styles.btn} href="/login">
-                <a>Login</a>
+              <Link href="/login">
+                <a className={styles.btn}>Login</a>
               </Link>
             </>
           )}
