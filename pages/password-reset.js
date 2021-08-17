@@ -31,7 +31,7 @@ export default function PasswordReset() {
 
   return (
     <Layout>
-      <div className={styles.passwordReset}>
+      <div className={styles.password_reset}>
         <h2>パスワードのリセット</h2>
         <p>
           ご指定のメールアドレスにパスワードを設定しなおすための通知メールが届きます。
