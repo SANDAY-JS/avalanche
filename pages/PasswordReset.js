@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "./StateProvider";
 import styles from "../styles/pages/PasswordReset.module.css";
+import Layout from "./components/Layout";
 
 export default function PasswordReset() {
   const { resetPassword } = useAuth();
@@ -29,20 +30,22 @@ export default function PasswordReset() {
   };
 
   return (
-    <div className={styles.passwordReset}>
-      <h2>パスワードのリセット</h2>
-      <p>
-        ご指定のメールアドレスにパスワードを設定しなおすための通知メールが届きます。
-      </p>
-      {error && <p className={styles.error}>{error}</p>}
-      {success && <p className={styles.success}>{success}</p>}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">メールアドレス</label>
-        <input ref={emailRef} type="email" id="email" />
-        <button type="submit" disabled={loading}>
-          送信
-        </button>
-      </form>
-    </div>
+    <Layout>
+      <div className={styles.passwordReset}>
+        <h2>パスワードのリセット</h2>
+        <p>
+          ご指定のメールアドレスにパスワードを設定しなおすための通知メールが届きます。
+        </p>
+        {error && <p className={styles.error}>{error}</p>}
+        {success && <p className={styles.success}>{success}</p>}
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email">メールアドレス</label>
+          <input ref={emailRef} type="email" id="email" />
+          <button type="submit" disabled={loading}>
+            送信
+          </button>
+        </form>
+      </div>
+    </Layout>
   );
 }

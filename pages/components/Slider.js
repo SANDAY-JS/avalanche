@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Slide } from "react-slideshow-image";
 import Image from "next/image";
 import "react-slideshow-image/dist/styles.css";
-import styles from "./Slider.module.css";
+import styles from "../../styles/components/Slider.module.css";
 import img1 from "../../public/images/live_pic1.jpg";
 import img2 from "../../public/images/live_pic2.jpg";
 import img3 from "../../public/images/live_pic3.jpg";

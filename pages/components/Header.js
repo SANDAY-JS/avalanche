@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useAuth } from "../StateProvider";
 import { FaUserAlt } from "react-icons/fa";
-import styles from "./Header.module.css";
+import styles from "../../styles/components/Header.module.css";
 
 function Header() {
   const { currentUser, logout } = useAuth();

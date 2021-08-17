@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { FaUserCircle } from "react-icons/fa";
-import styles from "./Footer.module.css";
+import styles from "../../styles/components/Footer.module.css";
 
 function Footer() {
   return (

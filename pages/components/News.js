@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import styles from "./News.module.css";
+import styles from "../../styles/components/News.module.css";
 
 function News() {
   return (
