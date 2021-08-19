@@ -3,6 +3,7 @@ import Image from "next/image";
 import img from "../public/images/about_us.jpg";
 import styles from "../styles/pages/About.module.css";
 import Layout from "./components/Layout";
+import Members from "./components/Members";
 
 function About() {
   return (
@@ -11,7 +12,6 @@ function About() {
         <figure>
           <Image src={img} />
         </figure>
-        <h2>About Us</h2>
         <div className={styles.about__band}>
           <h3>AVALANCHE</h3>
           <div>
@@ -24,23 +24,7 @@ function About() {
           </div>
         </div>
 
-        <div className={styles.about__member}>
-          <h3> MEMBERS </h3>
-          <div>
-            <p>
-              Singer: <span>Shota</span>
-            </p>
-            <p>
-              Guitar: <span>Tomoki</span>
-            </p>
-            <p>
-              Base: <span>Yuto</span>
-            </p>
-            <p>
-              Drums: <span>Sun</span>
-            </p>
-          </div>
-        </div>
+        <Members />
       </div>
     </Layout>
   );

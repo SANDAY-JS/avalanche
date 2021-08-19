@@ -177,6 +177,7 @@
     align-items: center;
     transition: all 0.3s;
     padding: 0 10px;
+    overflow: hidden;
   }
   .header__links > a:hover {
     color: rgb(172, 170, 170);
@@ -190,5 +191,15 @@
   .header__links > a:nth-child(6):hover {
     color: var(--background);
     background-color: var(--text);
+  }
+}
+@media (min-width: 768px) and (max-width: 769px) {
+  .header__links > a {
+    display: initial;
+
+    max-height: 40px;
+    max-width: 120px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }

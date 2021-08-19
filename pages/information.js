@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import img from "../public/images/live_pic2.jpg";
+import img from "../public/images/band_purple.jpg";
 import styles from "../styles/pages/Information.module.css";
 import Layout from "./components/Layout";
 
