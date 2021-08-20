@@ -15,9 +15,6 @@ export default function StateProvider({ children }) {
       setCurrentUser(user);
     });
 
-    console.log(`currentUser ${currentUser}`);
-    console.log(`auth ${auth}`);
-
     return unsubscribe;
   }, []);
 
