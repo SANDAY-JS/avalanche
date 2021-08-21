@@ -1,7 +1,7 @@
 import React from "react";
-import ContactForm from "./components/ContactForm";
 import styles from "../styles/pages/Contact.module.css";
-import Layout from "./components/Layout";
+import ContactForm from "../components/ContactForm";
+import Layout from "../components/Layout";
 
 function Contact() {
   return (

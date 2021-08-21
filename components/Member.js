@@ -1,4 +1,4 @@
-import styles from "../../styles/components/Members.module.css";
+import styles from "../styles/components/Members.module.css";
 
 function Member({ member }) {
   return (

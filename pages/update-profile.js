@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useAuth } from "../assets/StateProvider";
 import { useRouter } from "next/router";
 import styles from "../styles/pages/SignInForm.module.css";
-import Layout from "./components/Layout";
+import Layout from "../components/Layout";
 
 export default function UpdateProfile() {
   const { currentUser, updatePassword, updateName, updateEmail } = useAuth();

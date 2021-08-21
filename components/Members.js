@@ -1,6 +1,6 @@
-import styles from "../../styles/components/Members.module.css";
+import styles from "../styles/components/Members.module.css";
 import Member from "./Member";
-import membersData from "../../assets/memberInfomation";
+import membersData from "../assets/memberInfomation";
 
 function Members() {
   return (

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import styles from "../../styles/components/Header.module.css";
-import { useAuth } from "../../assets/StateProvider";
+import styles from "../styles/components/Header.module.css";
+import { useAuth } from "../assets/StateProvider";
 import { FaUserAlt } from "react-icons/fa";
 // import { useRouter } from "next/router";
 

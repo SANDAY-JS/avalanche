@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../assets/StateProvider";
 import styles from "../styles/pages/PasswordReset.module.css";
-import Layout from "./components/Layout";
+import Layout from "../components/Layout";
 
 export default function PasswordReset() {
   const { resetPassword } = useAuth();

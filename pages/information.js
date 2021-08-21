@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import img from "../public/images/band_purple.jpg";
 import styles from "../styles/pages/Information.module.css";
-import Layout from "./components/Layout";
+import Layout from "../components/Layout";
 
 function Information() {
   return (
@@ -15,7 +15,7 @@ function Information() {
         <div className={styles.information__table}>
           <h3>ライブ予定↓</h3>
           <p>イベント名：後ほどお知らせします。</p>
-          <p>日時：８月中旬</p>
+          <p>日時：９月中旬</p>
           <p>場所：後ほどお知らせします。</p>
           <small>＊詳細は後ほど掲載いたします。</small>
         </div>

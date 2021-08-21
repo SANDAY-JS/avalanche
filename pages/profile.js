@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useAuth } from "../assets/StateProvider";
 import { FaUserAlt } from "react-icons/fa";
 import { FiArrowUpCircle, FiArrowDownCircle } from "react-icons/fi";
-import Layout from "./components/Layout";
+import Layout from "../components/Layout";
 
 export default function Profile() {
   const { currentUser, logout } = useAuth();

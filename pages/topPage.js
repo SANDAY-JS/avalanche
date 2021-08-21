@@ -1,7 +1,7 @@
 import React from "react";
-import News from "./components/News";
-import Slider from "./components/Slider";
 import styles from "../styles/pages/TopPage.module.css";
+import News from "../components/News";
+import Slider from "../components/Slider";
 
 function TopPage() {
   return (

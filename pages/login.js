@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useAuth } from "../assets/StateProvider";
 import styles from "../styles/pages/SignInForm.module.css";
-import Layout from "./components/Layout";
+import Layout from "../components/Layout";
 
 export default function Login() {
   const { login } = useAuth();
