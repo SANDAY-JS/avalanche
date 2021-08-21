@@ -1,0 +1,32 @@
+.slider {
+  height: 250px;
+  z-index: -10;
+}
+
+.slider * {
+  height: 100%;
+}
+
+.slider .nav.default-nav {
+  background: transparent;
+}
+
+.slider figure {
+  position: relative;
+  text-align: center;
+}
+.slider figure img {
+  object-fit: cover;
+}
+
+.slider svg {
+  fill: var(--text);
+}
+
+@media screen and (min-width: 768px) {
+  .slider {
+    width: 720px;
+    height: 400px;
+    margin: 0 auto;
+  }
+}

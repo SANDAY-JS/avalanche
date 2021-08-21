@@ -1,0 +1,83 @@
+.profile {
+  padding-top: 50px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.profile > h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.profile > h2 > svg {
+  font-size: 2.1rem;
+}
+.profile__details {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.profile__details > p {
+  font-size: 2rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: rgba(75, 75, 75, 0.7);
+}
+.profile__details > p > span {
+  font-size: 2.4rem;
+  color: var(--background);
+}
+.profile__details > .detail {
+  font-size: 1.6rem;
+  color: var(--background);
+  width: 80%;
+}
+.btn {
+  color: var(--background);
+  font-size: 2rem;
+  border: 2px solid var(--background);
+  padding: 0 1rem;
+}
+.btn:hover {
+  color: var(--text);
+  background-color: var(--background);
+}
+.signout {
+  position: absolute;
+  bottom: 2rem;
+}
+
+.noUser {
+  text-align: center;
+}
+
+.noUser ~ span {
+  font-size: 2rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.noUser ~ span > svg {
+  vertical-align: middle;
+}
+.noUser ~ a:not(.btn) {
+  font-size: 1.8rem;
+  color: var(--background);
+  line-height: 3rem;
+  margin-top: 1rem;
+}
+.noUser ~ .btn {
+  width: 40%;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+a.editProfile {
+  font-size: 1.6rem;
+  text-decoration: underline;
+}
+.error {
+  font-size: 2rem;
+  color: #f30000;
+}
