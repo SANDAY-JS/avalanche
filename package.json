@@ -7,7 +7,6 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
-    "eslint": "^7.32.0",
     "firebase": "^8.4.2",
     "next": "latest",
     "react": "latest",
@@ -24,12 +23,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "clean": "rm -rf node_modules/gh-pages/.cache"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
