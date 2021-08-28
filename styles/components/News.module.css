@@ -1,5 +1,5 @@
 .news {
-  color: var(--background);
+  color: var(--text);
   text-align: center;
 }
 .news > h2 {
@@ -24,7 +24,7 @@
   /* News Titles */
   position: relative;
   font-size: 20px;
-  color: var(--background);
+  color: var(--text);
   text-decoration: underline;
 }
 .news__container
@@ -39,7 +39,7 @@
 
   width: 8px;
   height: 8px;
-  background-color: var(--background);
+  background-color: var(--text);
   border-radius: 50%;
 }
 
