@@ -3,6 +3,8 @@ import Link from "next/link";
 import styles from "../styles/components/Header.module.css";
 import { useAuth } from "../assets/StateProvider";
 import { FaUserAlt } from "react-icons/fa";
+import logo from "../public/images/logo.png";
+import Image from "next/image";
 // import { useRouter } from "next/router";
 
 function Header() {
@@ -41,14 +43,15 @@ function Header() {
       <div className={styles.header__logo}>
         <Link href="/" onClick={() => setMenu(false)}>
           <a>
-            <h1>AVALANCHE</h1>
+            {/* <h1>AVALANCHE</h1> */}
+            <Image src={logo} className={styles.logo} />
           </a>
         </Link>
       </div>
       <ul className={styles.header__links} onClick={() => setMenu(!menu)}>
         {deviceWidth ? (
           <>
-            <span className={menu ? styles.active : undefined}></span>
+            <span className={menu ? styles.active : ""}></span>
             <div
               className={
                 menu
