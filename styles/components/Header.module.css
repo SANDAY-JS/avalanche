@@ -19,17 +19,19 @@
 /* ↓ AVALANCHE */
 .header__logo {
   flex: 1;
+  width: auto;
   height: 100%;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 .header__logo > a {
-  width: fit-content;
+  width: auto;
   height: 100%;
   overflow: hidden;
 }
 .header__logo > a * {
-  width: fit-content;
+  width: auto;
   height: 100%;
 }
 
@@ -108,7 +110,7 @@
 }
 .header__links > .header__menu > a {
   color: var(--background);
-  font-size: 3rem;
+  font-size: 2.5rem;
   width: 50%;
   display: flex;
   justify-content: center;
