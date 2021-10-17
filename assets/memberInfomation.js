@@ -16,7 +16,7 @@ const membersData = {
   },
   Yuto: {
     name: "Yuto",
-    role: "Base",
+    role: "Bass",
     twitter: "https://twitter.com/yt_kwsk",
     instagram: "https://www.instagram.com/unerivierecape_92/",
     image: "/images/base.jpg",
