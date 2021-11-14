@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import img from "../../public/images/band_purple.jpg";
 import styles from "../styles/pages/Information.module.css";
 import Layout from "../components/Layout";
+import { db } from "../../firebase";
 
 function Information({}) {
+  const [draft, setDraft] = useState();
+
+  useEffect(() => {
+    fetchDraft()
+  }, []);
+
+  const fetchDraft = () =>{
+    // firebaseからデータを取得
+    const draftRef = db.collection("draft").doc("information");
+    if (!draftRef) return;
+
+    draftRef.get().then((doc) => {
+      if (!doc.exists) return;
+
+      return setDraft(doc.data());
+    });
+  }
+
   return (
     <Layout>
       <div className={styles.information}>
@@ -14,11 +33,19 @@ function Information({}) {
         </figure>
         <div className={styles.information__table}>
           <h3>ライブ予定↓</h3>
-          <p>イベント名：10th Anniversary ~Lefa~ 次代へつなぐ道</p>
-          <p>日時：1月23日</p>
-          <p>場所：木之本スティックホール</p>
-          {/* <small>＊詳細は後ほど掲載いたします。</small> */}
-          <p>出演時間：後ほどお知らせ致します</p>
+          {draft? (
+            <>
+              <p>イベント名：{draft.eventName ? draft.eventName : "未定"}</p>
+              <p>日時：{draft.date ? draft.date : "未定"}</p>
+              <p>出演時間：{draft.time ? draft.time : "未定"}</p>
+              <p>場所：{draft.place ? draft.place : "未定"}</p>
+              <p>{draft.detail && `詳細：${draft.detail}`}</p>
+            </>
+          ) : (
+            <>
+            <p>予定が決まり次第お伝え致します。</p>
+            </>
+          )}
         </div>
       </div>
     </Layout>
@@ -26,12 +53,3 @@ function Information({}) {
 }
 
 export default Information;
-
-export async function getStaticProps() {
-  // Maybe you should use firebase or python / C#
-  return {
-    props: {
-      // draft,
-    },
-  };
-}

@@ -118,6 +118,7 @@
   transition: all 0.3s;
   padding: 10px 0;
   pointer-events: all;
+  text-align: center;
 }
 
 .header__links > .header__menu > .signinForm {

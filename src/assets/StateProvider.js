@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 
 const AuthProvider = createContext();
 
@@ -19,11 +19,13 @@ export default function StateProvider({ children }) {
   }, []);
 
   // Auth Methods
-  const signup = (email, password, name) => {
-    return auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((result) => result.user.updateProfile({ displayName: name }))
-      .catch((e) => console.error(e));
+  const signup = async (email, password, name) => {
+    try {
+      const result = await auth.createUserWithEmailAndPassword(email, password);
+      return await result.user.updateProfile({ displayName: name });
+    } catch (e) {
+      return console.error(e);
+    }
   };
 
   const login = (email, password) => {
@@ -50,6 +52,27 @@ export default function StateProvider({ children }) {
     return currentUser.updatePassword(password);
   };
 
+  // update draft in information page
+  const updateInformationDraft = async (draft) => {
+    return await db
+      .collection("draft")
+      .doc("information")
+      .set({
+        eventName: draft.eventName,
+        date: draft.date,
+        time: draft.time,
+        place: draft.place,
+        detail: draft.detail,
+      });
+  };
+
+  // get draft for information page
+  // const getInformationDraft = () => {
+  //   const draftRef = db.ref("draft/information");
+  //   if (!draftRef) return;
+  //   return draftRef;
+  // };
+
   const authValue = {
     currentUser,
     signup,
@@ -59,6 +82,8 @@ export default function StateProvider({ children }) {
     updateName,
     updateEmail,
     updatePassword,
+    updateInformationDraft,
+    // getInformationDraft,
   };
 
   return (

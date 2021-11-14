@@ -22,58 +22,104 @@ $fontFamily: "Amiri", serif;
   position: relative;
   @include centerCol(20px);
 
-  padding: 40px 32px;
+  padding: 12px 32px;
 
   width: 100%;
   min-height: 100%;
 
-  .adminInformation__title {
-    font-size: 32px;
-    font-weight: 700;
+  .adminInformation__logo {
+    max-width: 100%;
+    height: 50px;
+    overflow: hidden;
+
+    span {
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
 
-  .adminInformation__options {
-    width: 100%;
-    height: 36px;
-    padding: 4px 8px;
-    border: 2px solid $black;
+  .adminInformation__error {
+    color: red;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    font-family: $fontFamily;
 
-    @include center(12px);
-    justify-content: space-around;
-
-    .adminInformation__options__item {
-      height: 100%;
-      input {
-        width: 48px;
-        height: 100%;
-      }
-    }
+    text-align: center;
   }
 
   .adminInformation__contents {
     position: relative;
 
-    @include centerCol(12px);
+    @include centerCol(20px);
     justify-content: flex-start;
 
     border: 4px solid $black;
     outline: none;
 
+    padding: 12px 20px;
     background-color: $white;
 
     width: 100%;
     max-width: 500px;
     min-height: 300px;
 
-    .adminInformation__contents__input {
+    .adminInformation__contents__item {
+      @include centerCol(4px);
       width: 100%;
-      height: 100%;
+
+      > label {
+        font-size: $fontSize;
+        font-weight: $fontWeight;
+        font-family: $fontFamily;
+      }
+      > input {
+        width: 80%;
+        padding: 4px 8px;
+        border-radius: 4px;
+
+        font-size: calc($fontSize - 4px);
+      }
+      > div {
+        @include center(4px);
+        justify-content: space-between;
+        width: 80%;
+
+        > input {
+          position: relative;
+          flex: 1;
+
+          padding: 4px 8px;
+          border-radius: 4px;
+
+          font-size: calc($fontSize - 4px);
+        }
+        > a {
+          @include center(0px);
+
+          color: $white;
+          background-color: $black;
+
+          font-size: $fontSize;
+          font-weight: $fontWeight;
+          font-family: $fontFamily;
+
+          width: 30%;
+          height: 100%;
+
+          border-radius: 4px;
+          padding: 8px;
+        }
+      }
+    }
+
+    .adminInformation__contents__detail {
+      width: 80%;
+      height: 100px;
       background-color: inherit;
 
-      padding: 16px 12px;
-
-      outline: none;
-      border: none;
+      border: 2px solid $black;
+      border-radius: 4px;
+      padding: 4px;
 
       color: $black;
       font-size: $fontSize;
@@ -84,24 +130,23 @@ $fontFamily: "Amiri", serif;
     }
   }
 
-  .adminInformation__submit {
+  .adminInformation__submit,
+  .adminInformation__deleteAll {
     width: 50%;
     max-width: 300px;
 
     padding: 4px 8px;
-    background-color: $white;
+    background-color: $black;
     border: $black solid 2px;
 
-    color: $black;
+    color: $white;
     font-size: $fontSize;
     font-weight: $fontWeight;
     font-family: $fontFamily;
 
-    // background: linear-gradient(135deg, black 25%, transparent 25%) -50px 0,
-    //   linear-gradient(225deg, black 25%, transparent 25%) -50px 0,
-    //   linear-gradient(315deg, black 25%, transparent 25%),
-    //   linear-gradient(45deg, black 25%, transparent 25%);
-    // background-size: 2em 2em;
-    // background-color: #232323;
+    &.adminInformation__deleteAll {
+      color: $black;
+      background-color: $white;
+    }
   }
 }

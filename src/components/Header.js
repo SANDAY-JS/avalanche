@@ -44,7 +44,7 @@ function Header() {
         <Link href="/" onClick={() => setMenu(false)}>
           <a>
             {/* <h1>AVALANCHE</h1> */}
-            <Image src={logo} className={styles.logo} />
+            <Image className={styles.logo} src={logo} />
           </a>
         </Link>
       </div>
@@ -90,6 +90,12 @@ function Header() {
               <Link href="/contact">
                 <a>Contact</a>
               </Link>
+
+              {currentUser?.uid === process.env.NEXT_PUBLIC_ADMIN_UID && (
+                <Link href="/admin/information">
+                  <a>イベント情報を編集</a>
+                </Link>
+              )}
             </div>
           </>
         ) : (
