@@ -3,26 +3,12 @@ import styles from "../../styles/pages/admin/information.module.scss";
 
 const adminInformation = () => {
   const draftRef = useRef(null);
-  const [markdown, setMarkdown] = useState("");
-
-  useEffect(() => {
-    if (!markdown.length) return;
-
-    console.log("output>>>", markdown);
-  }, [markdown]);
+  // const [markdown, setMarkdown] = useState("");
 
   const submitDraft = async () => {
     // convert text to markdown file (.md)
     if (!draftRef.current) return;
     const draft = draftRef.current.value;
-
-    setMarkdown(draft);
-
-    return await fetch("../../posts")
-      .then((response) => response.text())
-      .then((data) => {
-        console.log(data);
-      });
   };
   return (
     <div className={styles.adminInformation}>
@@ -49,3 +35,12 @@ const adminInformation = () => {
 };
 
 export default adminInformation;
+
+export async function getStaticProps() {
+  let draft;
+  return {
+    props: {
+      // draft,
+    },
+  };
+}
