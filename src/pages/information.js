@@ -4,7 +4,7 @@ import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
 import Image from "next/image";
-import img from "../public/images/band_purple.jpg";
+import img from "../../public/images/band_purple.jpg";
 import styles from "../styles/pages/Information.module.css";
 import Layout from "../components/Layout";
 

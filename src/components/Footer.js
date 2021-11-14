@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaUserCircle } from "react-icons/fa";
-import logo from "../public/images/logo.png";
+import logo from "../../public/images/logo.png";
 import styles from "../styles/components/Footer.module.css";
 
 function Footer() {

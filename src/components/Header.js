@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "../styles/components/Header.module.css";
 import { useAuth } from "../assets/StateProvider";
 import { FaUserAlt } from "react-icons/fa";
-import logo from "../public/images/logo.png";
+import logo from "../../public/images/logo.png";
 import Image from "next/image";
 // import { useRouter } from "next/router";
 
