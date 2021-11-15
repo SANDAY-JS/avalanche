@@ -10,7 +10,13 @@ function About() {
     <Layout>
       <div className={styles.about}>
         <figure>
-          <Image src={img} />
+          <Image
+            src={img}
+            // src="/images/about_us.jpg"
+            // layout="responsive"
+            // width="600"
+            // height="300"
+          />
         </figure>
         <div className={styles.about__band}>
           <h3>AVALANCHE</h3>

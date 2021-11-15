@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/components/Header.module.css";
+// import logo from "../../public/images/logo.png";
 import { useAuth } from "../assets/StateProvider";
 import { FaUserAlt } from "react-icons/fa";
-import Image from "next/image";
+import styles from "../styles/components/Header.module.css";
 // import { useRouter } from "next/router";
 
 function Header() {
@@ -45,9 +46,9 @@ function Header() {
             {/* <h1>AVALANCHE</h1> */}
             <Image
               className={styles.logo}
-              src="/images/logo.png"
-              width="300"
-              height="111"
+              src={"/images/logo.png"}
+              width="140"
+              height="50"
             />
           </a>
         </Link>
