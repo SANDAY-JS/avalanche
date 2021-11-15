@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import img from "../public/images/about_us.jpg";
+import img from "../../public/images/about_us.jpg";
 import styles from "../styles/pages/About.module.css";
 import Layout from "../components/Layout";
 import Members from "../components/Members";
