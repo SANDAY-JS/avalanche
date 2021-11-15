@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaUserCircle } from "react-icons/fa";
-import logo from "../../public/images/logo.png";
 import styles from "../styles/components/Footer.module.css";
 
 function Footer() {
@@ -11,7 +10,12 @@ function Footer() {
       <div className={styles.footer__logo}>
         <Link href="/">
           <a>
-            <Image src={logo} className={styles.logo} />
+            <Image
+              src="/images/logo.png"
+              width="300"
+              height="111"
+              className={styles.logo}
+            />
           </a>
         </Link>
       </div>

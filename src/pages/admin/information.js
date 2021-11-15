@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { TiCancel } from "react-icons/ti";
-import logo from "../../../public/images/logo.png";
 import { useAuth } from "../../assets/StateProvider";
 import styles from "../../styles/pages/admin/information.module.scss";
 
@@ -88,7 +87,7 @@ const adminInformation = () => {
             <Link href="/">
               <a>
                 <Image
-                  src={logo}
+                  src="/images/logo.png"
                   className={styles.logo}
                   width="200"
                   height="80"
