@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-// import logo from "../../public/images/logo.png";
+import { AiFillEdit } from "react-icons/ai";
 import { useAuth } from "../assets/StateProvider";
 import { FaUserAlt } from "react-icons/fa";
 import styles from "../styles/components/Header.module.css";
@@ -117,6 +117,13 @@ function Header() {
             <Link href="/contact">
               <a>Contact</a>
             </Link>
+            {currentUser?.uid === process.env.NEXT_PUBLIC_ADMIN_UID && (
+              <Link href="/admin/information">
+                <a className={styles.header__menu__admin}>
+                  <AiFillEdit />
+                </a>
+              </Link>
+            )}
             <Link href="/profile">
               <a>
                 <FaUserAlt /> {currentUser ? currentUser.displayName : "ゲスト"}

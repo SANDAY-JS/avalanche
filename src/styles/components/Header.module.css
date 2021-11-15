@@ -167,6 +167,7 @@
   .header {
     padding: 0 10px 0 20px;
     justify-content: space-around;
+    overflow: hidden;
   }
   .header__logo {
     flex: 0.25;
@@ -183,6 +184,7 @@
     color: var(--background);
     font-size: 2rem;
     height: 100%;
+    max-height: 40px;
     display: flex;
     align-items: center;
     transition: all 0.3s;
@@ -196,18 +198,21 @@
   .header__links > a:nth-child(6) {
     border: 2px solid var(--background);
     height: 70%;
+    max-height: 40px;
   }
   .header__links > a:nth-child(5):hover,
   .header__links > a:nth-child(6):hover {
     color: var(--text);
     background-color: var(--background);
   }
+  .header__menu__admin {
+    border: none;
+  }
 }
 @media (min-width: 768px) and (max-width: 769px) {
   .header__links > a {
     display: initial;
 
-    max-height: 40px;
     max-width: 120px;
     white-space: nowrap;
     text-overflow: ellipsis;

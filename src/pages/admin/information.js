@@ -10,6 +10,7 @@ const adminInformation = () => {
 
   const [authority, setAuthority] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   // get from firebase realtime database eventually
   const [eventname, setEventname] = useState("");
   const [date, setDate] = useState("");
@@ -66,11 +67,15 @@ const adminInformation = () => {
   };
 
   const submitDraft = async () => {
+    const check = confirm("この内容でおけ？");
+    if (!check) return;
+
     console.log(draft);
 
     try {
       await updateInformationDraft(draft);
       setError("");
+      setSuccess("更新が完了しました");
     } catch (e) {
       console.error("下書きを保存できませんでした", e);
       setError(
@@ -98,6 +103,9 @@ const adminInformation = () => {
           </div>
 
           {error && <p className={styles.adminInformation__error}>{error}</p>}
+          {success && (
+            <p className={styles.adminInformation__success}>{success}</p>
+          )}
 
           <div className={styles.adminInformation__contents}>
             <div className={styles.adminInformation__contents__item}>
@@ -125,9 +133,9 @@ const adminInformation = () => {
                   id="time"
                   type="time"
                 />
-                <a onClick={() => setTime("")}>
+                <span onClick={() => setTime("")}>
                   <TiCancel />
-                </a>
+                </span>
               </div>
             </div>
             <div className={styles.adminInformation__contents__item}>
