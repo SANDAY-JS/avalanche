@@ -32,8 +32,17 @@ export default function StateProvider({ children }) {
     return auth.signInWithEmailAndPassword(email, password);
   };
 
-  const logout = () => {
-    return auth.signOut();
+  const logout = async (e) => {
+    e.preventDefault();
+
+    await auth
+      .signOut()
+      .then(() => {
+        console.log("Succcessfully signed out");
+      })
+      .catch((e) => {
+        console.error("サインアウト失敗", e);
+      });
   };
 
   const resetPassword = (email) => {
@@ -54,16 +63,13 @@ export default function StateProvider({ children }) {
 
   // update draft in information page
   const updateInformationDraft = async (draft) => {
-    return await db
-      .collection("draft")
-      .doc("information")
-      .set({
-        eventName: draft.eventName,
-        date: draft.date,
-        time: draft.time,
-        place: draft.place,
-        detail: draft.detail,
-      });
+    return await db.collection("draft").doc("information").set({
+      eventName: draft.eventName,
+      date: draft.date,
+      time: draft.time,
+      place: draft.place,
+      detail: draft.detail,
+    });
   };
 
   // get draft for information page
