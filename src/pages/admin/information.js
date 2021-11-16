@@ -4,6 +4,7 @@ import Link from "next/link";
 import { TiCancel } from "react-icons/ti";
 import { useAuth } from "../../assets/StateProvider";
 import styles from "../../styles/pages/admin/information.module.scss";
+import { db } from "../../../firebase";
 
 const adminInformation = () => {
   const { updateInformationDraft, currentUser } = useAuth();
@@ -11,7 +12,9 @@ const adminInformation = () => {
   const [authority, setAuthority] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  // get from firebase realtime database eventually
+
+  const [data, setData] = useState("");
+
   const [eventname, setEventname] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -28,7 +31,13 @@ const adminInformation = () => {
 
   useEffect(() => {
     checkAuthority();
+    fetchDraft();
   }, []);
+
+  useEffect(() => {
+    console.log("got data from firebase!");
+    reflectData();
+  }, [data]);
 
   useEffect(() => {
     return setDraft({
@@ -53,6 +62,28 @@ const adminInformation = () => {
     if (password !== process.env.NEXT_PUBLIC_ADMIN_PASSWORD)
       return requirePassword();
     return setAuthority(true);
+  };
+
+  const fetchDraft = () => {
+    // firebaseからデータを取得
+    const draftRef = db.collection("draft").doc("information");
+    if (!draftRef) return;
+
+    draftRef.get().then((doc) => {
+      if (!doc.exists) return;
+
+      return setData(doc.data());
+    });
+  };
+
+  const reflectData = () => {
+    if (!data) return;
+
+    setEventname(data.eventName ? data.eventName : "");
+    setDate(data.date ? data.date : "");
+    setTime(data.time ? data.time : "");
+    setPlace(data.place ? data.place : "");
+    setDetail(data.detail ? data.detail : "");
   };
 
   const resetForm = () => {
