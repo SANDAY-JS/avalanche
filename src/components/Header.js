@@ -22,7 +22,7 @@ function Header() {
   const checkWidth = () => {
     const match = window.matchMedia("(max-width: 767px)");
     if (match.matches) return setDeviceWidth(true);
-    if (!match.matches) return setDeviceWidth(false);
+    return setDeviceWidth(false);
   };
 
   // ↓ You can set 'logout' anytime.

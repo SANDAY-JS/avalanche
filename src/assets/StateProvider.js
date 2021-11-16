@@ -32,9 +32,7 @@ export default function StateProvider({ children }) {
     return auth.signInWithEmailAndPassword(email, password);
   };
 
-  const logout = async (e) => {
-    e.preventDefault();
-
+  const logout = async () => {
     await auth
       .signOut()
       .then(() => {
