@@ -48,7 +48,7 @@
 .information__table p {
   font-size: 1.8rem;
   margin: 1.2rem 0;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 @media screen and (min-width: 769px) {
