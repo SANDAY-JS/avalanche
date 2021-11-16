@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import styles from "../styles/components/Header.module.css";
+import { AiFillEdit } from "react-icons/ai";
 import { useAuth } from "../assets/StateProvider";
 import { FaUserAlt } from "react-icons/fa";
-import logo from "../public/images/logo.png";
-import Image from "next/image";
+import styles from "../styles/components/Header.module.css";
 // import { useRouter } from "next/router";
 
 function Header() {
@@ -22,7 +22,7 @@ function Header() {
   const checkWidth = () => {
     const match = window.matchMedia("(max-width: 767px)");
     if (match.matches) return setDeviceWidth(true);
-    if (!match.matches) return setDeviceWidth(false);
+    return setDeviceWidth(false);
   };
 
   // ↓ You can set 'logout' anytime.
@@ -44,7 +44,12 @@ function Header() {
         <Link href="/" onClick={() => setMenu(false)}>
           <a>
             {/* <h1>AVALANCHE</h1> */}
-            <Image src={logo} className={styles.logo} />
+            <Image
+              className={styles.logo}
+              src={"/images/logo.png"}
+              width="140"
+              height="50"
+            />
           </a>
         </Link>
       </div>
@@ -90,6 +95,12 @@ function Header() {
               <Link href="/contact">
                 <a>Contact</a>
               </Link>
+
+              {currentUser?.uid === process.env.NEXT_PUBLIC_ADMIN_UID && (
+                <Link href="/admin/information">
+                  <a>イベント情報を編集</a>
+                </Link>
+              )}
             </div>
           </>
         ) : (
@@ -106,6 +117,13 @@ function Header() {
             <Link href="/contact">
               <a>Contact</a>
             </Link>
+            {currentUser?.uid === process.env.NEXT_PUBLIC_ADMIN_UID && (
+              <Link href="/admin/information">
+                <a className={styles.header__menu__admin}>
+                  <AiFillEdit />
+                </a>
+              </Link>
+            )}
             <Link href="/profile">
               <a>
                 <FaUserAlt /> {currentUser ? currentUser.displayName : "ゲスト"}

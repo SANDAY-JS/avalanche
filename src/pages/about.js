@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import img from "../public/images/about_us.jpg";
+import img from "../../public/images/about_us.jpg";
 import styles from "../styles/pages/About.module.css";
 import Layout from "../components/Layout";
 import Members from "../components/Members";
@@ -10,7 +10,13 @@ function About() {
     <Layout>
       <div className={styles.about}>
         <figure>
-          <Image src={img} />
+          <Image
+            src={img}
+            // src="/images/about_us.jpg"
+            // layout="responsive"
+            // width="600"
+            // height="300"
+          />
         </figure>
         <div className={styles.about__band}>
           <h3>AVALANCHE</h3>

@@ -16,6 +16,9 @@ export default function Profile() {
   const handleLogout = async () => {
     setError("");
 
+    const check = confirm("ログアウトしますか？");
+    if (!check) return;
+
     try {
       await logout();
       router.push("/login");
@@ -43,9 +46,12 @@ export default function Profile() {
               <Link href="/update-profile">
                 <a className={styles.editProfile}>登録情報を編集する</a>
               </Link>
-              <Link href="/login" onClick={handleLogout}>
-                <a className={`${styles.btn} ${styles.signout}`}>Sign Out</a>
-              </Link>
+              <a
+                className={`${styles.btn} ${styles.signout}`}
+                onClick={handleLogout}
+              >
+                Sign Out
+              </a>
             </>
           ) : (
             <>

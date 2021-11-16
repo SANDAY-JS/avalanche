@@ -1,0 +1,171 @@
+@mixin centerCol($gap) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $gap;
+}
+@mixin center($gap) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $gap;
+}
+
+$black: rgb(43, 44, 44);
+$white: #fafafa;
+$fontSize: 20px;
+$fontWeight: 700;
+$fontFamily: "Amiri", serif;
+
+.adminInformation {
+  position: relative;
+  @include centerCol(20px);
+
+  padding: 12px 32px;
+
+  width: 100%;
+  min-height: 100%;
+
+  // ロゴ
+  .adminInformation__logo {
+    max-width: 100%;
+    height: 50px;
+    overflow: hidden;
+
+    span {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  // エラーメッセージ
+  .adminInformation__error {
+    color: red;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    font-family: $fontFamily;
+
+    text-align: center;
+  }
+
+  // サクセスメッセージ
+  .adminInformation__success {
+    color: rgb(48, 161, 44);
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    font-family: $fontFamily;
+
+    text-align: center;
+  }
+
+  // 入力ボックス
+  .adminInformation__contents {
+    position: relative;
+
+    @include centerCol(20px);
+    justify-content: flex-start;
+
+    border: 4px solid $black;
+    outline: none;
+
+    padding: 12px 20px;
+    background-color: $white;
+
+    width: 100%;
+    max-width: 500px;
+    min-height: 300px;
+
+    .adminInformation__contents__item {
+      @include centerCol(4px);
+      width: 100%;
+
+      > label {
+        font-size: $fontSize;
+        font-weight: $fontWeight;
+        font-family: $fontFamily;
+      }
+      > input {
+        width: 80%;
+        padding: 4px 8px;
+        border-radius: 4px;
+
+        font-size: calc($fontSize - 4px);
+
+        background-color: $white;
+        color: $black;
+      }
+      > div {
+        @include center(4px);
+        justify-content: space-between;
+        width: 80%;
+
+        > input {
+          position: relative;
+          flex: 1;
+
+          padding: 4px 8px;
+          border-radius: 4px;
+
+          font-size: calc($fontSize - 4px);
+
+          background-color: $white;
+          color: $black;
+        }
+        > span {
+          @include center(0px);
+
+          color: $white;
+          background-color: $black;
+
+          font-size: $fontSize;
+          font-weight: $fontWeight;
+          font-family: $fontFamily;
+
+          width: 30%;
+          height: 100%;
+
+          border-radius: 4px;
+          padding: 8px;
+        }
+      }
+    }
+
+    .adminInformation__contents__detail {
+      width: 80%;
+      height: 100px;
+      background-color: inherit;
+
+      border: 2px solid $black;
+      border-radius: 4px;
+      padding: 4px;
+
+      color: $black;
+      font-size: $fontSize;
+      font-weight: $fontWeight;
+      font-family: $fontFamily;
+
+      line-height: 1.2;
+    }
+  }
+
+  .adminInformation__submit,
+  .adminInformation__deleteAll {
+    width: 50%;
+    max-width: 300px;
+
+    padding: 4px 8px;
+    background-color: $black;
+    border: $black solid 2px;
+
+    color: $white;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    font-family: $fontFamily;
+
+    &.adminInformation__deleteAll {
+      color: $black;
+      background-color: $white;
+    }
+  }
+}
