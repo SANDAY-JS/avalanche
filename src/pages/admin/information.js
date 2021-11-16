@@ -35,7 +35,6 @@ const adminInformation = () => {
   }, []);
 
   useEffect(() => {
-    console.log("got data from firebase!");
     reflectData();
   }, [data]);
 
@@ -125,9 +124,8 @@ const adminInformation = () => {
                 <Image
                   src="/images/logo.png"
                   className={styles.logo}
-                  width="200"
-                  height="80"
-                  layout="intrinsic"
+                  width="140"
+                  height="50"
                 />
               </a>
             </Link>
