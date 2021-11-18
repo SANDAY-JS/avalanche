@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import useLayoutEffect from "../assets/useIsomorphicLayoutEffect";
 import Image from "next/image";
 import Link from "next/link";
 import { AiFillEdit } from "react-icons/ai";
@@ -14,7 +15,7 @@ function Header() {
   const [error, setError] = useState("");
   // const router = useRouter();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     checkWidth();
     window.addEventListener("resize", checkWidth);
   }, []);

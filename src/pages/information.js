@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import img from "../../public/images/band_purple.jpg";
-import styles from "../styles/pages/Information.module.css";
+import styles from "../styles/pages/Information.module.scss";
 import Layout from "../components/Layout";
 import { db } from "../../firebase";
 
@@ -45,14 +45,31 @@ function Information({}) {
           <Image src={img} alt="avalanche-shiga" />
         </figure>
         <div className={styles.information__table}>
-          <h3>ライブ予定↓</h3>
+          <h3 className={styles.information__table__title}>ライブ予定</h3>
           {draft ? (
             <>
-              <p>イベント名：{draft.eventName ? draft.eventName : "未定"}</p>
-              <p>日時：{draft.date ? `${adjustDate(draft.date)}` : "未定"}</p>
-              <p>出演時間：{draft.time ? `${draft.time}～` : "未定"}</p>
-              <p>場所：{draft.place ? draft.place : "未定"}</p>
-              <p>{draft.detail && `詳細：${draft.detail}`}</p>
+              <div className={styles.information__table__content}>
+                <p>イベント名：</p>
+                <p>{draft.eventName ? draft.eventName : "未定"}</p>
+              </div>
+              <div className={styles.information__table__content}>
+                <p>日時：</p>
+                <p>{draft.date ? `${adjustDate(draft.date)}` : "未定"}</p>
+              </div>
+              <div className={styles.information__table__content}>
+                <p>出演時間：</p>
+                <p>{draft.time ? `${draft.time}～` : "未定"}</p>
+              </div>
+              <div className={styles.information__table__content}>
+                <p>場所：</p>
+                <p>{draft.place ? draft.place : "未定"}</p>
+              </div>
+              {draft.detail && (
+                <div className={styles.information__table__content}>
+                  <p>詳細：</p>
+                  <p>{draft.detail}</p>
+                </div>
+              )}
             </>
           ) : (
             <>
