@@ -1,0 +1,76 @@
+.information {
+  padding-top: 50px;
+  padding-bottom: 72px;
+  flex: 1;
+  font-size: 1.6rem;
+  text-align: center;
+  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+
+  figure {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+
+    img {
+      width: 100%;
+      max-width: 100%;
+      object-fit: cover;
+    }
+
+    h2 {
+      position: absolute;
+      transform: translateX(-50%);
+      left: 50%;
+      bottom: 2rem;
+
+      width: 100%;
+      z-index: 10;
+
+      color: var(--text);
+      font-size: 3.75rem;
+      font-family: "Dancing Script", cursive;
+    }
+  }
+}
+
+/* Info Table */
+.information__table {
+  width: 75%;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+
+  .information__table__title {
+    text-align: center;
+    font-size: 28px;
+    text-decoration: underline;
+    font-family: "MS Pゴシック", sans-serif;
+  }
+
+  .information__table__content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+
+    margin: 1.2rem 0;
+
+    p {
+      font-size: 1.8rem;
+      font-weight: 600;
+      font-family: "MS Pゴシック", sans-serif;
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    .information > figure > img {
+      width: 70%;
+    }
+    .information {
+      padding-bottom: 3rem;
+    }
+    .information > figure {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}
