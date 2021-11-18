@@ -86,12 +86,12 @@ const adminInformation = () => {
     return setAuthority(true);
   };
 
-  const fetchDraft = () => {
+  const fetchDraft = async () => {
     // firebaseからデータを取得
     const draftRef = db.collection("draft").doc("information");
     if (!draftRef) return;
 
-    draftRef.get().then((doc) => {
+    await draftRef.get().then((doc) => {
       if (!doc.exists) return;
 
       return setData(doc.data());
