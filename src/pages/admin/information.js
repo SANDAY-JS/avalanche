@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { TiCancel } from "react-icons/ti";
 import { useAuth } from "../../assets/StateProvider";
 import styles from "../../styles/pages/admin/information.module.scss";
 import { db } from "../../../firebase";
+import { useRouter } from "next/router";
 
 const adminInformation = () => {
+  const router = useRouter();
   const { updateInformationDraft, currentUser } = useAuth();
+
+  const [securityCount, setSecurityCount] = useState(0);
 
   const [authority, setAuthority] = useState(false);
   const [error, setError] = useState("");
@@ -29,14 +33,19 @@ const adminInformation = () => {
     detail: detail,
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     checkAuthority();
     fetchDraft();
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     reflectData();
   }, [data]);
+
+  useEffect(() => {
+    console.log("securityCount", securityCount);
+    checkSecurity();
+  }, [securityCount]);
 
   useEffect(() => {
     return setDraft({
@@ -48,6 +57,12 @@ const adminInformation = () => {
     });
   }, [eventname, date, time, place, detail]);
 
+  const checkSecurity = () => {
+    if (securityCount < 3) return;
+
+    return router.push("/");
+  };
+
   const checkAuthority = () => {
     if (!currentUser) return requirePassword();
 
@@ -57,18 +72,26 @@ const adminInformation = () => {
   };
 
   const requirePassword = () => {
+    setSecurityCount(securityCount + 1);
+
     const password = prompt("パスワードを入力して下さい");
+    // cancel ボタン
+    if (password === null) return router.push("/");
+
+    // パスワードが違うとき
     if (password !== process.env.NEXT_PUBLIC_ADMIN_PASSWORD)
       return requirePassword();
+
+    // pasword correct
     return setAuthority(true);
   };
 
-  const fetchDraft = () => {
+  const fetchDraft = async () => {
     // firebaseからデータを取得
     const draftRef = db.collection("draft").doc("information");
     if (!draftRef) return;
 
-    draftRef.get().then((doc) => {
+    await draftRef.get().then((doc) => {
       if (!doc.exists) return;
 
       return setData(doc.data());

@@ -25,7 +25,7 @@ class MyDocument extends Document {
           <link
             href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap"
             rel="stylesheet"
-            lazyload
+            lazyload="true"
           />
         </Head>
 
