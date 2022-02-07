@@ -16,7 +16,7 @@ export default function Home({}) {
           <meta name="theme-color" content="#000000" />
           <meta
             name="google-site-verification"
-            content="dv7vUtP31o8L8bWGz3-PWxPBUn4HaEPH1Ql3KZAwO1U"
+            content="s-pAT1lGWnHa4uxYEYNead8C1SfOr0yg0Mr4K7di5ZQ"
           />
         </Head>
 
