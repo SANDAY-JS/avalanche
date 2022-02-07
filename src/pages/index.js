@@ -14,6 +14,10 @@ export default function Home({}) {
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#000000" />
+          <meta
+            name="google-site-verification"
+            content="MoNtGpQA9YRDzun0itzv0dk47GecLTjc5Y5H5HzDUHM"
+          />
         </Head>
 
         <Layout>
