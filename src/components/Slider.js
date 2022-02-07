@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { Slide } from "react-slideshow-image";
 import Image from "next/image";
 import "react-slideshow-image/dist/styles.css";
@@ -17,7 +17,7 @@ function Slider() {
     btns.forEach((btn) => (btn.style.backgroundColor = "transparent"));
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     return adjustStyles();
   }, []);
 
