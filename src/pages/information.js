@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import Image from "next/image";
 import img from "../../public/images/band_purple.jpg";
 import styles from "../styles/pages/Information.module.scss";
@@ -10,7 +10,7 @@ function Information({}) {
 
   const [draft, setDraft] = useState();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     fetchDraft();
   }, []);
 

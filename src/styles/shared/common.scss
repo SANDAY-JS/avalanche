@@ -1,15 +1,18 @@
 $maxWidth: 600px;
 
-@mixin Parent($bgImage: auto) {
+@mixin Parent($bgImage: auto, $isNotTopPage: false) {
   padding-top: 50px;
   padding-bottom: 72px;
   flex: 1;
-  font-size: 1.6rem;
-  text-align: center;
   background-image: $bgImage;
 
-  display: flex;
-  justify-content: center;
+  @if $isNotTopPage {
+    font-size: 1.6rem;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @mixin ParentContainer {

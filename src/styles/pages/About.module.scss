@@ -2,7 +2,8 @@
 
 .about {
   @include GlobalDesign.Parent(
-    linear-gradient(to top, #c79081 0%, #dfa579 100%)
+    linear-gradient(to top, #c79081 0%, #dfa579 100%),
+    true
   );
 
   .about__container {
