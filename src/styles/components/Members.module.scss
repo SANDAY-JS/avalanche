@@ -1,0 +1,87 @@
+@import "../shared/mixin.scss";
+
+.members {
+  @include center(column);
+  width: 100%;
+
+  > h3 {
+    @include center();
+
+    white-space: pre-wrap;
+    font-size: clamp(32px, 36px, 40px);
+    width: 100%;
+
+    /* Lines */
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      height: 2px;
+      background-color: var(--background);
+    }
+  }
+
+  .members__wrap {
+    @include center(auto, 12px);
+    flex-wrap: wrap;
+  }
+
+  /* ------------
+    Member.js
+  -------------- */
+  .member {
+    position: relative;
+
+    @include center(column, 12px);
+
+    width: 100%;
+    .member__name__role {
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .member__snsWrap {
+      position: absolute;
+      top: 13%;
+      right: 3%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .member__instagram,
+    .member__twitter {
+      color: #000;
+      font-size: clamp(20px, 24px, 32px);
+    }
+
+    .member__imgWrap {
+      width: 100%;
+      max-width: 100%;
+      height: 200px;
+      max-height: 200px;
+      overflow: hidden;
+
+      > img {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    /* fpr iPad and PC */
+    @media screen and (min-width: 768px) {
+      .member__snsWrap {
+        top: 4%;
+        right: 4%;
+      }
+
+      .member__imgWrap {
+        height: auto;
+        max-height: 400px;
+      }
+    }
+  }
+}
