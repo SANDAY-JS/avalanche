@@ -1,4 +1,4 @@
-import styles from "../styles/components/Members.module.css";
+import styles from "../styles/components/Members.module.scss";
 import Member from "./Member";
 import membersData from "../assets/memberInfomation";
 
