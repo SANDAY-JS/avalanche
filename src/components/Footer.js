@@ -1,8 +1,6 @@
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaUserCircle } from "react-icons/fa";
-import styles from "../styles/components/Footer.module.css";
+import styles from "../styles/components/Footer.module.scss";
 
 function Footer() {
   return (
@@ -12,60 +10,38 @@ function Footer() {
           <a>
             <Image
               src="/images/logo.png"
-              width="300"
-              height="111"
+              width={"300"}
+              height={"111"}
               className={styles.logo}
             />
           </a>
         </Link>
       </div>
 
-      <div className={styles.footer__links}>
-        <div className={styles.footer__pages}>
-          <ul>
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-            <Link href="/information">
-              <a>Information</a>
-            </Link>
-            <Link href="/contact">
-              <a>Contact</a>
-            </Link>
-            <Link href="/profile">
-              <a>
-                <FaUserCircle />
-              </a>
-            </Link>
-          </ul>
+      <div className={styles.footer__bottom}>
+        <div className={styles.footer__copyright}>
+          <p>© 2021 AVALANCHE</p>
         </div>
 
         <div className={styles.footer__sns}>
           <ul>
             <a target="_blank" href="https://twitter.com/avalanche_shiga">
-              <i className="fab fa-twitter"></i>
+              <i className="fab fa-twitter" />
             </a>
             <a
               target="_blank"
               href="https://www.instagram.com/avalanche.official/?hl=ja"
             >
-              <i className="fab fa-instagram"></i>
+              <i className="fab fa-instagram" />
             </a>
             <a
               target="_blank"
               href="https://www.youtube.com/channel/UCnhekCRthw7qGc0UywzCepw"
             >
-              <i className="fab fa-youtube"></i>
+              <i className="fab fa-youtube" />
             </a>
           </ul>
         </div>
-      </div>
-
-      <div className={styles.footer__copyright}>
-        <small>© 2021 AVALANCHE</small>
       </div>
     </div>
   );
