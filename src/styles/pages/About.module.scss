@@ -1,20 +1,12 @@
-$maxWidth: 600px;
+@use "../shared/common.scss" as GlobalDesign;
 
 .about {
-  padding-top: 50px;
-  padding-bottom: 72px;
-  flex: 1;
-  font-size: 1.6rem;
-  text-align: center;
-  background-image: linear-gradient(to top, #c79081 0%, #dfa579 100%);
-
-  display: flex;
-  justify-content: center;
+  @include GlobalDesign.Parent(
+    linear-gradient(to top, #c79081 0%, #dfa579 100%)
+  );
 
   .about__container {
-    width: 100%;
-    max-width: min(100%, $maxWidth);
-    height: 100%;
+    @include GlobalDesign.ParentContainer;
 
     > figure > img {
       width: 100%;

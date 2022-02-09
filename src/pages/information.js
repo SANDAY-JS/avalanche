@@ -40,42 +40,44 @@ function Information({}) {
   return (
     <Layout>
       <div className={styles.information}>
-        <figure>
-          <h2>Live Information</h2>
-          <Image src={img} alt="avalanche-shiga" />
-        </figure>
-        <div className={styles.information__table}>
-          <h3 className={styles.information__table__title}>ライブ予定</h3>
-          {draft ? (
-            <>
-              <div className={styles.information__table__content}>
-                <p>イベント名：</p>
-                <p>{draft.eventName ? draft.eventName : "未定"}</p>
-              </div>
-              <div className={styles.information__table__content}>
-                <p>日時：</p>
-                <p>{draft.date ? `${adjustDate(draft.date)}` : "未定"}</p>
-              </div>
-              <div className={styles.information__table__content}>
-                <p>出演時間：</p>
-                <p>{draft.time ? `${draft.time}～` : "未定"}</p>
-              </div>
-              <div className={styles.information__table__content}>
-                <p>場所：</p>
-                <p>{draft.place ? draft.place : "未定"}</p>
-              </div>
-              {draft.detail && (
+        <div className={styles.information__container}>
+          <figure>
+            <h2>Live Information</h2>
+            <Image src={img} alt="avalanche-shiga" />
+          </figure>
+          <div className={styles.information__table}>
+            <h3 className={styles.information__table__title}>ライブ予定</h3>
+            {draft ? (
+              <>
                 <div className={styles.information__table__content}>
-                  <p>詳細：</p>
-                  <p>{draft.detail}</p>
+                  <p>イベント名：</p>
+                  <p>{draft.eventName ? draft.eventName : "未定"}</p>
                 </div>
-              )}
-            </>
-          ) : (
-            <>
-              <p>予定が決まり次第お伝え致します。</p>
-            </>
-          )}
+                <div className={styles.information__table__content}>
+                  <p>日時：</p>
+                  <p>{draft.date ? `${adjustDate(draft.date)}` : "未定"}</p>
+                </div>
+                <div className={styles.information__table__content}>
+                  <p>出演時間：</p>
+                  <p>{draft.time ? `${draft.time}～` : "未定"}</p>
+                </div>
+                <div className={styles.information__table__content}>
+                  <p>場所：</p>
+                  <p>{draft.place ? draft.place : "未定"}</p>
+                </div>
+                {draft.detail && (
+                  <div className={styles.information__table__content}>
+                    <p>詳細：</p>
+                    <p>{draft.detail}</p>
+                  </div>
+                )}
+              </>
+            ) : (
+              <>
+                <p>予定が決まり次第お伝え致します。</p>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </Layout>
