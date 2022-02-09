@@ -25,7 +25,7 @@ const membersData = {
     name: "Sun",
     role: "Drums",
     twitter: "https://twitter.com/sanches_0819",
-    instagram: "https://www.instagram.com/sanday.js/",
+    instagram: "https://www.instagram.com/sanday.tsx/",
     image: "/images/drums.jpg",
   },
 };
