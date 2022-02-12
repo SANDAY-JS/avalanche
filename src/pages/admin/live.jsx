@@ -1,13 +1,13 @@
 import { useEffect, useLayoutEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { TiCancel } from "react-icons/ti";
 import { useAuth } from "../../assets/StateProvider";
-import styles from "../../styles/pages/admin/information.module.scss";
 import { db } from "../../../firebase";
 import { useRouter } from "next/router";
+import AdminLayout from "./assets/AdminLayout";
 
-const adminInformation = () => {
+import styles from "../../styles/pages/admin/live.module.scss";
+
+const adminLive = () => {
   const router = useRouter();
   const { updateInformationDraft, currentUser } = useAuth();
 
@@ -33,7 +33,7 @@ const adminInformation = () => {
     detail: detail,
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     checkAuthority();
     fetchDraft();
   }, []);
@@ -138,96 +138,90 @@ const adminInformation = () => {
   };
 
   return (
-    <div className={styles.adminInformation}>
-      {authority && (
-        <>
-          <div className={styles.adminInformation__logo}>
-            <Link href="/">
-              <a>
-                <Image
-                  src="/images/logo.png"
-                  className={styles.logo}
-                  width="140"
-                  height="50"
-                />
-              </a>
-            </Link>
-          </div>
+    <AdminLayout>
+      <div className={styles.adminLive}>
+        {authority && (
+          <>
+            {/* <div className={styles.adminLive__logo}>
+              <Link href="/">
+                <a>
+                  <Image
+                    src="/images/logo.png"
+                    className={styles.logo}
+                    width="140"
+                    height="50"
+                  />
+                </a>
+              </Link>
+            </div> */}
 
-          {error && <p className={styles.adminInformation__error}>{error}</p>}
-          {success && (
-            <p className={styles.adminInformation__success}>{success}</p>
-          )}
+            {error && <p className={styles.adminLive__error}>{error}</p>}
+            {success && <p className={styles.adminLive__success}>{success}</p>}
 
-          <div className={styles.adminInformation__contents}>
-            <div className={styles.adminInformation__contents__item}>
-              <label htmlFor="eventName">イベント名</label>
-              <input
-                value={eventname}
-                onChange={(e) => setEventname(e.target.value)}
-                id="eventName"
-                type="text"
-              />
-            </div>
-            <div className={styles.adminInformation__contents__item}>
-              <label htmlFor="date">日時/出演時間</label>
-              <input
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                id="date"
-                type="date"
-              />
-              <div>
+            <div className={styles.adminLive__contents}>
+              <div className={styles.adminLive__contents__item}>
+                <label htmlFor="eventName">イベント名</label>
                 <input
-                  className={styles.adminInformation__contents__item__time}
-                  value={time}
-                  onChange={(e) => setTime(e.target.value)}
-                  id="time"
-                  type="time"
+                  value={eventname}
+                  onChange={(e) => setEventname(e.target.value)}
+                  id="eventName"
+                  type="text"
                 />
-                <span onClick={() => setTime("")}>
-                  <TiCancel />
-                </span>
+              </div>
+              <div className={styles.adminLive__contents__item}>
+                <label htmlFor="date">日時/出演時間</label>
+                <input
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                  id="date"
+                  type="date"
+                />
+                <div>
+                  <input
+                    className={styles.adminLive__contents__item__time}
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
+                    id="time"
+                    type="time"
+                  />
+                  <span onClick={() => setTime("")}>
+                    <TiCancel />
+                  </span>
+                </div>
+              </div>
+              <div className={styles.adminLive__contents__item}>
+                <label htmlFor="place">場所</label>
+                <input
+                  value={place}
+                  onChange={(e) => setPlace(e.target.value)}
+                  id="place"
+                  type="text"
+                />
+              </div>
+              <div className={styles.adminLive__contents__item}>
+                <label htmlFor="detail">詳細</label>
+                <textarea
+                  className={styles.adminLive__contents__detail}
+                  onChange={(e) => setDetail(e.target.value)}
+                  value={detail}
+                  id="detail"
+                  cols="50"
+                  rows="10"
+                ></textarea>
               </div>
             </div>
-            <div className={styles.adminInformation__contents__item}>
-              <label htmlFor="place">場所</label>
-              <input
-                value={place}
-                onChange={(e) => setPlace(e.target.value)}
-                id="place"
-                type="text"
-              />
-            </div>
-            <div className={styles.adminInformation__contents__item}>
-              <label htmlFor="detail">詳細</label>
-              <textarea
-                className={styles.adminInformation__contents__detail}
-                onChange={(e) => setDetail(e.target.value)}
-                value={detail}
-                id="detail"
-                cols="50"
-                rows="10"
-              ></textarea>
-            </div>
-          </div>
 
-          <button
-            className={styles.adminInformation__deleteAll}
-            onClick={resetForm}
-          >
-            全て消去
-          </button>
-          <button
-            className={styles.adminInformation__submit}
-            onClick={submitDraft}
-          >
-            更新
-          </button>
-        </>
-      )}
-    </div>
+            <button className={styles.adminLive__deleteAll} onClick={resetForm}>
+              全て消去
+            </button>
+            <button className={styles.adminLive__submit} onClick={submitDraft}>
+              更新
+            </button>
+          </>
+        )}
+      </div>
+    </AdminLayout>
   );
 };
 
-export default adminInformation;
+export default adminLive;

@@ -18,7 +18,7 @@ $fontSize: 20px;
 $fontWeight: 700;
 $fontFamily: "Amiri", serif;
 
-.adminInformation {
+.adminLive {
   position: relative;
   @include centerCol(20px);
 
@@ -28,19 +28,19 @@ $fontFamily: "Amiri", serif;
   min-height: 100%;
 
   // ロゴ
-  .adminInformation__logo {
-    max-width: 100%;
-    height: 50px;
-    overflow: hidden;
+  // .adminLive__logo {
+  //   max-width: 100%;
+  //   height: 50px;
+  //   overflow: hidden;
 
-    span {
-      max-width: 100%;
-      max-height: 100%;
-    }
-  }
+  //   span {
+  //     max-width: 100%;
+  //     max-height: 100%;
+  //   }
+  // }
 
   // エラーメッセージ
-  .adminInformation__error {
+  .adminLive__error {
     color: red;
     font-size: $fontSize;
     font-weight: $fontWeight;
@@ -50,7 +50,7 @@ $fontFamily: "Amiri", serif;
   }
 
   // サクセスメッセージ
-  .adminInformation__success {
+  .adminLive__success {
     color: rgb(48, 161, 44);
     font-size: $fontSize;
     font-weight: $fontWeight;
@@ -60,7 +60,7 @@ $fontFamily: "Amiri", serif;
   }
 
   // 入力ボックス
-  .adminInformation__contents {
+  .adminLive__contents {
     position: relative;
 
     @include centerCol(20px);
@@ -76,7 +76,7 @@ $fontFamily: "Amiri", serif;
     max-width: 500px;
     min-height: 300px;
 
-    .adminInformation__contents__item {
+    .adminLive__contents__item {
       @include centerCol(4px);
       width: 100%;
 
@@ -135,7 +135,7 @@ $fontFamily: "Amiri", serif;
       }
     }
 
-    .adminInformation__contents__detail {
+    .adminLive__contents__detail {
       width: 80%;
       height: 100px;
       background-color: inherit;
@@ -153,8 +153,8 @@ $fontFamily: "Amiri", serif;
     }
   }
 
-  .adminInformation__submit,
-  .adminInformation__deleteAll {
+  .adminLive__submit,
+  .adminLive__deleteAll {
     width: 50%;
     max-width: 300px;
 
@@ -169,7 +169,7 @@ $fontFamily: "Amiri", serif;
 
     cursor: pointer;
 
-    &.adminInformation__deleteAll {
+    &.adminLive__deleteAll {
       color: $black;
       background-color: $white;
     }
