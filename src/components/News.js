@@ -8,7 +8,7 @@ function News() {
       <h2>~News~</h2>
       <div className={styles.news__container}>
         <div className={styles.news__container__block}>
-          <Link href="/information">
+          <Link href="/live">
             <a className={styles.news__container__block__link}>
               新着ライブ情報
             </a>

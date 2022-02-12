@@ -1,12 +1,12 @@
 @use "../shared/common.scss" as GlobalDesign;
 
-.information {
+.live {
   @include GlobalDesign.Parent(
     linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%),
     true
   );
 
-  .information__container {
+  .live__container {
     @include GlobalDesign.ParentContainer;
 
     figure {
@@ -36,20 +36,20 @@
     }
 
     /* Info Table */
-    .information__table {
+    .live__table {
       width: 75%;
       max-width: 400px;
       margin: 0 auto;
       text-align: left;
 
-      .information__table__title {
+      .live__table__title {
         text-align: center;
         font-size: 28px;
         text-decoration: underline;
         font-family: "MS Pゴシック", sans-serif;
       }
 
-      .information__table__content {
+      .live__table__content {
         display: flex;
         flex-wrap: wrap;
         align-items: baseline;
@@ -78,7 +78,7 @@
 }
 
 @media screen and (min-width: 769px) {
-  .information {
+  .live {
     padding-bottom: 3rem;
   }
 }

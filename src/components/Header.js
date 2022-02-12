@@ -94,16 +94,16 @@ function Header() {
                 <Link href="/about">
                   <a>About</a>
                 </Link>
-                <Link href="/information">
-                  <a>Information</a>
+                <Link href="/live">
+                  <a>Live</a>
                 </Link>
                 <Link href="/contact">
                   <a>Contact</a>
                 </Link>
 
                 {currentUser?.uid === process.env.NEXT_PUBLIC_ADMIN_UID && (
-                  <Link href="/admin/information">
-                    <a>イベント情報を編集</a>
+                  <Link href="/admin">
+                    <a>管理者ページ</a>
                   </Link>
                 )}
               </div>
@@ -116,14 +116,14 @@ function Header() {
               <Link href="/about">
                 <a>About</a>
               </Link>
-              <Link href="/information">
-                <a>Information</a>
+              <Link href="/live">
+                <a>Live</a>
               </Link>
               <Link href="/contact">
                 <a>Contact</a>
               </Link>
               {currentUser?.uid === process.env.NEXT_PUBLIC_ADMIN_UID && (
-                <Link href="/admin/information">
+                <Link href="/admin">
                   <a className={styles.header__container__menu__admin}>
                     <AiFillEdit />
                   </a>

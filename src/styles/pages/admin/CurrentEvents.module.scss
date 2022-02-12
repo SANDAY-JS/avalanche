@@ -1,0 +1,11 @@
+.container {
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .container__title {
+    font-size: 1.6rem;
+    text-decoration: underline;
+  }
+}

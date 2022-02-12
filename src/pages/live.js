@@ -1,11 +1,11 @@
 import React, { useLayoutEffect, useState } from "react";
 import Image from "next/image";
 import img from "../../public/images/band_purple.jpg";
-import styles from "../styles/pages/Information.module.scss";
+import styles from "../styles/pages/live.module.scss";
 import Layout from "../components/Layout";
 import { db } from "../../firebase";
 
-function Information({}) {
+function Live({}) {
   const dateArr = ["日", "月", "火", "水", "木", "金", "土"];
 
   const [draft, setDraft] = useState();
@@ -39,34 +39,34 @@ function Information({}) {
 
   return (
     <Layout>
-      <div className={styles.information}>
-        <div className={styles.information__container}>
+      <div className={styles.live}>
+        <div className={styles.live__container}>
           <figure>
             <h2>Live Information</h2>
             <Image src={img} alt="avalanche-shiga" />
           </figure>
-          <div className={styles.information__table}>
-            <h3 className={styles.information__table__title}>ライブ予定</h3>
+          <div className={styles.live__table}>
+            <h3 className={styles.live__table__title}>ライブ予定</h3>
             {draft ? (
               <>
-                <div className={styles.information__table__content}>
+                <div className={styles.live__table__content}>
                   <p>イベント名：</p>
                   <p>{draft.eventName ? draft.eventName : "未定"}</p>
                 </div>
-                <div className={styles.information__table__content}>
+                <div className={styles.live__table__content}>
                   <p>日時：</p>
                   <p>{draft.date ? `${adjustDate(draft.date)}` : "未定"}</p>
                 </div>
-                <div className={styles.information__table__content}>
+                <div className={styles.live__table__content}>
                   <p>出演時間：</p>
                   <p>{draft.time ? `${draft.time}～` : "未定"}</p>
                 </div>
-                <div className={styles.information__table__content}>
+                <div className={styles.live__table__content}>
                   <p>場所：</p>
                   <p>{draft.place ? draft.place : "未定"}</p>
                 </div>
                 {draft.detail && (
-                  <div className={styles.information__table__content}>
+                  <div className={styles.live__table__content}>
                     <p>詳細：</p>
                     <p>{draft.detail}</p>
                   </div>
@@ -84,4 +84,4 @@ function Information({}) {
   );
 }
 
-export default Information;
+export default Live;
