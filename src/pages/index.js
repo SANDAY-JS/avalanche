@@ -4,8 +4,8 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 // pages
 import TopPage from "../components/TopPage";
-import Live from "../components/live";
-import About from "../components/about";
+import Live from "../components/Live";
+import About from "../components/About";
 
 export default function Home({}) {
   return (
