@@ -8,14 +8,11 @@ import { FaUserAlt } from "react-icons/fa";
 import styles from "../styles/components/Header-sp.module.scss";
 
 function Header({}) {
-  const { currentUser, logout } = useAuth();
+  const { currentUser } = useAuth();
   // States
   const [error, setError] = useState("");
-  const [menu, setMenu] = useState(false);
   const [scrollDir, setScrollDir] = useState("");
   const [isPageSmall, setIsPageSmall] = useState(true);
-
-  // const router = useRouter();
 
   useEffect(() => {
     const threshold = 0;
@@ -47,7 +44,7 @@ function Header({}) {
     return () => window.removeEventListener("scroll", onScroll);
   }, [scrollDir]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     checkWidth();
     window.addEventListener("resize", checkWidth);
   }, []);
@@ -69,95 +66,20 @@ function Header({}) {
         <div className={styles.header__container__logoAccount}>
           {/* ロゴ */}
           <div className={styles.header__container__logo}>
-            <Link href="/" onClick={() => setMenu(false)}>
+            <Link href="/">
               <a>
                 <Image
                   className={styles.logo}
                   src={"/images/logo.png"}
-                  width="112"
-                  height="40"
+                  width={isPageSmall ? "112" : "168"}
+                  height={isPageSmall ? "40" : "60"}
                 />
               </a>
             </Link>
           </div>
           {/* Account Section */}
-          <div className={styles.header__container__accountSection}>
-            <Link href="/profile">
-              <a>
-                <FaUserAlt />{" "}
-                <span>{currentUser ? currentUser.displayName : "ゲスト"}</span>
-              </a>
-            </Link>
-          </div>
-        </div>
-
-        {/* Right Section */}
-        <ul
-          className={styles.header__container__links}
-          onClick={() => setMenu(!menu)}
-        >
-          {isPageSmall ? (
-            <>
-              <div
-                className={
-                  menu
-                    ? `${styles.header__container__menu} ${styles.active}`
-                    : styles.header__container__menu
-                }
-              >
-                {error && <p className="error">{error}</p>}
-                <Link href="/">
-                  <a>Home</a>
-                </Link>
-                <Link href="/#live">
-                  <a>Live</a>
-                </Link>
-                <Link href="/#about">
-                  <a>About Us</a>
-                </Link>
-                <Link href="/contact">
-                  <a>Contact</a>
-                </Link>
-                {!currentUser && (
-                  <>
-                    <Link href="/login">
-                      <a>Login</a>
-                    </Link>
-                    <Link href="/signup">
-                      <a>Sign Up</a>
-                    </Link>
-                  </>
-                )}
-
-                {currentUser?.uid === process.env.NEXT_PUBLIC_ADMIN_UID && (
-                  <Link href="/admin">
-                    <a>Admin</a>
-                  </Link>
-                )}
-              </div>
-            </>
-          ) : (
-            // For PC
-            <>
-              <Link href="/">
-                <a>Home</a>
-              </Link>
-              <Link href="/#live">
-                <a>Live</a>
-              </Link>
-              <Link href="/#about">
-                <a>About</a>
-              </Link>
-              <Link href="/contact">
-                <a>Contact</a>
-              </Link>
-              {currentUser?.uid === process.env.NEXT_PUBLIC_ADMIN_UID && (
-                <Link href="/admin">
-                  <a className={styles.header__container__menu__admin}>
-                    <AiFillEdit />
-                  </a>
-                </Link>
-              )}
+          {isPageSmall && (
+            <div className={styles.header__container__accountSection}>
               <Link href="/profile">
                 <a>
                   <FaUserAlt />{" "}
@@ -166,8 +88,55 @@ function Header({}) {
                   </span>
                 </a>
               </Link>
-            </>
+            </div>
           )}
+        </div>
+
+        {/* Right Section */}
+        <ul className={styles.header__container__links}>
+          <div className={styles.header__container__menu}>
+            {error && <p className="error">{error}</p>}
+            <Link href="/">
+              <a>Home</a>
+            </Link>
+            <Link href="/#live">
+              <a>Live</a>
+            </Link>
+            <Link href="/#about">
+              <a>About Us</a>
+            </Link>
+            <Link href="/contact">
+              <a>Contact</a>
+            </Link>
+            {!currentUser && (
+              <>
+                <Link href="/login">
+                  <a>Login</a>
+                </Link>
+                <Link href="/signup">
+                  <a>Sign Up</a>
+                </Link>
+              </>
+            )}
+            {currentUser?.uid === process.env.NEXT_PUBLIC_ADMIN_UID && (
+              <Link href="/admin">
+                <a>Admin</a>
+              </Link>
+            )}
+            {/* Account Section */}
+            {!isPageSmall && (
+              <div className={styles.header__container__accountSection}>
+                <Link href="/profile">
+                  <a>
+                    <FaUserAlt />{" "}
+                    <span>
+                      {currentUser ? currentUser.displayName : "ゲスト"}
+                    </span>
+                  </a>
+                </Link>
+              </div>
+            )}
+          </div>
         </ul>
       </div>
     </div>
