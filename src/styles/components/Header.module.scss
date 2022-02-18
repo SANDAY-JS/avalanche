@@ -1,15 +1,18 @@
+@use "../shared/variables.scss" as variables;
+
 .header {
   position: fixed;
   width: 100%;
   height: 50px;
 
   // background: linear-gradient(325deg, #ffffff, #fefbf1);
-  color: var(--background);
+  color: variables.$textColor;
   z-index: 10000;
 
   .header__container {
     width: 100%;
     height: 100%;
+    padding: 4px 8px;
 
     display: flex;
     justify-content: space-between;
@@ -25,15 +28,16 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
-  }
-  .header__container__logo > a {
-    width: auto;
-    height: 100%;
-    overflow: hidden;
-  }
-  .header__container__logo > a * {
-    width: auto;
-    height: 100%;
+    a {
+      width: auto;
+      height: 100%;
+      overflow: hidden;
+
+      * {
+        width: auto;
+        height: 100%;
+      }
+    }
   }
 
   /* Header Top */
@@ -49,122 +53,118 @@
     right: 0;
     cursor: pointer;
     overflow: hidden;
-  }
-  /* Hamburger Menu */
-  .header__container__links > span {
-    width: 100%;
-    height: 2px;
-    background: var(--background);
-    position: relative;
-  }
-  .header__container__links > span::before,
-  .header__container__links > span::after {
-    content: "";
-    width: 30px;
-    height: 2px;
-    background: var(--background);
-    position: absolute;
-    top: -7px;
-    left: 0;
-    transition: all 0.3s ease-out;
-  }
-  .header__container__links > span::after {
-    top: unset;
-    bottom: -7px;
-  }
-  .header__container__links > span.active::before {
-    transform: scaleX(0.3);
-    transform-origin: right;
-  }
-  .header__container__links > span.active::after {
-    transform: scaleX(0.3);
-    transform-origin: left;
+    /* Hamburger Menu */
+    > span {
+      width: 100%;
+      height: 2px;
+      background: variables.$textColor;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: "";
+        width: 30px;
+        height: 2px;
+        background: variables.$textColor;
+        position: absolute;
+        top: -7px;
+        left: 0;
+        transition: all 0.3s ease-out;
+      }
+      &::after {
+        top: unset;
+        bottom: -7px;
+      }
+
+      &.active::before {
+        transform: scaleX(0.3);
+        transform-origin: right;
+      }
+      &.active::after {
+        transform: scaleX(0.3);
+        transform-origin: left;
+      }
+    }
+
+    /* Mobile Menu */
+    > .header__container__menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      position: fixed;
+      top: 50px;
+      right: 100%;
+      width: 100%;
+      height: calc(100% - 50px);
+      transition: all 0.3s;
+
+      background: linear-gradient(325deg, #ffffff, #fefbf1);
+      color: variables.$textColor;
+      padding: 7rem 0;
+      pointer-events: none;
+      z-index: 10;
+      &.active {
+        right: 0;
+      }
+      > a {
+        color: variables.$textColor;
+        font-size: 2.5rem;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s;
+        padding: 10px 0;
+        pointer-events: all;
+        text-align: center;
+      }
+
+      > .accountSection {
+        position: absolute;
+        transform: translateX(-50%);
+        top: 1rem;
+        left: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        pointer-events: all;
+
+        > a:not(:last-child) {
+          color: variables.$textColor;
+          font-size: 2rem;
+          text-align: center;
+          border: 2px solid variables.$textColor;
+          width: 100px;
+          padding: 0 1rem;
+        }
+        /* Person Link Box */
+
+        > a:last-child {
+          color: variables.$textColor;
+          font-size: 2rem;
+          border: 2px solid variables.$textColor;
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+        }
+
+        a {
+          &:hover {
+            background-color: variables.$textColor;
+            color: variables.$textColor;
+          }
+
+          > svg {
+            vertical-align: middle;
+            padding-bottom: 0.2rem;
+            margin-right: 0.5rem;
+          }
+        }
+      }
+    }
   }
 
-  /* Mobile Menu */
-  .header__container__links > .header__container__menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    position: fixed;
-    top: 50px;
-    right: 100%;
-    width: 100%;
-    height: calc(100% - 50px);
-    transition: all 0.3s;
-    /* background: linear-gradient(to bottom, #323232 0%, #3f3f3f 40%, #1c1c1c 150%),
-      linear-gradient(
-        to top,
-        rgba(255, 255, 255, 0.4) 0%,
-        rgba(0, 0, 0, 0.25) 200%
-      );
-    background-blend-mode: multiply; */
-    background: linear-gradient(325deg, #ffffff, #fefbf1);
-    color: var(--background);
-    padding: 7rem 0;
-    pointer-events: none;
-    z-index: 10;
-  }
-  .header__container__links > .header__container__menu.active {
-    right: 0;
-  }
-  .header__container__links > .header__container__menu > a {
-    color: var(--background);
-    font-size: 2.5rem;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s;
-    padding: 10px 0;
-    pointer-events: all;
-    text-align: center;
-  }
-
-  .header__container__links > .header__container__menu > .signinForm {
-    position: absolute;
-    transform: translateX(-50%);
-    top: 1rem;
-    left: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    pointer-events: all;
-  }
-  .header__container__links
-    > .header__container__menu
-    > .signinForm
-    > a:not(:last-child) {
-    color: var(--background);
-    font-size: 2rem;
-    text-align: center;
-    border: 2px solid var(--background);
-    width: 100px;
-    padding: 0 1rem;
-  }
-  /* Person Link Box */
-  .header__container__links
-    > .header__container__menu
-    > .signinForm
-    > a:last-child {
-    color: var(--background);
-    font-size: 2rem;
-    border: 2px solid var(--background);
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-  .header__container__links > .header__container__menu > .signinForm > a:hover {
-    background-color: var(--background);
-    color: var(--background);
-  }
-  .header__container__links > .header__container__menu > .signinForm > a > svg,
-  .header__container__links > a > svg {
-    vertical-align: middle;
-    padding-bottom: 0.2rem;
-    margin-right: 0.5rem;
-  }
   .error {
     font-size: 2rem;
     color: #f30000;
@@ -190,31 +190,33 @@
       height: 10vh;
       margin: 0;
       cursor: default;
-    }
-    .header__container__links > a {
-      color: var(--background);
-      font-size: 2rem;
-      height: 100%;
-      max-height: 40px;
-      display: flex;
-      align-items: center;
-      transition: all 0.3s;
-      padding: 0 10px;
-      overflow: hidden;
-    }
-    .header__container__links > a:hover {
-      color: rgb(172, 170, 170);
-    }
-    .header__container__links > a:nth-child(5),
-    .header__container__links > a:nth-child(6) {
-      border: 2px solid var(--background);
-      height: 70%;
-      max-height: 40px;
-    }
-    .header__container__links > a:nth-child(5):hover,
-    .header__container__links > a:nth-child(6):hover {
-      color: var(--text);
-      background-color: var(--background);
+
+      > a {
+        color: variables.$textColor;
+        font-size: 2rem;
+        height: 100%;
+        max-height: 40px;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s;
+        padding: 0 10px;
+        overflow: hidden;
+
+        &:hover {
+          color: rgb(172, 170, 170);
+        }
+        &:nth-child(5),
+        &:nth-child(6) {
+          border: 2px solid variables.$textColor;
+          height: 70%;
+          max-height: 40px;
+        }
+        &:nth-child(5):hover,
+        &:nth-child(6):hover {
+          color: var(--text);
+          background-color: variables.$textColor;
+        }
+      }
     }
     .header__container__menu__admin {
       border: none;

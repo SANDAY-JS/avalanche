@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useAuth } from "../assets/StateProvider";
 import { useRouter } from "next/router";
-import styles from "../styles/pages/SignInForm.module.css";
+import styles from "../styles/pages/SignInForm.module.scss";
 import Layout from "../components/Layout";
 
 export default function UpdateProfile() {
@@ -58,7 +58,7 @@ export default function UpdateProfile() {
   };
 
   return (
-    <Layout>
+    <Layout isNotTopPage={true}>
       <div className={styles.update_profile}>
         <div className={styles.update_profile__container}>
           <h2>アカウントの更新</h2>

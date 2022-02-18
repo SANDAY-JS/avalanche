@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useAuth } from "../assets/StateProvider";
-import styles from "../styles/pages/SignInForm.module.css";
+import styles from "../styles/pages/SignInForm.module.scss";
 import Layout from "../components/Layout";
 
 export default function SignUp() {
@@ -39,7 +39,7 @@ export default function SignUp() {
   };
 
   return (
-    <Layout>
+    <Layout isNotTopPage={true}>
       <div className={styles.signup}>
         <div className={styles.signup__container}>
           <h2>Sign Up</h2>

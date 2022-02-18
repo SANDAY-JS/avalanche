@@ -38,8 +38,8 @@ function Live({}) {
     <div className={styles.live} id="live">
       <h2 className={styles.live__table__title}>Live Information</h2>
       <div className={styles.live__container}>
-        <table className={styles.live__table}>
-          {draft ? (
+        {draft ? (
+          <table className={styles.live__table}>
             <tbody>
               <tr className={styles.live__table__content}>
                 <td>イベント名</td>
@@ -64,12 +64,12 @@ function Live({}) {
                 </tr>
               )}
             </tbody>
-          ) : (
-            <>
-              <p className={styles.live__table__loading}>読み込み中...</p>
-            </>
-          )}
-        </table>
+          </table>
+        ) : (
+          <>
+            <p className={styles.live__container__loading}>読み込み中...</p>
+          </>
+        )}
       </div>
     </div>
   );

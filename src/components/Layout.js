@@ -4,11 +4,13 @@ import Header from "./Header";
 
 import styles from "../styles/components/Layout.module.scss";
 
-function Layout({ children }) {
+function Layout({ isNotTopPage, children }) {
   return (
     <>
       <Header />
-      <div className={styles.container}>{children}</div>
+      <div className={!isNotTopPage ? styles.container : styles.isNotTopPage}>
+        {children}
+      </div>
       <Footer />
     </>
   );

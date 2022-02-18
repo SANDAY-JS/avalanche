@@ -1,0 +1,176 @@
+@use "../shared/variables.scss" as variables;
+
+.header {
+  position: fixed;
+  width: 100%;
+  height: 88px;
+
+  color: variables.$textColor;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 10000;
+
+  &.unvisible {
+    opacity: 0;
+  }
+
+  .header__container {
+    width: 100%;
+    height: 100%;
+    padding: 4px 8px 0 8px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    // Logo & Account Section
+    .header__container__logoAccount {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      height: 100%;
+      padding-bottom: 4px;
+
+      /* Account */
+      > .header__container__accountSection {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        a {
+          color: variables.$bgColor;
+          background-color: variables.$textColor;
+
+          font-size: variables.$menuFontSize;
+          border: 2px solid variables.$textColor;
+          padding: 2px 4px;
+
+          > svg {
+            vertical-align: middle;
+            padding-bottom: 0.2rem;
+            margin-right: 0.5rem;
+          }
+        }
+      }
+
+      /* ↓ AVALANCHE  logo */
+      .header__container__logo {
+        width: auto;
+        height: 100%;
+        display: flex;
+        overflow: hidden;
+
+        a {
+          width: auto;
+          height: 100%;
+          overflow: hidden;
+
+          * {
+            width: auto;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  /* Header Top */
+  .header__container__links {
+    display: flex;
+
+    flex: 1;
+    max-width: 65%;
+    height: 100%;
+
+    /* Mobile Menu */
+    > .header__container__menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      width: 100%;
+      z-index: 10;
+
+      > a {
+        color: variables.$bgColor;
+        background-color: variables.$textColor;
+        font-size: variables.$menuFontSize;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2px 6px;
+        text-align: center;
+      }
+    }
+  }
+
+  .error {
+    font-size: variables.$menuFontSize;
+    color: #f30000;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .header {
+    padding: 0 10px 0 20px;
+
+    .header__container {
+      justify-content: space-around;
+      overflow: hidden;
+      max-width: 880px;
+    }
+    .header__container__logo {
+      flex: 0.25;
+    }
+    .header__container__links {
+      position: unset;
+      justify-content: space-evenly;
+      flex: 0.75;
+      height: 10vh;
+      margin: 0;
+      cursor: default;
+
+      > a {
+        color: variables.$textColor;
+        font-size: variables.$menuFontSize;
+        height: 100%;
+        max-height: 40px;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s;
+        padding: 0 10px;
+        overflow: hidden;
+
+        &:hover {
+          color: rgb(172, 170, 170);
+        }
+        &:nth-child(5),
+        &:nth-child(6) {
+          border: 2px solid variables.$textColor;
+          height: 70%;
+          max-height: 40px;
+        }
+        &:nth-child(5):hover,
+        &:nth-child(6):hover {
+          color: var(--text);
+          background-color: variables.$textColor;
+        }
+      }
+    }
+    .header__container__menu__admin {
+      border: none;
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 769px) {
+  .header__container__links > a {
+    display: initial;
+
+    max-width: 120px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

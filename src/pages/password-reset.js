@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../assets/StateProvider";
-import styles from "../styles/pages/PasswordReset.module.css";
+import styles from "../styles/pages/PasswordReset.module.scss";
 import Layout from "../components/Layout";
 
 export default function PasswordReset() {
@@ -30,7 +30,7 @@ export default function PasswordReset() {
   };
 
   return (
-    <Layout>
+    <Layout isNotTopPage={true}>
       <div className={styles.password_reset}>
         <h2>パスワードのリセット</h2>
         <p>

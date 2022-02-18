@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useAuth } from "../assets/StateProvider";
-import styles from "../styles/pages/SignInForm.module.css";
+import styles from "../styles/pages/SignInForm.module.scss";
 import Layout from "../components/Layout";
 
 export default function Login() {
@@ -29,7 +29,7 @@ export default function Login() {
   };
 
   return (
-    <Layout>
+    <Layout isNotTopPage={true}>
       <div className={styles.login}>
         <div className={styles.login__container}>
           <h2>Login</h2>

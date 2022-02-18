@@ -2,7 +2,7 @@
 @use "../shared/variables.scss" as variables;
 
 .container {
-  padding: 50px 0 72px;
+  padding-bottom: 72px;
   color: variables.$textColor;
   background-color: variables.$bgColor;
 
@@ -25,4 +25,10 @@
       background-color: variables.$textColor;
     }
   }
+}
+
+.isNotTopPage {
+  display: contents;
+  color: variables.$textColor;
+  background-color: variables.$bgColor;
 }
