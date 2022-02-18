@@ -5,7 +5,7 @@ import Link from "next/link";
 import { AiFillEdit } from "react-icons/ai";
 import { useAuth } from "../assets/StateProvider";
 import { FaUserAlt } from "react-icons/fa";
-import styles from "../styles/components/Header-sp.module.scss";
+import styles from "../styles/components/Header.module.scss";
 
 function Header({}) {
   const { currentUser } = useAuth();
@@ -125,16 +125,17 @@ function Header({}) {
             )}
             {/* Account Section */}
             {!isPageSmall && (
-              <div className={styles.header__container__accountSection}>
-                <Link href="/profile">
-                  <a>
-                    <FaUserAlt />{" "}
-                    <span>
-                      {currentUser ? currentUser.displayName : "ゲスト"}
-                    </span>
-                  </a>
-                </Link>
-              </div>
+              <Link
+                href="/profile"
+                className={styles.header__container__accountSection}
+              >
+                <a>
+                  <FaUserAlt />{" "}
+                  <span>
+                    {currentUser ? currentUser.displayName : "ゲスト"}
+                  </span>
+                </a>
+              </Link>
             )}
           </div>
         </ul>
