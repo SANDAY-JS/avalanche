@@ -22,7 +22,7 @@ function About({}) {
             <p>
               滋賀県出身、大学生４人組バンド
               <br />
-              滋賀県彦根市のライブハウス"COCOZA"でのライブや"SAVE THE
+              滋賀県彦根市のライブハウス"COCOZAHALL Hikone"でのライブや"SAVE THE
               BIRTHDAY"などに出演。
             </p>
           </div>
