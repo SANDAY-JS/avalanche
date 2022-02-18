@@ -1,0 +1,54 @@
+@use "../shared/common.scss" as GlobalDesign;
+@use "../shared/variables.scss" as variables;
+
+.live {
+  @include GlobalDesign.Parent(true);
+  flex-direction: column;
+  align-items: center;
+
+  .live__container {
+    @include GlobalDesign.ParentContainer;
+
+    /* Info Table */
+    .live__table {
+      width: 85%;
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: left;
+      border-collapse: collapse;
+      background-color: variables.$bgColor;
+
+      tbody {
+        color: variables.$textColor;
+        border: 2px solid variables.$textColor;
+
+        .live__table__title {
+          text-align: center;
+        }
+
+        // tr
+        .live__table__content {
+          td {
+            font-size: 1.8rem;
+            font-weight: 600;
+            font-family: "MS Pゴシック", sans-serif;
+            border: 2px solid variables.$textColor;
+            padding: 4px 8px;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    // loading message
+    .live__container__loading {
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .live {
+    padding-bottom: 3rem;
+  }
+}

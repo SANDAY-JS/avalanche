@@ -1,0 +1,34 @@
+@use "../shared/common.scss" as GlobalDesign;
+@use "../shared/variables.scss" as variables;
+
+.container {
+  padding-bottom: 72px;
+  color: variables.$textColor;
+  background-color: variables.$bgColor;
+
+  h2 {
+    font-size: 36px;
+    margin: 0 auto 20px auto;
+    padding: 0 2rem 0 2rem;
+    @include GlobalDesign.ParentContainer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Lines */
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      height: 2px;
+      background-color: variables.$textColor;
+    }
+  }
+}
+
+.isNotTopPage {
+  display: contents;
+  color: variables.$textColor;
+  background-color: variables.$bgColor;
+}

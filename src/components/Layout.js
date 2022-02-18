@@ -2,11 +2,15 @@ import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 
-function Layout({ children }) {
+import styles from "../styles/components/Layout.module.scss";
+
+function Layout({ isNotTopPage, children }) {
   return (
     <>
       <Header />
-      {children}
+      <div className={!isNotTopPage ? styles.container : styles.isNotTopPage}>
+        {children}
+      </div>
       <Footer />
     </>
   );

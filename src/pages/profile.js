@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/pages/Profile.module.css";
+import styles from "../styles/pages/Profile.module.scss";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useAuth } from "../assets/StateProvider";
@@ -28,7 +28,7 @@ export default function Profile() {
   };
 
   return (
-    <Layout>
+    <Layout isNotTopPage={true}>
       <div className={styles.profile}>
         <h2>
           <FaUserAlt /> Your Profile
