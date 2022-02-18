@@ -3,7 +3,9 @@ import Head from "next/head";
 // components
 import Layout from "../components/Layout";
 // pages
-import TopPage from "./topPage";
+import TopPage from "../components/TopPage";
+import Live from "../components/live";
+import About from "../components/about";
 
 export default function Home({}) {
   return (
@@ -22,6 +24,8 @@ export default function Home({}) {
 
         <Layout>
           <TopPage />
+          <Live />
+          <About />
         </Layout>
       </div>
     </>

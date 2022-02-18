@@ -1,10 +1,7 @@
 @use "../shared/common.scss" as GlobalDesign;
 
 .about {
-  @include GlobalDesign.Parent(
-    linear-gradient(to top, #c79081 0%, #dfa579 100%),
-    true
-  );
+  @include GlobalDesign.Parent(true);
 
   .about__container {
     @include GlobalDesign.ParentContainer;

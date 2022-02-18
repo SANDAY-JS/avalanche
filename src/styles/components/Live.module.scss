@@ -1,0 +1,49 @@
+@use "../shared/common.scss" as GlobalDesign;
+@use "../shared/variables.scss" as variables;
+
+.live {
+  @include GlobalDesign.Parent(true);
+  flex-direction: column;
+
+  .live__container {
+    @include GlobalDesign.ParentContainer;
+
+    /* Info Table */
+    .live__table {
+      width: 85%;
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: left;
+      border-collapse: collapse;
+
+      .live__table__loading {
+        text-align: center;
+      }
+
+      tbody {
+        border: 2px solid variables.$textColor;
+
+        .live__table__title {
+          text-align: center;
+        }
+
+        // tr
+        .live__table__content {
+          td {
+            font-size: 1.8rem;
+            font-weight: 600;
+            font-family: "MS Pゴシック", sans-serif;
+            border: 2px solid variables.$textColor;
+            padding: 4px 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .live {
+    padding-bottom: 3rem;
+  }
+}

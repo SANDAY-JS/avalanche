@@ -8,7 +8,7 @@ import { FaUserAlt } from "react-icons/fa";
 import styles from "../styles/components/Header.module.scss";
 // import { useRouter } from "next/router";
 
-function Header() {
+function Header({}) {
   const { currentUser, logout } = useAuth();
   const [menu, setMenu] = useState(false);
   const [deviceWidth, setDeviceWidth] = useState(true);
@@ -26,18 +26,9 @@ function Header() {
     return setDeviceWidth(false);
   };
 
-  // ↓ You can set 'logout' anytime.
-
-  // const handleLogout = async () => {
-  //   setError("");
-
-  //   try {
-  //     await logout();
-  //     router.push("/login");
-  //   } catch {
-  //     setError("ログアウトに失敗しました。");
-  //   }
-  // };
+  const scrollToElement = (elName) => {
+    document.getElementById(elName).scrollIntoView();
+  };
 
   return (
     <div className={styles.header}>
@@ -91,11 +82,11 @@ function Header() {
                 <Link href="/">
                   <a>Home</a>
                 </Link>
-                <Link href="/about">
-                  <a>About</a>
-                </Link>
-                <Link href="/live">
+                <Link href="/#live">
                   <a>Live</a>
+                </Link>
+                <Link href="/#about">
+                  <a>About</a>
                 </Link>
                 <Link href="/contact">
                   <a>Contact</a>
@@ -113,11 +104,11 @@ function Header() {
               <Link href="/">
                 <a>Home</a>
               </Link>
-              <Link href="/about">
-                <a>About</a>
-              </Link>
-              <Link href="/live">
+              <Link href="/#live" onClick={() => scrollToElement("live")}>
                 <a>Live</a>
+              </Link>
+              <Link href="/#about" onClick={() => scrollToElement("about")}>
+                <a>About</a>
               </Link>
               <Link href="/contact">
                 <a>Contact</a>

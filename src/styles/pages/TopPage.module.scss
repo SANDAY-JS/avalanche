@@ -1,7 +1,0 @@
-@use "../shared/common.scss" as GlobalDesign;
-
-.toppage {
-  @include GlobalDesign.Parent(
-    linear-gradient(to right, #9e1221 0%, #c21c0e 100%)
-  );
-}
