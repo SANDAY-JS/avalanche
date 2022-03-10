@@ -1,16 +1,13 @@
 import gsap, { Power2 } from "gsap";
-import { useLayoutEffect, useState, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import styles from "../styles/pages/special-event.module.scss";
 import layoutStyles from "../styles/components/Layout.module.scss";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 const specialEvent = () => {
-  const imgSrc = "/images/special-event.webp";
   const tl = gsap.timeline({});
   const bgRef = useRef();
   const firstVisibleRef = useRef([]);
-  const [loading, setLoading] = useState(true);
 
   useLayoutEffect(() => {
     tl.addLabel("anim")
@@ -45,6 +42,7 @@ const specialEvent = () => {
       >
         <Header />
       </div>
+
       <div className={`${layoutStyles.container} ${styles.layoutContainer}`}>
         <div className={`${styles.container}`}>
           {/* BG */}
