@@ -1,0 +1,76 @@
+@use "../shared/variables.scss" as variables;
+
+.layoutContainer {
+  flex: 1;
+  background-color: #181413 !important;
+}
+
+.animationWrapper {
+  opacity: 0;
+}
+
+.container {
+  position: absolute;
+  flex: 1;
+  width: 100%;
+  height: 82%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding-top: calc(variables.$paddingTop + 24px);
+  padding-bottom: 72px;
+
+  &__bg {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("/images/special-event.webp");
+  }
+
+  &__contents {
+    opacity: 0;
+    z-index: 10;
+    color: variables.$bgColor;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+
+    & > * {
+      z-index: 100;
+    }
+
+    &__title {
+      opacity: 0;
+      font-size: 3.2rem;
+      text-align: center;
+      line-height: 1.2;
+    }
+    &__description {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+
+      p {
+        font-size: 2rem;
+        font-weight: 800;
+
+        a {
+          text-decoration: underline;
+          color: aquamarine;
+        }
+      }
+    }
+  }
+}
