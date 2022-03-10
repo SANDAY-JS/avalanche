@@ -1,5 +1,5 @@
 import Image from "next/image";
-import img from "../../public/images/about_us.jpg";
+import img from "../../public/images/aboutus.webp";
 import styles from "../styles/components/About.module.scss";
 import Members from "./Members";
 
