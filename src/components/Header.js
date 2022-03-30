@@ -99,6 +99,9 @@ function Header({}) {
             <Link href="/">
               <a>Home</a>
             </Link>
+            <Link href="https://t.co/P8Szd0Jf1h">
+              <a>Songs</a>
+            </Link>
             <Link href="/#live">
               <a>Live</a>
             </Link>
