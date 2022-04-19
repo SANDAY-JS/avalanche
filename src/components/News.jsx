@@ -15,13 +15,13 @@ function News() {
           </Link>
         </div>
 
-        <div className={styles.news__container__block}>
+        {/* <div className={styles.news__container__block}>
           <Link href="/special-event">
             <a className={styles.news__container__block__link}>
               北近江FREAKY JAMMiN'2022 出演決定!!
             </a>
           </Link>
-        </div>
+        </div> */}
 
         <div className={styles.news__container__block}>
           <Link href="/profile">
