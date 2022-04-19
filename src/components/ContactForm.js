@@ -3,7 +3,7 @@ import styles from "../styles/components/ContactForm.module.css";
 import { useForm, ValidationError } from "@formspree/react";
 
 function ContactForm() {
-  const [state, handleSubmit] = useForm("mrgrzazb");
+  const [state, handleSubmit] = useForm("mzbojwzy");
 
   if (state.succeeded) {
     return <p>送信されました。</p>;
