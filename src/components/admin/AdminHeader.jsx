@@ -1,8 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../../../styles/pages/admin/AdminHeader.module.scss";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import styles from "../../styles/pages/admin/AdminHeader.module.scss";
 
 const AdminHeader = () => {
+  const router = useRouter();
+  const currentPath = router.pathname;
+
+  useEffect(() => {
+    console.log(currentPath);
+  }, []);
+
   return (
     <div className={styles.adminHeader}>
       <div className={styles.adminHeader__innerBox}>
@@ -14,12 +23,22 @@ const AdminHeader = () => {
         <h2>管理者ページ</h2>
 
         <ul className={styles.adminHeader__innerBox__linksContainer}>
-          <li>
+          <li
+            style={
+              currentPath === "/admin" ? { textDecoration: "underline" } : {}
+            }
+          >
             <Link href="/admin">
-              <a>Home</a>
+              <a>News</a>
             </Link>
           </li>
-          <li>
+          <li
+            style={
+              currentPath === "/admin/live"
+                ? { textDecoration: "underline" }
+                : {}
+            }
+          >
             <Link href="/admin/live">
               <a>Live</a>
             </Link>
