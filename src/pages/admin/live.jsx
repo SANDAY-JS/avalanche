@@ -3,7 +3,7 @@ import { TiCancel } from "react-icons/ti";
 import { useAuth } from "../../assets/StateProvider";
 import { db } from "../../../firebase";
 import { useRouter } from "next/router";
-import AdminLayout from "./assets/AdminLayout";
+import AdminLayout from "../../assets/admin/AdminLayout";
 
 import styles from "../../styles/pages/admin/live.module.scss";
 

@@ -1,5 +1,5 @@
-import Footer from "../../../components/Footer";
-import AdminHeader from "../components/AdminHeader";
+import Footer from "../../components/Footer";
+import AdminHeader from "../../components/admin/AdminHeader";
 
 function AdminLayout({ children }) {
   return (

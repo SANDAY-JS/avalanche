@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import AdminLayout from "./assets/AdminLayout";
-import CurrentEvents from "./components/CurrentEvents";
+import AdminLayout from "../../assets/admin/AdminLayout";
+import CurrentEvents from "../../components/admin/CurrentEvents";
 import styles from "../../styles/pages/admin/index.module.scss";
 
 const index = () => {
@@ -20,11 +20,9 @@ const index = () => {
   return (
     <AdminLayout>
       {authority && (
-        <>
-          <div className={styles.adminContainer}>
-            <CurrentEvents />
-          </div>
-        </>
+        <div className={styles.adminContainer}>
+          <CurrentEvents />
+        </div>
       )}
     </AdminLayout>
   );
