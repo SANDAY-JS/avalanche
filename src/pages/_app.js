@@ -4,6 +4,7 @@ import { useRouter } from "next/dist/client/router";
 import StateProvider from "../assets/StateProvider";
 import * as ga from "../lib/ga";
 import "../styles/globals.css";
+import Meta from "../components/seo/Meta";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -24,9 +25,12 @@ function MyApp({ Component, pageProps }) {
   }, [router.events]);
 
   return (
-    <StateProvider>
-      <Component {...pageProps} />
-    </StateProvider>
+    <>
+      <Meta />
+      <StateProvider>
+        <Component {...pageProps} />
+      </StateProvider>
+    </>
   );
 }
 
