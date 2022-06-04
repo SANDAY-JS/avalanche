@@ -19,10 +19,12 @@
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "^4.2.0",
+    "react-instagram-embed": "^3.0.0",
     "react-router": "^5.2.0",
     "react-slideshow-image": "^3.4.3",
     "sass": "^1.43.4",
     "sitemap": "^7.1.1",
+    "twitter": "^1.7.1",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
@@ -44,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-twitter-embed": "^4.0.4"
   }
 }
