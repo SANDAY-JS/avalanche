@@ -97,10 +97,11 @@ const CurrentEvents = () => {
           onChange={(e) => setNewNews(e.target.value)}
         />
         <label htmlFor="url">
-          ニューステキストをUrl化する
+          テキストをUrl化する場合入力↓
           <input
             id="url"
             type="url"
+            placeholder="https://..."
             onChange={(e) => setNewUrl(e.target.value)}
           />
         </label>
