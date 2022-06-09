@@ -20,7 +20,7 @@ function Footer() {
 
       <div className={styles.footer__bottom}>
         <div className={styles.footer__copyright}>
-          <p>© 2021 AVALANCHE</p>
+          <p>© 2022 AVALANCHE</p>
         </div>
 
         <div className={styles.footer__sns}>
