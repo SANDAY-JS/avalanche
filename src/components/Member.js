@@ -37,7 +37,8 @@ function Member({ member }) {
 
       {/* Image */}
       <figure className={styles.member__imgWrap}>
-        <img src={member.image} />
+        {/* <Image src={String(member.image)} layout={'fill'} objectFit={'contain'} blurDataURL={member.image} /> */}
+        <img src={member.image} srcSet={member.image} />
       </figure>
 
       {des && <div className={styles.member__des}>
