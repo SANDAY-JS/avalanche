@@ -19,7 +19,6 @@ html {
 body {
   width: 100%;
   min-height: 100vh;
-  /* font-family: "Amiri", serif; */
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
