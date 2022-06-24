@@ -6,6 +6,7 @@
 
   > h3 {
     @include center();
+    margin-bottom: 2rem;
 
     white-space: pre-wrap;
     font-size: clamp(32px, 36px, 40px);
