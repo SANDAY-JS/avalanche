@@ -6,7 +6,6 @@ import TopPage from "../components/TopPage";
 import Live from "../components/Live";
 import Sns from "../components/Sns";
 import About from "../components/About";
-import Contact from "../components/contact";
 
 export default function Home({}) {
   return (
@@ -17,7 +16,6 @@ export default function Home({}) {
           <Live />
           <Sns />
           <About />
-          {/* <Contact /> */}
         </Layout>
       </div>
     </>
