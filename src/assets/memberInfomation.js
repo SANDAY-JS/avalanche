@@ -1,6 +1,6 @@
 const membersData = {
   Shota: {
-    name: "松田 翔汰",
+    name: "MATSU69",
     role: "Vocal",
     twitter: "https://twitter.com/ok6969ava",
     instagram: "https://www.instagram.com/avalanche.shota/",
