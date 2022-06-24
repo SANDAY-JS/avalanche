@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 import { auth, db } from "../../firebase";
 
 const AuthProvider = createContext();
@@ -9,6 +10,11 @@ export const useAuth = () => {
 
 export default function StateProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
+  const [cookies, setCookie] = useCookies([]);
+
+  const setCookieToUser = () => {
+    setCookie('User', currentUser, { path: '/' });
+ };
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -22,14 +28,15 @@ export default function StateProvider({ children }) {
   const signup = async (email, password, name) => {
     try {
       const result = await auth.createUserWithEmailAndPassword(email, password);
-      return await result.user.updateProfile({ displayName: name });
+      await result.user.updateProfile({ displayName: name }).then(() => setCookieToUser()).catch((err) => console.error(err));
+      return;
     } catch (e) {
       return console.error(e);
     }
   };
 
   const login = (email, password) => {
-    return auth.signInWithEmailAndPassword(email, password);
+    auth.signInWithEmailAndPassword(email, password).then(() => setCookieToUser());
   };
 
   const logout = async () => {
@@ -87,6 +94,8 @@ export default function StateProvider({ children }) {
     updateEmail,
     updatePassword,
     updateInformationDraft,
+    setCookieToUser,
+    cookies
     // getInformationDraft,
   };
 

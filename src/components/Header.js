@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-import useLayoutEffect from "../assets/useIsomorphicLayoutEffect";
 import Image from "next/image";
 import Link from "next/link";
-import { AiFillEdit } from "react-icons/ai";
 import { useAuth } from "../assets/StateProvider";
 import { FaUserAlt } from "react-icons/fa";
 import styles from "../styles/components/Header.module.scss";
 
 function Header({}) {
-  const { currentUser } = useAuth();
+  const { currentUser, cookies } = useAuth();
+  const hasUser = currentUser || cookies?.User;
   // States
   const [error, setError] = useState("");
   const [scrollDir, setScrollDir] = useState("");
@@ -43,6 +42,7 @@ function Header({}) {
   }, [scrollDir]);
 
   useEffect(() => {
+    console.log(cookies);
     checkWidth();
     window.addEventListener("resize", checkWidth);
   }, []);
@@ -82,7 +82,7 @@ function Header({}) {
                 <a>
                   <FaUserAlt />{" "}
                   <span>
-                    {currentUser ? currentUser.displayName : "ゲスト"}
+                    {hasUser ? (currentUser?.displayName || cookies.User?.displayName) : "ゲスト"}
                   </span>
                 </a>
               </Link>
@@ -109,7 +109,7 @@ function Header({}) {
             <Link href="/contact">
               <a>Contact</a>
             </Link>
-            {!currentUser && (
+            {(cookies.User?.user || !currentUser) && (
               <>
                 <Link href="/login">
                   <a>Login</a>
@@ -119,10 +119,11 @@ function Header({}) {
                 </Link>
               </>
             )}
-            {currentUser?.uid === process.env.NEXT_PUBLIC_ADMIN_UID && (
-              <Link href="/admin">
-                <a>Admin</a>
-              </Link>
+            {(cookies.User?.user?.uid  === process.env.NEXT_PUBLIC_ADMIN_UID ||
+              currentUser?.uid === process.env.NEXT_PUBLIC_ADMIN_UID) && (
+                <Link href="/admin">
+                  <a>Admin</a>
+                </Link>
             )}
             {/* Account Section */}
             {!isPageSmall && (
@@ -133,7 +134,7 @@ function Header({}) {
                 <a>
                   <FaUserAlt />{" "}
                   <span>
-                    {currentUser ? currentUser.displayName : "ゲスト"}
+                    {hasUser ? (currentUser?.displayName || cookies.User?.displayName) : "ゲスト"}
                   </span>
                 </a>
               </Link>
