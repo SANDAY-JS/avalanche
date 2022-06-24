@@ -19,7 +19,7 @@ html {
 body {
   width: 100%;
   min-height: 100vh;
-  font-family: "Amiri", serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -30,4 +30,13 @@ body > div {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+h2, h3 {
+  color: white;
+  /* text-stroke: 2px #222; */
+  text-shadow:2px 2px 0 #222, -2px -2px 0 #222,
+              -2px 2px 0 #222, 2px -2px 0 #222,
+              0px 2px 0 #222,  0-2px 0 #222,
+              -2px 0 0 #222, 2px 0 0 #222;
 }

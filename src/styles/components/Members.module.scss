@@ -6,6 +6,7 @@
 
   > h3 {
     @include center();
+    margin-bottom: 2rem;
 
     white-space: pre-wrap;
     font-size: clamp(32px, 36px, 40px);
@@ -36,14 +37,23 @@
 
     width: 100%;
     .member__name__role {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 700;
+    }
+
+    .member__des {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 1.75rem;
+      text-align: left;
+      width: min(90%, 400px);
     }
 
     .member__snsWrap {
       position: absolute;
-      top: 13%;
-      right: 3%;
+      top: 3%;
+      right: 2%;
 
       display: flex;
       align-items: center;

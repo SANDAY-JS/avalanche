@@ -1,6 +1,15 @@
+import { useLayoutEffect, useState } from "react";
 import styles from "../styles/components/Members.module.scss";
 
 function Member({ member }) {
+  const [des, setDes] = useState(null)
+
+  useLayoutEffect(() =>{
+    if(!member?.des) return;
+    const newdes = member.des.split(' ');
+    setDes(newdes)
+  }, [member])
+
   return (
     <div className={styles.member}>
       {/* Name & Role */}
@@ -30,6 +39,10 @@ function Member({ member }) {
       <figure className={styles.member__imgWrap}>
         <img src={member.image} />
       </figure>
+
+      {des && <div className={styles.member__des}>
+        {des.map((str, i) => (<p  key={i}>{str}</p>))}
+        </div>}
     </div>
   );
 }
