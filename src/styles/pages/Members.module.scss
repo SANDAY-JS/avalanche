@@ -2,8 +2,8 @@
 
 .members {
   @include center(column);
-  width: 100%;
-  margin-top: 120px;
+  width: min(100%, 500px);
+  margin: 120px auto 0 auto;
 
   > h3 {
     @include center();
@@ -77,6 +77,9 @@
 
     /* fpr iPad and PC */
     @media screen and (min-width: 768px) {
+      .member__des{
+        width: 100%;
+      }
       .member__snsWrap {
         top: 4%;
         right: 4%;
