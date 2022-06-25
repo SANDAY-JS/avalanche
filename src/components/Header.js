@@ -42,7 +42,7 @@ function Header({}) {
   }, [scrollDir]);
 
   useEffect(() => {
-    console.log(cookies);
+    // console.log(cookies);
     checkWidth();
     window.addEventListener("resize", checkWidth);
   }, []);
