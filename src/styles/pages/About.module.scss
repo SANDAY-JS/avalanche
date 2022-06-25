@@ -4,17 +4,14 @@
 .about {
   @include GlobalDesign.Parent(true);
   margin-top: -2rem;
-
+  
   .about__container {
     @include GlobalDesign.ParentContainer;
+    width: min(100%, 500px);
 
     > figure > img {
       width: 100%;
       max-width: 100%;
-    }
-
-    > div {
-      padding: 0 2rem 2rem 2rem;
     }
 
     .about__band {
@@ -24,6 +21,7 @@
         align-items: center;
         white-space: pre-wrap;
         font-size: clamp(32px, 36px, 40px);
+        gap: .75rem;
       }
       /* Lines */
       > h3::before,
@@ -32,6 +30,10 @@
         flex: 1;
         height: 2px;
         background-color: var(--background);
+      }
+
+      > div {
+        padding: 1rem 2rem;
       }
 
       > div > p {
@@ -64,7 +66,7 @@
     white-space: pre-wrap;
     font-size: clamp(32px, 36px, 40px);
     width: 100%;
-
+    gap: .75rem;
   }
 
   /* Lines */

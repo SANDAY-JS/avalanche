@@ -40,7 +40,7 @@ function ContactForm({setSubmitStatus}) {
             errors={state.errors}
           />
         </div>
-        <button type="submit" disabled={state.submitting} className={state.submitting && styles.submitting} >
+        <button type="submit" disabled={state.submitting} className={state.submitting ? styles.submitting : ''} >
           送信
         </button>
       </form>
