@@ -1,8 +1,61 @@
+@use "../shared/common.scss" as GlobalDesign;
 @import "../shared/mixin.scss";
+
+.about {
+  @include GlobalDesign.Parent(true);
+  margin-top: -2rem;
+
+  .about__container {
+    @include GlobalDesign.ParentContainer;
+
+    > figure > img {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    > div {
+      padding: 0 2rem 2rem 2rem;
+    }
+
+    .about__band {
+      > h3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: pre-wrap;
+        font-size: clamp(32px, 36px, 40px);
+      }
+      /* Lines */
+      > h3::before,
+      > h3::after {
+        content: "";
+        flex: 1;
+        height: 2px;
+        background-color: var(--background);
+      }
+
+      > div > p {
+        font-size: clamp(20px, 24px, 1.8rem);
+        font-weight: 800;
+        line-height: 1.8;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      > figure > img {
+        width: 70%;
+      }
+      > div {
+        padding: 0 0 2rem 0;
+      }
+    }
+  }
+}
 
 .members {
   @include center(column);
-  width: 100%;
+  width: min(100%, 500px);
+  margin: 0 auto;
 
   > h3 {
     @include center();
@@ -12,18 +65,19 @@
     font-size: clamp(32px, 36px, 40px);
     width: 100%;
 
-    /* Lines */
-    &::before,
-    &::after {
-      content: "";
-      flex: 1;
-      height: 2px;
-      background-color: var(--background);
-    }
+  }
+
+  /* Lines */
+  > h3::before,
+  > h3::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: var(--background);
   }
 
   .members__wrap {
-    @include center(auto, 12px);
+    @include center(auto, 4rem);
     flex-wrap: wrap;
   }
 
@@ -42,12 +96,12 @@
       gap: 4px;
       font-size: 1.75rem;
       text-align: left;
-      width: min(90%, 400px);
+      width: min(74%, 400px);
     }
     .member__infoWrapper {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 2rem;
 
       .member__name__role {
         font-size: 28px;
@@ -85,6 +139,9 @@
 
     /* fpr iPad and PC */
     @media screen and (min-width: 768px) {
+      .member__des{
+        width: 100%;
+      }
       .member__snsWrap {
         top: 4%;
         right: 4%;

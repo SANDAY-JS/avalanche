@@ -2,11 +2,17 @@ import React from "react";
 import styles from "../styles/components/ContactForm.module.css";
 import { useForm, ValidationError } from "@formspree/react";
 
-function ContactForm() {
+function ContactForm({setSubmitStatus}) {
   const [state, handleSubmit] = useForm("mzbojwzy");
 
   if (state.succeeded) {
-    return <p>送信されました。</p>;
+    setSubmitStatus(true);
+    return (
+      <div className={styles.submitted}>
+        <p>お問い合わせありがとうございます。</p>
+        <p>一日以内に返信いたします。</p>
+      </div>
+    )
   }
 
   return (
@@ -34,7 +40,7 @@ function ContactForm() {
             errors={state.errors}
           />
         </div>
-        <button type="submit" disabled={state.submitting}>
+        <button type="submit" disabled={state.submitting} className={state.submitting && styles.submitting} >
           送信
         </button>
       </form>
