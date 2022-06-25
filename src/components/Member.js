@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState } from "react";
-import styles from "../styles/components/Members.module.scss";
+import styles from "../styles/pages/Members.module.scss";
 
 function Member({ member }) {
   const [des, setDes] = useState(null)

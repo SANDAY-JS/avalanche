@@ -16,7 +16,6 @@ export default function Home({}) {
           <Live />
           <Sns />
           <Contact />
-          {/* <About /> */}
         </Layout>
       </div>
     </>

@@ -3,27 +3,19 @@
 .members {
   @include center(column);
   width: 100%;
+  margin-top: 120px;
 
   > h3 {
     @include center();
     margin-bottom: 2rem;
 
     white-space: pre-wrap;
-    font-size: clamp(32px, 36px, 40px);
+    font-size: clamp(40px, 44px, 48px);
     width: 100%;
-
-    /* Lines */
-    &::before,
-    &::after {
-      content: "";
-      flex: 1;
-      height: 2px;
-      background-color: var(--background);
-    }
   }
 
   .members__wrap {
-    @include center(auto, 12px);
+    @include center(auto, 4rem);
     flex-wrap: wrap;
   }
 
@@ -42,12 +34,12 @@
       gap: 4px;
       font-size: 1.75rem;
       text-align: left;
-      width: min(90%, 400px);
+      width: min(74%, 400px);
     }
     .member__infoWrapper {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 2rem;
 
       .member__name__role {
         font-size: 28px;
