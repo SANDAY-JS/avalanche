@@ -103,8 +103,8 @@ function Header({}) {
             <Link href="/#live">
               <a>Live</a>
             </Link>
-            <Link href="/members">
-              <a>About Us</a>
+            <Link href="/about">
+              <a>About</a>
             </Link>
             <Link href="/#contact">
               <a>Contact</a>

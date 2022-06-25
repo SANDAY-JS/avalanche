@@ -1,17 +1,79 @@
+@use "../shared/common.scss" as GlobalDesign;
 @import "../shared/mixin.scss";
+
+.about {
+  @include GlobalDesign.Parent(true);
+  margin-top: -2rem;
+
+  .about__container {
+    @include GlobalDesign.ParentContainer;
+
+    > figure > img {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    > div {
+      padding: 0 2rem 2rem 2rem;
+    }
+
+    .about__band {
+      > h3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: pre-wrap;
+        font-size: clamp(32px, 36px, 40px);
+      }
+      /* Lines */
+      > h3::before,
+      > h3::after {
+        content: "";
+        flex: 1;
+        height: 2px;
+        background-color: var(--background);
+      }
+
+      > div > p {
+        font-size: clamp(20px, 24px, 1.8rem);
+        font-weight: 800;
+        line-height: 1.8;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      > figure > img {
+        width: 70%;
+      }
+      > div {
+        padding: 0 0 2rem 0;
+      }
+    }
+  }
+}
 
 .members {
   @include center(column);
   width: min(100%, 500px);
-  margin: 120px auto 0 auto;
+  margin: 0 auto;
 
   > h3 {
     @include center();
     margin-bottom: 2rem;
 
     white-space: pre-wrap;
-    font-size: clamp(40px, 44px, 48px);
+    font-size: clamp(32px, 36px, 40px);
     width: 100%;
+
+  }
+
+  /* Lines */
+  > h3::before,
+  > h3::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: var(--background);
   }
 
   .members__wrap {
