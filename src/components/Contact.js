@@ -6,7 +6,7 @@ function Contact() {
   const [submitStatus, setSubmitStatus] = useState(false);
 
   return (
-    <div className={styles.contact}>
+    <div className={styles.contact} id='contact'>
       <h2>Contact</h2>
       <ContactForm setSubmitStatus={setSubmitStatus} />
       {!submitStatus && 

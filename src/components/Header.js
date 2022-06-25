@@ -103,10 +103,10 @@ function Header({}) {
             <Link href="/#live">
               <a>Live</a>
             </Link>
-            <Link href="/#about">
+            <Link href="/members">
               <a>About Us</a>
             </Link>
-            <Link href="/contact">
+            <Link href="/#contact">
               <a>Contact</a>
             </Link>
             {(cookies.User?.user || !currentUser) && (
