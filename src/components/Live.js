@@ -38,38 +38,30 @@ function Live({}) {
     <div className={styles.live} id="live">
       <h2 className={styles.live__table__title}>Live Information</h2>
       <div className={styles.live__container}>
-        {draft ? (
-          <table className={styles.live__table}>
-            <tbody>
-              <tr className={styles.live__table__content}>
-                <td>イベント名</td>
-                <td>{draft.eventName ? draft.eventName : "未定"}</td>
-              </tr>
-              <tr className={styles.live__table__content}>
-                <td>日時</td>
-                <td>{draft.date ? `${adjustDate(draft.date)}` : "未定"}</td>
-              </tr>
-              <tr className={styles.live__table__content}>
-                <td>出演時間</td>
-                <td>{draft.time ? `${draft.time}～` : "未定"}</td>
-              </tr>
-              <tr className={styles.live__table__content}>
-                <td>場所</td>
-                <td>{draft.place ? draft.place : "未定"}</td>
-              </tr>
-              {draft.detail && (
-                <tr className={styles.live__table__content}>
-                  <td>詳細</td>
-                  <td>{draft.detail}</td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        ) : (
-          <>
-            <p className={styles.live__container__loading}>読み込み中...</p>
-          </>
-        )}
+        <table className={styles.live__table}>
+          <tbody>
+            <tr className={styles.live__table__content}>
+              <td>イベント名</td>
+              <td className={draft ? '' : styles.loading}>{!draft ? '' : draft.eventName ? draft.eventName : "未定"}</td>
+            </tr>
+            <tr className={styles.live__table__content}>
+              <td>日時</td>
+              <td className={draft ? '' : styles.loading}>{!draft ? '' : draft.date ? `${adjustDate(draft.date)}` : "未定"}</td>
+            </tr>
+            <tr className={styles.live__table__content}>
+              <td>出演時間</td>
+              <td className={draft ? '' : styles.loading}>{!draft ? '' : draft.time ? `${draft.time}～` : "未定"}</td>
+            </tr>
+            <tr className={styles.live__table__content}>
+              <td>場所</td>
+              <td className={draft ? '' : styles.loading}>{!draft ? '' : draft.place ? draft.place : "未定"}</td>
+            </tr>
+            <tr className={styles.live__table__content}>
+              <td>詳細</td>
+              <td className={draft ? '' : styles.loading}>{!draft ? '' :  draft.detail ?? ''}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );

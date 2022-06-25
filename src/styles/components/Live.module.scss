@@ -22,6 +22,16 @@
         color: variables.$textColor;
         border: 2px solid variables.$textColor;
 
+        td.loading {
+          background: #f3f2f2;
+          background: linear-gradient(110deg, #f3f2f2 13%, #ffffff 18%, #f3f2f2 27%);
+          border-radius: 5px;
+          background-size: 200% 100%;
+          animation: 1.5s Skelton linear infinite;
+          min-width: 180px;
+          height: 56px;
+        }
+
         .live__table__title {
           text-align: center;
         }
@@ -50,5 +60,11 @@
 @media screen and (min-width: 769px) {
   .live {
     padding-bottom: 3rem;
+  }
+}
+
+@keyframes Skelton {
+  to {
+    background-position-x: -200%;
   }
 }
