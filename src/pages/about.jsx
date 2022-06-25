@@ -5,13 +5,12 @@ import Layout from "../components/Layout";
 import img from "../../public/images/aboutus.webp";
 import Image from "next/image";
 
-function Members() {
+function About() {
   return (
     <Layout>
       <div className={styles.about}>
         <div className={styles.about__container}>
-          <figure><Image src={img}/></figure>
-          
+          <figure><Image src={img} blurDataURL={img} /></figure>
           <div className={styles.about__band}>
             <h3>AVALANCHE</h3>
             <div>
@@ -35,4 +34,4 @@ function Members() {
   );
 }
 
-export default Members;
+export default About;
