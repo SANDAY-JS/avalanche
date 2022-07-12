@@ -100,7 +100,6 @@ const adminLive = () => {
 
   const reflectData = () => {
     if (!data) return;
-
     setEventname(data.eventName ? data.eventName : "");
     setDate(data.date ? data.date : "");
     setTime(data.time ? data.time : "");
@@ -123,8 +122,6 @@ const adminLive = () => {
     const check = confirm("この内容でおけ？");
     if (!check) return;
 
-    console.log(draft);
-
     try {
       await updateInformationDraft(draft);
       setError("");
@@ -142,19 +139,6 @@ const adminLive = () => {
       <div className={styles.adminLive}>
         {authority && (
           <>
-            {/* <div className={styles.adminLive__logo}>
-              <Link href="/">
-                <a>
-                  <Image
-                    src="/images/logo.png"
-                    className={styles.logo}
-                    width="140"
-                    height="50"
-                  />
-                </a>
-              </Link>
-            </div> */}
-
             {error && <p className={styles.adminLive__error}>{error}</p>}
             {success && <p className={styles.adminLive__success}>{success}</p>}
 
