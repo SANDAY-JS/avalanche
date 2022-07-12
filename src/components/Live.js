@@ -58,7 +58,15 @@ function Live({}) {
             </tr>
             <tr className={styles.live__table__content}>
               <td>詳細</td>
-              <td className={draft ? '' : styles.loading}>{!draft ? '' :  draft.detail ?? ''}</td>
+              {!draft ? (
+                <td className={styles.loading}></td>
+              ) : (
+                <td>
+                  {draft.detail ? (
+                    draft.detail.split('<br>').map((str,i) => <span key={i}>{str}</span>)
+                  ) : ''}
+                </td>
+              )}
             </tr>
           </tbody>
         </table>

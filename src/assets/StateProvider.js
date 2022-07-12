@@ -73,7 +73,7 @@ export default function StateProvider({ children }) {
       date: draft.date,
       time: draft.time,
       place: draft.place,
-      detail: draft.detail,
+      detail: draft.detail.replace(/\n/g, "<br>"),
     });
   };
 

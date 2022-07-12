@@ -63,6 +63,12 @@
             border: 2px solid variables.$textColor;
             padding: 4px 8px;
             text-align: center;
+            
+            span {
+              display: block;
+              // text-align: left;
+              margin: 4px 0;
+            }
           }
         }
       }
