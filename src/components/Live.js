@@ -42,7 +42,7 @@ function Live({}) {
           <tbody>
             <tr className={styles.live__table__content}>
               <td>イベント名</td>
-              <td className={draft ? '' : styles.loading}>{!draft ? '' : draft.eventName ? draft.eventName : "未定"}</td>
+              <td className={draft ? draft.eventName && styles.live__table__content__animTitle : styles.loading}>{!draft ? '' : draft.eventName ? draft.eventName : "未定"}</td>
             </tr>
             <tr className={styles.live__table__content}>
               <td>日時</td>

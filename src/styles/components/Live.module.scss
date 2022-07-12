@@ -38,20 +38,18 @@
 
         // tr
         .live__table__content {
-          &:first-of-type {
-            td:nth-child(2){
-              font-weight: 900;
-              background: linear-gradient(to right bottom, rgb(223, 45, 45) 20%, rgb(235, 104, 43) 40%, rgb(230, 42, 204) 60%,rgb(190, 26, 26) 80%);
-              background-size: 200% auto;
-              color: inherit;
-              background-clip: text;
-              -webkit-text-fill-color: transparent;
-              
-              animation: shine 1s linear infinite;
-              @keyframes shine {
-                to {
-                  background-position: 200% center;
-                }
+          &__animTitle {
+            font-weight: 900;
+            background: linear-gradient(to right bottom, rgb(223, 45, 45) 20%, rgb(235, 104, 43) 40%, rgb(230, 42, 204) 60%,rgb(190, 26, 26) 80%);
+            background-size: 200% auto;
+            color: inherit;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            animation: shine 1s linear infinite;
+            @keyframes shine {
+              to {
+                background-position: 200% center;
               }
             }
           }

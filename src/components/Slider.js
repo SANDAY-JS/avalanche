@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from "react";
-import { Slide } from "react-slideshow-image";
+import { Fade } from "react-slideshow-image";
 import Image from "next/image";
 import "react-slideshow-image/dist/styles.css";
 import styles from "../styles/components/Slider.module.css";
@@ -22,13 +22,13 @@ function Slider() {
 
   return (
     <div className={styles.slider}>
-      <Slide easing="ease-in-out">
+      <Fade easing="ease-in-out">
         {slideImgs.map((image, i) => (
           <figure key={i}>
             <Image src={image} key={i} />
           </figure>
         ))}
-      </Slide>
+      </Fade>
     </div>
   );
 }
