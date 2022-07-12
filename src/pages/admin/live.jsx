@@ -39,6 +39,7 @@ const adminLive = () => {
   }, []);
 
   useLayoutEffect(() => {
+    if (!data) return;
     reflectData();
   }, [data]);
 
@@ -99,12 +100,11 @@ const adminLive = () => {
   };
 
   const reflectData = () => {
-    if (!data) return;
     setEventname(data.eventName ? data.eventName : "");
     setDate(data.date ? data.date : "");
     setTime(data.time ? data.time : "");
     setPlace(data.place ? data.place : "");
-    setDetail(data.detail ? data.detail : "");
+    setDetail(data.detail ? data.detail.replaceAll('<br>', '\n') : "");
   };
 
   const resetForm = () => {
