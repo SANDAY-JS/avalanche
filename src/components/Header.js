@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useAuth } from "../assets/StateProvider";
 import { FaUserAlt } from "react-icons/fa";
+import { RiEditLine } from "react-icons/ri";
 import styles from "../styles/components/Header.module.scss";
 
 function Header({}) {
@@ -122,7 +123,7 @@ function Header({}) {
             {(cookies.User?.user?.uid  === process.env.NEXT_PUBLIC_ADMIN_UID ||
               currentUser?.uid === process.env.NEXT_PUBLIC_ADMIN_UID) && (
                 <Link href="/admin">
-                  <a>Admin</a>
+                  <a className={styles.header__container__menu__adminIcon}><RiEditLine /></a>
                 </Link>
             )}
             {/* Account Section */}
