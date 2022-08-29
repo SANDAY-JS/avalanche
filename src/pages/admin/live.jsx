@@ -32,32 +32,7 @@ const adminLive = () => {
     place: place,
     detail: detail,
   });
-
-  useEffect(() => {
-    checkAuthority();
-    fetchDraft();
-  }, []);
-
-  useLayoutEffect(() => {
-    if (!data) return;
-    reflectData();
-  }, [data]);
-
-  useEffect(() => {
-    console.log("securityCount", securityCount);
-    checkSecurity();
-  }, [securityCount]);
-
-  useEffect(() => {
-    return setDraft({
-      eventName: eventname,
-      date: date,
-      time: time,
-      place: place,
-      detail: detail,
-    });
-  }, [eventname, date, time, place, detail]);
-
+  
   const checkSecurity = () => {
     if (securityCount < 3) return;
 
@@ -133,6 +108,31 @@ const adminLive = () => {
       );
     }
   };
+  
+  useEffect(() => {
+    checkAuthority();
+    fetchDraft();
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!data) return;
+    reflectData();
+  }, [data]);
+
+  useEffect(() => {
+    console.log("securityCount", securityCount);
+    checkSecurity();
+  }, [securityCount]);
+
+  useEffect(() => {
+    return setDraft({
+      eventName: eventname,
+      date: date,
+      time: time,
+      place: place,
+      detail: detail,
+    });
+  }, [eventname, date, time, place, detail]);
 
   return (
     <AdminLayout>
