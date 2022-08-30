@@ -66,8 +66,21 @@ export default function StateProvider({ children }) {
     return currentUser.updatePassword(password);
   };
 
+  /** Firebase Methods */
+  const deleteEvent = async (event) => {
+    return await db.collection("draft").doc(event.date)?.delete().then(() => {
+      console.log('deleted!')
+    }).catch((err) => console.error(err))
+  };
+
   // Add / Update New Live Event
-  const addOrUpdateEvent = async (draft) => {
+  const addOrUpdateEvent = async (draft, oldDate) => {
+    if(oldDate) {
+      await db.collection("draft").doc(oldDate)?.delete().then(() => {
+        console.log('deleted!')
+      }).catch((err) => console.error('削除に失敗しました', err))
+    }
+
     return await db.collection("draft").doc(draft.date)
       .set({
         eventName: draft.eventName,
@@ -76,12 +89,6 @@ export default function StateProvider({ children }) {
         place: draft.place,
         detail: draft.detail.replace(/\n/g, "<br>"),
       });
-  };
-
-  const deleteEvent = async (event) => {
-    return await db.collection("draft").doc(event.date)?.delete().then(() => {
-      console.log('deleted!')
-    }).catch((err) => console.error(err))
   };
 
   // get draft for information page

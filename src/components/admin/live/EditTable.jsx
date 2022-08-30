@@ -1,10 +1,12 @@
+import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import { TiCancel, TiEdit } from 'react-icons/ti';
 import { useAuth } from '../../../assets/StateProvider';
 import styles from '../../../styles/pages/admin/live.module.scss';
 
 const EditTable = ({event}) => {
-  const { addOrUpdateEvent } = useAuth();
+  const { addOrUpdateEvent, deleteEvent } = useAuth();
+  const router = useRouter()
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -14,16 +16,21 @@ const EditTable = ({event}) => {
   const [time, setTime] = useState(event?.time ?? "");
   const [place, setPlace] = useState(event?.place ?? "");
   const [detail, setDetail] = useState(event?.detail ?? "");
-  const [newEvent, setNewEvent] = useState({
-    eventName: eventName,
-    date: date,
-    time: time,
-    place: place,
-    detail: detail,
-  });
 
-  const deleteForm = () => {
+  const handleDeleteEvent = async () => {
+    const check = confirm('このライブ情報を削除しますか？')
+    if(!check) return;
 
+    setSuccess('')
+    setError('')
+    try {
+      await deleteEvent(event)
+      setSuccess('イベントを削除しました')
+      router.push('/admin/live/all')
+    } catch (error) {
+      console.error(error);
+      setError('削除に失敗しました。')
+    }
   }
 
   const resetForm = () => {
@@ -41,8 +48,21 @@ const EditTable = ({event}) => {
     const check = confirm("この内容でおけ？");
     if (!check) return;
 
+    const newEvent = {
+      eventName: eventName,
+      date: date,
+      time: time,
+      place: place,
+      detail: detail,
+    }
+
+    const isDateSame = date === event.date;
+
     try {
-      await addOrUpdateEvent(newEvent);
+      isDateSame ? 
+      await addOrUpdateEvent(newEvent) :
+      await addOrUpdateEvent(newEvent, event.date);
+
       setError("");
       setSuccess("更新が完了しました");
     } catch (e) {
@@ -113,7 +133,7 @@ const EditTable = ({event}) => {
         </div>
 
         <div className={styles.adminLive__buttons}>
-            <button style={{fontSize: '1.25rem', background: 'red', color: 'white', border: 'none'}} className={styles.adminLive__deleteAll} onClick={deleteForm}>
+            <button style={{fontSize: '1.25rem', background: 'red', color: 'white', border: 'none'}} className={styles.adminLive__deleteAll} onClick={handleDeleteEvent}>
                 イベントを削除
             </button>
             <button style={{fontSize: '1.25rem'}} className={styles.adminLive__deleteAll} onClick={resetForm}>

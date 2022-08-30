@@ -1,16 +1,31 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react'
+import { useAuth } from '../../../assets/StateProvider';
 
 const LiveTable = ({event, index}) => {
-    const deleteEvent = () => {
-        
+  const { deleteEvent } = useAuth()
+  const router = useRouter()
+
+  const handleDeleteEvent = async () => {
+    const check = confirm('このライブ情報を削除しますか？')
+    if(!check) return;
+
+    try {
+      await deleteEvent(event)
+      router.reload();
+      console.log('successfully deleted')
+    } catch (error) {
+      console.error(error);
+      alert('削除に失敗しました。')
     }
+  }
 
   return (
     <>
         <div style={{display: 'flex', gap: '1rem', justifyContent: 'flex-end', marginRight: '5rem', marginTop: '3rem', marginBottom: '1rem'}}>
             <Link href={`/admin/live/${index}`}>編集</Link>
-            <Link href={'/delete'}><a onClick={deleteEvent}>削除</a></Link>
+            <Link href={'#'}><a onClick={handleDeleteEvent}>削除</a></Link>
         </div>
         <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', border: '1px solid black', fontSize: '1.2rem', width: '80%', margin: '0 auto 3rem auto', padding: '1rem 2rem'}}>
             <div style={{display: 'flex', gap: '1rem'}}>
