@@ -60,6 +60,17 @@ $fontFamily: "Amiri", serif;
   }
 
   // 入力ボックス
+  .adminLive__newEvent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    h4 {
+      font-size: 1.8rem;
+      margin-bottom: -1rem;
+    }
+  }
   .adminLive__contents {
     position: relative;
 
@@ -153,25 +164,35 @@ $fontFamily: "Amiri", serif;
     }
   }
 
-  .adminLive__submit,
-  .adminLive__deleteAll {
-    width: 50%;
-    max-width: 300px;
+  .adminLive__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    
+    .adminLive__submit,
+    .adminLive__deleteAll {
+      width: 50%;
+      max-width: 300px;
+  
+      padding: 4px 8px;
+      background-color: $black;
+      border: $black solid 2px;
+  
+      color: $white;
+      font-size: $fontSize;
+      font-weight: $fontWeight;
+      font-family: $fontFamily;
 
-    padding: 4px 8px;
-    background-color: $black;
-    border: $black solid 2px;
-
-    color: $white;
-    font-size: $fontSize;
-    font-weight: $fontWeight;
-    font-family: $fontFamily;
-
-    cursor: pointer;
-
-    &.adminLive__deleteAll {
-      color: $black;
-      background-color: $white;
+      border-radius: 2px;
+  
+      cursor: pointer;
+  
+      &.adminLive__deleteAll {
+        color: $black;
+        background-color: $white;
+      }
     }
   }
+
 }

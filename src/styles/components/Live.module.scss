@@ -8,6 +8,11 @@
 
   .live__container {
     @include GlobalDesign.ParentContainer;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 
     /* Info Table */
     .live__table {
@@ -54,8 +59,13 @@
             }
           }
 
+          &__menu {
+            width: 80px;
+            font-size: 1rem !important;
+          }
+
           td {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 600;
             font-family: "MS Pゴシック", sans-serif;
             border: 2px solid variables.$textColor;
@@ -64,7 +74,6 @@
             
             span {
               display: block;
-              // text-align: left;
               margin: 4px 0;
             }
           }
