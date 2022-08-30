@@ -4,7 +4,7 @@ import { useAuth } from '../../../assets/StateProvider';
 import styles from '../../../styles/pages/admin/live.module.scss';
 
 const EditTable = ({event}) => {
-  const { updateInformationDraft } = useAuth();
+  const { addOrUpdateEvent } = useAuth();
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -42,7 +42,7 @@ const EditTable = ({event}) => {
     if (!check) return;
 
     try {
-      await updateInformationDraft(newEvent);
+      await addOrUpdateEvent(newEvent);
       setError("");
       setSuccess("更新が完了しました");
     } catch (e) {

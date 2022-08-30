@@ -66,15 +66,16 @@ export default function StateProvider({ children }) {
     return currentUser.updatePassword(password);
   };
 
-  // update draft in information page
-  const addNewEvent = async (draft) => {
-    return await db.collection("draft").doc(draft.date).set({
-      eventName: draft.eventName,
-      date: draft.date,
-      time: draft.time,
-      place: draft.place,
-      detail: draft.detail.replace(/\n/g, "<br>"),
-    });
+  // Add / Update New Live Event
+  const addOrUpdateEvent = async (draft) => {
+    return await db.collection("draft").doc(draft.date)
+      .set({
+        eventName: draft.eventName,
+        date: draft.date,
+        time: draft.time,
+        place: draft.place,
+        detail: draft.detail.replace(/\n/g, "<br>"),
+      });
   };
 
   // get draft for information page
@@ -93,7 +94,7 @@ export default function StateProvider({ children }) {
     updateName,
     updateEmail,
     updatePassword,
-    addNewEvent,
+    addOrUpdateEvent,
     setCookieToUser,
     cookies
     // getInformationDraft,
