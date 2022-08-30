@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TiCancel } from "react-icons/ti";
 import { useAuth } from '../../../assets/StateProvider';
 import styles from "../../../styles/pages/admin/live.module.scss";
@@ -14,13 +14,6 @@ const NewEventTable = ({}) => {
   const [time, setTime] = useState("");
   const [place, setPlace] = useState("");
   const [detail, setDetail] = useState("");
-  const [newEvent, setNewEvent] = useState({
-    eventName: eventname,
-    date: date,
-    time: time,
-    place: place,
-    detail: detail,
-  });
 
   const resetForm = () => {
     const check = confirm("フォームの内容をすべてリセットしますか？");
@@ -36,6 +29,14 @@ const NewEventTable = ({}) => {
   const submitDraft = async () => {
     const check = confirm("この内容でおけ？");
     if (!check) return;
+
+    const newEvent = {
+      eventName: eventname,
+      date: date,
+      time: time,
+      place: place,
+      detail: detail,
+    }
 
     try {
       await addOrUpdateEvent(newEvent);
