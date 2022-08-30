@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { TiCancel, TiEdit } from 'react-icons/ti';
 import { useAuth } from '../../../assets/StateProvider';
 import styles from '../../../styles/pages/admin/live.module.scss';
+import BackButton from '../BackButton';
 
 const EditTable = ({event}) => {
   const { addOrUpdateEvent, deleteEvent } = useAuth();
@@ -75,7 +76,7 @@ const EditTable = ({event}) => {
 
   return (
     <div className={styles.adminLive__newEvent}>
-        <h4><TiEdit />{' '}編集</h4>
+        <h4 style={{position: 'relative', width: '100%', textAlign: 'center'}}><BackButton /><TiEdit />{' '}編集</h4>
         {error && <p className={styles.adminLive__error}>{error}</p>}
         {success && <p className={styles.adminLive__success}>{success}</p>}
 
