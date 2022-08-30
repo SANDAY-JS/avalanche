@@ -1,19 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../../../assets/StateProvider";
 import { useRouter } from "next/router";
 import AdminLayout from "../../../assets/admin/AdminLayout";
 import Link from "next/link";
+import { db } from "../../../../firebase";
+import LiveTable from "../../../components/admin/live/LiveTable";
 
 const adminLive = () => {
   const router = useRouter();
   const { currentUser } = useAuth();
   const [securityCount, setSecurityCount] = useState(0);
   const [authority, setAuthority] = useState(false);
-  
-  const checkSecurity = () => {
-    if (securityCount < 3) return;
 
-    return router.push("/");
+  const [data, setData] = useState([]);
+
+  const fetchDraft = async () => {
+    // firebaseからデータを取得
+    const isProduction = process.env.NODE_ENV === "production";
+    await db.collection(isProduction ? "live_info" : "draft").get()
+          .then(querySnapshot => {
+            querySnapshot.docs.forEach(doc => {
+            const newData = data;
+            newData.push(doc.data())
+            setData([...newData]);
+          })});
   };
 
   const checkAuthority = () => {
@@ -39,20 +49,28 @@ const adminLive = () => {
     return setAuthority(true);
   };
 
-  // useEffect(() => {
-  //   console.log("securityCount", securityCount);
-  //   checkSecurity();
-  // }, [securityCount]);
+  useEffect(() => {
+    checkAuthority();
+    fetchDraft();
+  }, []);
+
+  if(!authority) {
+    return (<AdminLayout></AdminLayout>)
+  }
 
   return (
     <AdminLayout>
-      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem', fontSize: '2rem', padding: '3rem 0'}}>
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3rem', fontSize: '2rem', padding: '3rem 0'}}>
         <Link href={'/admin/live/new'}>
-          <a>ライブ情報を追加</a>
+          <a style={{textDecoration: 'underline'}}>ライブ情報を追加</a>
         </Link>
-        <Link href={'/admin/live/all'}>
-          <a>ライブ情報を編集する</a>
-        </Link>
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.4rem'}}>
+          {!data ? 
+              <p>Loading...</p> : 
+              data.map((event, i) => (
+                  <LiveTable event={event} index={i} key={i} />
+              ))}
+        </div>
       </div>
     </AdminLayout>
   );

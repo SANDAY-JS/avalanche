@@ -26,7 +26,7 @@ const EditTable = ({event}) => {
     try {
       await deleteEvent(event)
       setSuccess('イベントを削除しました')
-      router.push('/admin/live/all')
+      router.push('/admin/live')
     } catch (error) {
       console.error(error);
       setError('削除に失敗しました。')
