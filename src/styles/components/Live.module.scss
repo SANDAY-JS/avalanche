@@ -8,6 +8,11 @@
 
   .live__container {
     @include GlobalDesign.ParentContainer;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 
     /* Info Table */
     .live__table {
