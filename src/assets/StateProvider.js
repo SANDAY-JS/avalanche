@@ -78,6 +78,12 @@ export default function StateProvider({ children }) {
       });
   };
 
+  const deleteEvent = async (event) => {
+    return await db.collection("draft").doc(event.date)?.delete().then(() => {
+      console.log('deleted!')
+    }).catch((err) => console.error(err))
+  };
+
   // get draft for information page
   // const getInformationDraft = () => {
   //   const draftRef = db.ref("draft/information");
@@ -95,6 +101,7 @@ export default function StateProvider({ children }) {
     updateEmail,
     updatePassword,
     addOrUpdateEvent,
+    deleteEvent,
     setCookieToUser,
     cookies
     // getInformationDraft,
