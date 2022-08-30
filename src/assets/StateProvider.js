@@ -2,6 +2,8 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import { auth, db } from "../../firebase";
 
+const isProduction = process.env.NODE_ENV === "production";
+
 const AuthProvider = createContext();
 
 export const useAuth = () => {
@@ -68,7 +70,7 @@ export default function StateProvider({ children }) {
 
   /** Firebase Methods */
   const deleteEvent = async (event) => {
-    return await db.collection("draft").doc(event.date)?.delete().then(() => {
+    return await db.collection(isProduction ? "live_info" : "draft").doc(event.date)?.delete().then(() => {
       console.log('deleted!')
     }).catch((err) => console.error(err))
   };
@@ -76,12 +78,12 @@ export default function StateProvider({ children }) {
   // Add / Update New Live Event
   const addOrUpdateEvent = async (draft, oldDate) => {
     if(oldDate) {
-      await db.collection("draft").doc(oldDate)?.delete().then(() => {
+      await db.collection(isProduction ? "live_info" : "draft").doc(oldDate)?.delete().then(() => {
         console.log('deleted!')
       }).catch((err) => console.error('削除に失敗しました', err))
     }
 
-    return await db.collection("draft").doc(draft.date)
+    return await db.collection(isProduction ? "live_info" : "draft").doc(draft.date)
       .set({
         eventName: draft.eventName,
         date: draft.date,

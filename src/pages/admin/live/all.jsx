@@ -8,7 +8,8 @@ const All = () => {
 
   const fetchDraft = async () => {
     // firebaseからデータを取得
-    await db.collection("draft").get()
+    const isProduction = process.env.NODE_ENV === "production";
+    await db.collection(isProduction ? "live_info" : "draft").get()
           .then(querySnapshot => {
             querySnapshot.docs.forEach(doc => {
             const newData = data;
