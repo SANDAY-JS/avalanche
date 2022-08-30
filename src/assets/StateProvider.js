@@ -67,8 +67,8 @@ export default function StateProvider({ children }) {
   };
 
   // update draft in information page
-  const updateInformationDraft = async (draft) => {
-    return await db.collection("draft").doc("information").set({
+  const addNewEvent = async (draft) => {
+    return await db.collection("draft").doc(draft.date).set({
       eventName: draft.eventName,
       date: draft.date,
       time: draft.time,
@@ -93,7 +93,7 @@ export default function StateProvider({ children }) {
     updateName,
     updateEmail,
     updatePassword,
-    updateInformationDraft,
+    addNewEvent,
     setCookieToUser,
     cookies
     // getInformationDraft,

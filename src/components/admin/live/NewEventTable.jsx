@@ -4,7 +4,7 @@ import { useAuth } from '../../../assets/StateProvider';
 import styles from "../../../styles/pages/admin/live.module.scss";
 
 const NewEventTable = ({}) => {
-  const { updateInformationDraft } = useAuth();
+  const { addNewEvent } = useAuth();
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -38,7 +38,7 @@ const NewEventTable = ({}) => {
     if (!check) return;
 
     try {
-      await updateInformationDraft(newEvent);
+      await addNewEvent(newEvent);
       setError("");
       setSuccess("更新が完了しました");
     } catch (e) {
