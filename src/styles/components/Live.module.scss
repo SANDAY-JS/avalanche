@@ -6,6 +6,49 @@
   flex-direction: column;
   align-items: center;
 
+  &__comment {
+    max-width: 100%;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: -1.4rem;
+
+    background: linear-gradient(to right bottom, rgb(223, 45, 45) 20%, rgb(235, 104, 43) 40%, rgb(230, 42, 204) 60%,rgb(190, 26, 26) 80%);
+    background-size: 200% auto;
+    color: inherit;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    animation: shine 1s linear infinite;
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    span {
+      display: block;
+      margin: 4px 0;
+    }
+
+    &.waiting {
+      transform: translateY(0);
+      animation: bounce 1s infinite;
+
+      @keyframes bounce {
+        0%, 100% {
+          transform: translateY(-25%);
+          animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+        50% {
+          transform: translateY(0);
+          animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
+      }
+    }
+  }
+
   .live__container {
     @include GlobalDesign.ParentContainer;
     height: auto;
@@ -22,6 +65,38 @@
       text-align: left;
       border-collapse: collapse;
       background-color: variables.$bgColor;
+      box-sizing: border-box;
+
+      &.done {
+        position: relative;
+        border-color: rgba($color: variables.$subColor, $alpha: .4);
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #fff;
+          opacity: .6;
+        }
+
+        .live__comment {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 30;
+          font-size: 1.6rem;
+          font-synthesis: italic;
+          text-align: center;
+          line-height: 1.6;
+          width: 100%;
+          padding: 0 8px;
+          -webkit-text-fill-color: variables.$subColor;
+        }
+      }
 
       tbody {
         color: variables.$textColor;
@@ -37,31 +112,16 @@
           height: 56px;
         }
 
-        .live__table__title {
-          text-align: center;
-        }
-
         // tr
         .live__table__content {
           &__animTitle {
             font-weight: 900;
-            background: linear-gradient(to right bottom, rgb(223, 45, 45) 20%, rgb(235, 104, 43) 40%, rgb(230, 42, 204) 60%,rgb(190, 26, 26) 80%);
-            background-size: 200% auto;
-            color: inherit;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            
-            animation: shine 1s linear infinite;
-            @keyframes shine {
-              to {
-                background-position: 200% center;
-              }
-            }
           }
 
           &__menu {
             width: 80px;
             font-size: 1rem !important;
+            text-align: left;
           }
 
           td {
@@ -70,7 +130,6 @@
             font-family: "MS Pゴシック", sans-serif;
             border: 2px solid variables.$textColor;
             padding: 4px 8px;
-            text-align: center;
             
             span {
               display: block;

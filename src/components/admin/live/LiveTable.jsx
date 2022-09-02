@@ -44,6 +44,10 @@ const LiveTable = ({event, index}) => {
                 <span style={{width: '80px', borderRight: '1px solid black'}}>詳細</span>
                 <p style={{flex: 1, }}>{event?.detail ?? ''}</p>
             </div>
+            <div style={{display: 'flex', gap: '1rem'}}>
+                <span style={{width: '80px', borderRight: '1px solid black'}}>コメント</span>
+                <p style={{flex: 1, }}>{event?.comment ?? ''}</p>
+            </div>
         </div>
     </div>
   )

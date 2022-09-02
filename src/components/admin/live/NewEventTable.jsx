@@ -15,6 +15,7 @@ const NewEventTable = ({}) => {
   const [time, setTime] = useState("");
   const [place, setPlace] = useState("");
   const [detail, setDetail] = useState("");
+  const [comment, setComment] = useState("");
 
   const resetForm = () => {
     const check = confirm("フォームの内容をすべてリセットしますか？");
@@ -37,6 +38,7 @@ const NewEventTable = ({}) => {
       time: time,
       place: place,
       detail: detail,
+      comment: comment,
     }
 
     try {
@@ -104,6 +106,17 @@ const NewEventTable = ({}) => {
                 onChange={(e) => setDetail(e.target.value)}
                 value={detail}
                 id="detail"
+                cols="50"
+                rows="10"
+            ></textarea>
+            </div>
+            <div className={styles.adminLive__contents__item}>
+            <label htmlFor="comment">コメント</label>
+            <textarea
+                className={styles.adminLive__contents__detail}
+                onChange={(e) => setComment(e.target.value)}
+                value={comment}
+                id="comment"
                 cols="50"
                 rows="10"
             ></textarea>
