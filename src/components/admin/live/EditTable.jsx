@@ -17,6 +17,7 @@ const EditTable = ({event}) => {
   const [time, setTime] = useState(event?.time ?? "");
   const [place, setPlace] = useState(event?.place ?? "");
   const [detail, setDetail] = useState(event?.detail ?? "");
+  const [comment, setComment] = useState(event?.comment ?? "");
 
   const handleDeleteEvent = async () => {
     const check = confirm('このライブ情報を削除しますか？')
@@ -43,6 +44,7 @@ const EditTable = ({event}) => {
     setTime("");
     setPlace("");
     setDetail("");
+    setComment("");
   };
 
   const submitDraft = async () => {
@@ -55,6 +57,7 @@ const EditTable = ({event}) => {
       time: time,
       place: place,
       detail: detail,
+      comment: comment
     }
 
     const isDateSame = date === event.date;
@@ -127,6 +130,17 @@ const EditTable = ({event}) => {
                 onChange={(e) => setDetail(e.target.value)}
                 value={detail}
                 id="detail"
+                cols={50}
+                rows={10}
+            ></textarea>
+            </div>
+            <div className={styles.adminLive__contents__item}>
+            <label htmlFor="comment">コメント</label>
+            <textarea
+                className={styles.adminLive__contents__detail}
+                onChange={(e) => setComment(e.target.value)}
+                value={comment}
+                id="comment"
                 cols={50}
                 rows={10}
             ></textarea>
