@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from "../styles/components/Live.module.scss";
+
+const isInThePast = (date) => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  return date < today;
+}
 
 const LiveTable = ({event}) => {
   const dateArr = ["日", "月", "火", "水", "木", "金", "土"];
+  const [hasFinished, setHasFinished] = useState(isInThePast(new Date(event?.date)) ?? false)
 
   const adjustDate = (date) => {
     const baseDate = new Date(date);
@@ -18,13 +26,20 @@ const LiveTable = ({event}) => {
   return (
     <>
       <div className={styles.live__table__content}>
-          {event?.comment && 
-            <div className={styles.live__comment}>
-              {event.comment.split('<br>').map((str,i) => <span key={i}>{str}</span>)}
-            </div>
+          {!hasFinished &&
+            event?.comment && 
+              <div className={styles.live__comment}>
+                {event.comment.split('<br>').map((str,i) => <span key={i}>{str}</span>)}
+              </div>
           }
       </div>
-      <table className={styles.live__table}>
+      <table className={`${styles.live__table} ${hasFinished && styles.done}`}>
+          {hasFinished &&
+            event?.comment && 
+              <div className={styles.live__comment}>
+                {event.comment.split('<br>').map((str,i) => <span key={i}>{str}</span>)}
+              </div>
+          }
         <tbody>
           <tr className={styles.live__table__content}>
             <td className={styles.live__table__content__menu}>日時</td>
