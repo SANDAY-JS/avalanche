@@ -122,7 +122,7 @@ function Header({}) {
             )}
             {(cookies.User?.user?.uid  === process.env.NEXT_PUBLIC_ADMIN_UID ||
               currentUser?.uid === process.env.NEXT_PUBLIC_ADMIN_UID) && (
-                <Link href="/admin">
+                <Link href="/admin/live">
                   <a className={styles.header__container__menu__adminIcon}><RiEditLine /></a>
                 </Link>
             )}
