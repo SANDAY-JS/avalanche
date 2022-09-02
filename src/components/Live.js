@@ -19,6 +19,8 @@ function Live({}) {
               querySnapshot.docs.forEach(doc => {
               const newData = data;
               newData.push(doc.data())
+              newData.sort((a, b) => new Date(a.date) - new Date(b.date))
+              console.log(newData)
               setData([...newData]);
             })});
   };
