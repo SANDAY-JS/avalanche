@@ -28,7 +28,7 @@ const LiveTable = ({event}) => {
       <div className={styles.live__table__content}>
           {!hasFinished &&
             event?.comment && 
-              <div className={styles.live__comment}>
+              <div className={`${styles.live__comment} ${styles.waiting}`}>
                 {event.comment.split('<br>').map((str,i) => <span key={i}>{str}</span>)}
               </div>
           }

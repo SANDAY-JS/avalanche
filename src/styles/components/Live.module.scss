@@ -9,7 +9,7 @@
   &__comment {
     max-width: 100%;
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: -1.4rem;
@@ -30,6 +30,22 @@
     span {
       display: block;
       margin: 4px 0;
+    }
+
+    &.waiting {
+      transform: translateY(0);
+      animation: bounce 1s infinite;
+
+      @keyframes bounce {
+        0%, 100% {
+          transform: translateY(-25%);
+          animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+        50% {
+          transform: translateY(0);
+          animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
+      }
     }
   }
 
@@ -72,7 +88,8 @@
           left: 50%;
           transform: translate(-50%, -50%);
           z-index: 30;
-          font-size: 1.8rem;
+          font-size: 1.6rem;
+          font-synthesis: italic;
           text-align: center;
           line-height: 1.6;
           width: 100%;
