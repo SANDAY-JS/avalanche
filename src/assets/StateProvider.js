@@ -89,8 +89,8 @@ export default function StateProvider({ children }) {
         date: draft.date,
         time: draft.time,
         place: draft.place,
-        detail: draft.detail.replace(/\n/g, "<br>"),
-        comment: draft.comment.replace(/\n/g, "<br>")
+        detail: draft.detail?.replace(/\n/g, "<br>"),
+        comment: draft.comment?.replace(/\n/g, "<br>")
       });
   };
 
