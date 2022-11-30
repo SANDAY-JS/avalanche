@@ -42,6 +42,10 @@ const LiveTable = ({event}) => {
           }
         <tbody>
           <tr className={styles.live__table__content}>
+            <td className={styles.live__table__content__menu}>場所</td>
+            <td className={event ? '' : styles.loading}>{!event ? '' : event.place ?? "未定"}</td>
+          </tr>
+          <tr className={styles.live__table__content}>
             <td className={styles.live__table__content__menu}>日時</td>
             <td className={event ? '' : styles.loading}>
               {!event ? '' : event.date ? `${adjustDate(event.date)}` : "未定"}&nbsp;	&nbsp;
@@ -49,15 +53,7 @@ const LiveTable = ({event}) => {
             </td>
           </tr>
           <tr className={styles.live__table__content}>
-            <td className={styles.live__table__content__menu}>イベント名</td>
-            <td className={event ? event.eventName && styles.live__table__content__animTitle : styles.loading}>{!event ? '' : event.eventName ?? "未定"}</td>
-          </tr>
-          <tr className={styles.live__table__content}>
-            <td className={styles.live__table__content__menu}>場所</td>
-            <td className={event ? '' : styles.loading}>{!event ? '' : event.place ?? "未定"}</td>
-          </tr>
-          <tr className={styles.live__table__content}>
-            <td className={styles.live__table__content__menu}>詳細</td>
+            <td className={styles.live__table__content__menu}>料金・詳細</td>
             {!event ? (
               <td className={styles.loading}></td>
             ) : (
