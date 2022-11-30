@@ -85,13 +85,13 @@ const EditTable = ({event}) => {
 
         <div className={styles.adminLive__contents}>
             <div className={styles.adminLive__contents__item}>
-            <label htmlFor="eventName">イベント名</label>
-            <input
-                value={eventName}
-                onChange={(e) => setEventName(e.target.value)}
-                id="eventName"
-                type="text"
-            />
+              <label htmlFor="place">場所</label>
+              <input
+                  value={place}
+                  onChange={(e) => setPlace(e.target.value)}
+                  id="place"
+                  type="text"
+              />
             </div>
             <div className={styles.adminLive__contents__item}>
             <label htmlFor="date">日時/出演時間</label>
@@ -113,15 +113,6 @@ const EditTable = ({event}) => {
                 <TiCancel />
                 </span>
             </div>
-            </div>
-            <div className={styles.adminLive__contents__item}>
-            <label htmlFor="place">場所</label>
-            <input
-                value={place}
-                onChange={(e) => setPlace(e.target.value)}
-                id="place"
-                type="text"
-            />
             </div>
             <div className={styles.adminLive__contents__item}>
             <label htmlFor="detail">詳細</label>
