@@ -7,13 +7,7 @@ const BackButton = () => {
     const currentPath = router.pathname;
 
     const handleClick = () => {
-        const newUrl = '';
-
-        const pathArr = currentPath.split('/');
-        pathArr.pop();
-        pathArr.forEach(str => newUrl+=`${str}/`)
-
-        router.push(newUrl)
+        router.back()
     }
 
   return (
