@@ -38,11 +38,11 @@ const LiveTable = ({event, index}) => {
             </div>
             <div style={{display: 'flex', gap: '1rem'}}>
                 <span style={{width: '80px', borderRight: '1px solid black'}}>詳細</span>
-                <p style={{flex: 1, }}>{event?.detail ?? ''}</p>
+                <p style={{flex: 1, }}>{event?.detail ? event.detail.split('<br>')?.join('\n') : ''}</p>
             </div>
             <div style={{display: 'flex', gap: '1rem'}}>
                 <span style={{width: '80px', borderRight: '1px solid black'}}>コメント</span>
-                <p style={{flex: 1, }}>{event?.comment ?? ''}</p>
+                <p style={{flex: 1, }}>{event?.comment ? event.comment.split('<br>')?.join('\n') : ''}</p>
             </div>
         </div>
     </div>

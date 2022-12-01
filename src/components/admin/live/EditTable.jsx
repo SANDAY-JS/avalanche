@@ -16,8 +16,8 @@ const EditTable = ({event}) => {
   const [date, setDate] = useState(event?.date ?? "");
   const [time, setTime] = useState(event?.time ?? "");
   const [place, setPlace] = useState(event?.place ?? "");
-  const [detail, setDetail] = useState(event?.detail ?? "");
-  const [comment, setComment] = useState(event?.comment ?? "");
+  const [detail, setDetail] = useState(event?.detail ? event.detail.split('<br>')?.join('\n') : "");
+  const [comment, setComment] = useState(event?.comment ? event.comment.split('<br>')?.join('\n') : "");
 
   const handleDeleteEvent = async () => {
     const check = confirm('このライブ情報を削除しますか？')
