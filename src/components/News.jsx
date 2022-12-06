@@ -12,10 +12,8 @@ function News() {
           db.map((news, i) => (
             <div key={i} className={styles.news__container__block}>
               {news.url ? (
-                <Link href={news.url}>
-                  <a className={styles.news__container__block__link}>
-                    {news.text}
-                  </a>
+                <Link href={news.url} className={styles.news__container__block__link}>
+                  {news.text}
                 </Link>
               ) : (
                 <p className={styles.news__container__block__link}>

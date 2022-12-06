@@ -25,7 +25,7 @@ const LiveTable = ({event, index}) => {
     <div style={{width: '100%', fontSize: '1.4rem'}}>
         <div style={{display: 'flex', gap: '1rem', justifyContent: 'flex-end', marginRight: '5rem', marginBottom: '.5rem'}}>
             <Link href={`/admin/live/${index}`}>編集</Link>
-            <Link href={'#'}><a onClick={handleDeleteEvent}>削除</a></Link>
+            <Link href={'#'} onClick={handleDeleteEvent}>削除</Link>
         </div>
         <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', border: '1px solid black', fontSize: '1.2rem', width: '80%', margin: '0 auto 3rem auto', padding: '1rem 2rem'}}>
             <div style={{display: 'flex', gap: '1rem'}}>

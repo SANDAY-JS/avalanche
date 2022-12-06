@@ -61,8 +61,8 @@ const adminLive = () => {
   return (
     <AdminLayout>
       <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3rem', fontSize: '2rem', padding: '3rem 0'}}>
-        <Link href={'/admin/live/new'}>
-          <a style={{textDecoration: 'underline'}}>ライブ情報を追加</a>
+        <Link href={'/admin/live/new'} style={{textDecoration: 'underline'}}>
+          ライブ情報を追加
         </Link>
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.4rem'}}>
           {!data ? 

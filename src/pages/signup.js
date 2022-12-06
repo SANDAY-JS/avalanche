@@ -62,7 +62,7 @@ export default function SignUp() {
             </button>
           </form>
           <Link href="/login">
-            <a>既にアカウントをお持ちですか？</a>
+            既にアカウントをお持ちですか？
           </Link>
         </div>
       </div>

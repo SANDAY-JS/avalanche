@@ -74,7 +74,7 @@ const CurrentEvents = () => {
           {item.url ? (
             <>
               <Link href={item.url}>
-                <a>{item.text}</a>
+                {item.text}
               </Link>
               <MdDeleteSweep onClick={() => deleteNews(index)} />
             </>

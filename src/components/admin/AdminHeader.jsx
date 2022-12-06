@@ -16,9 +16,7 @@ const AdminHeader = () => {
     <div className={styles.adminHeader}>
       <div className={styles.adminHeader__innerBox}>
         <Link href="/">
-          <a>
-            <Image src="/images/logo.png" width="140" height="50" />
-          </a>
+          <Image src="/images/logo.png" width="140" height="50" />
         </Link>
         <h2>管理者ページ</h2>
 
@@ -29,7 +27,7 @@ const AdminHeader = () => {
             }
           >
             <Link href="/admin">
-              <a>News</a>
+              News
             </Link>
           </li>
           <li
@@ -40,7 +38,7 @@ const AdminHeader = () => {
             }
           >
             <Link href="/admin/live">
-              <a>Live</a>
+              Live
             </Link>
           </li>
         </ul>

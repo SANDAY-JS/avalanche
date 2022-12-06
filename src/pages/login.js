@@ -44,10 +44,10 @@ export default function Login() {
             </button>
           </form>
           <Link href="/password-reset">
-            <a>パスワードをお忘れの場合</a>
+            パスワードをお忘れの場合
           </Link>
           <Link href="/signup">
-            <a>アカウントをお持ちでない方</a>
+            アカウントをお持ちでない方
           </Link>
         </div>
       </div>

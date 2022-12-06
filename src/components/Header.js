@@ -66,26 +66,22 @@ function Header({}) {
           {/* ロゴ */}
           <div className={styles.header__container__logo}>
             <Link href="/">
-              <a>
-                <Image
-                  className={styles.logo}
-                  src={"/images/logo.png"}
-                  width={isPageSmall ? "112" : "168"}
-                  height={isPageSmall ? "40" : "60"}
-                />
-              </a>
+              <Image
+                className={styles.logo}
+                src={"/images/logo.png"}
+                width={isPageSmall ? "112" : "168"}
+                height={isPageSmall ? "40" : "60"}
+              />
             </Link>
           </div>
           {/* Account Section */}
           {isPageSmall && (
             <div className={styles.header__container__accountSection}>
               <Link href="/profile">
-                <a>
-                  <FaUserAlt />{" "}
-                  <span>
-                    {hasUser ? (currentUser?.displayName || cookies.User?.displayName) : "ゲスト"}
-                  </span>
-                </a>
+                <FaUserAlt />{" "}
+                <span>
+                  {hasUser ? (currentUser?.displayName || cookies.User?.displayName) : "ゲスト"}
+                </span>
               </Link>
             </div>
           )}
@@ -95,35 +91,21 @@ function Header({}) {
         <ul className={styles.header__container__links}>
           <div className={styles.header__container__menu}>
             {error && <p className="error">{error}</p>}
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-            <Link href="https://t.co/P8Szd0Jf1h">
-              <a>Songs</a>
-            </Link>
-            <Link href="/#live">
-              <a>Live</a>
-            </Link>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-            <Link href="/#contact">
-              <a>Contact</a>
-            </Link>
+            <Link href="/">Home</Link>
+            <Link href="https://t.co/P8Szd0Jf1h">Songs</Link>
+            <Link href="/#live">Live</Link>
+            <Link href="/about">About</Link>
+            <Link href="/#contact">Contact</Link>
             {(cookies.User?.user || !currentUser) && (
               <>
-                <Link href="/login">
-                  <a>Login</a>
-                </Link>
-                <Link href="/signup">
-                  <a>Sign Up</a>
-                </Link>
+                <Link href="/login">Login</Link>
+                <Link href="/signup">Sign Up</Link>
               </>
             )}
             {(cookies.User?.user?.uid  === process.env.NEXT_PUBLIC_ADMIN_UID ||
               currentUser?.uid === process.env.NEXT_PUBLIC_ADMIN_UID) && (
-                <Link href="/admin/live">
-                  <a className={styles.header__container__menu__adminIcon}><RiEditLine /></a>
+                <Link href="/admin/live" className={styles.header__container__menu__adminIcon}>
+                  <RiEditLine />
                 </Link>
             )}
             {/* Account Section */}
@@ -132,12 +114,10 @@ function Header({}) {
                 href="/profile"
                 className={styles.header__container__accountSection}
               >
-                <a>
-                  <FaUserAlt />{" "}
-                  <span>
-                    {hasUser ? (currentUser?.displayName || cookies.User?.displayName) : "ゲスト"}
-                  </span>
-                </a>
+                <FaUserAlt />{" "}
+                <span>
+                  {hasUser ? (currentUser?.displayName || cookies.User?.displayName) : "ゲスト"}
+                </span>
               </Link>
             )}
           </div>

@@ -43,8 +43,8 @@ export default function Profile() {
               <p>
                 Your Email: <span>{currentUser.email}</span>
               </p>
-              <Link href="/update-profile">
-                <a className={styles.editProfile}>登録情報を編集する</a>
+              <Link href="/update-profile" className={styles.editProfile}>
+                登録情報を編集する
               </Link>
               <a
                 className={`${styles.btn} ${styles.signout}`}
@@ -68,16 +68,16 @@ export default function Profile() {
                 </p>
               )}
               <Link href="/signup">
-                <a>新しくAVALANCHEアカウントを作る</a>
+                新しくAVALANCHEアカウントを作る
               </Link>
-              <Link href="/signup">
-                <a className={styles.btn}>Sign Up</a>
-              </Link>
-              <Link href="/login">
-                <a>既にアカウントをお持ちですか？</a>
+              <Link href="/signup" className={styles.btn}>
+                Sign Up
               </Link>
               <Link href="/login">
-                <a className={styles.btn}>Login</a>
+                既にアカウントをお持ちですか？
+              </Link>
+              <Link href="/login" className={styles.btn}>
+                Login
               </Link>
             </>
           )}
