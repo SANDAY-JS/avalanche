@@ -3,8 +3,8 @@ import { Fade } from "react-slideshow-image";
 import Image from "next/image";
 import "react-slideshow-image/dist/styles.css";
 import styles from "../styles/components/Slider.module.css";
-import img1 from "../../public/images/topband.JPG";
-import img2 from "../../public/images/topband3.JPG";
+import img1 from "../../public/images/topband.jpg";
+import img2 from "../../public/images/topband3.jpg";
 import img3 from "../../public/images/band_blue.jpg";
 import img4 from "../../public/images/band_green.jpg";
 
