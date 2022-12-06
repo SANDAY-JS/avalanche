@@ -10,7 +10,7 @@ function About() {
     <Layout>
       <div className={styles.about}>
         <div className={styles.about__container}>
-          <figure><Image src={img} blurDataURL={img} /></figure>
+          <figure><Image src={img} blurDataURL={img} alt={"AVALANCHE About Us"} /></figure>
           <div className={styles.about__band}>
             <h3>AVALANCHE</h3>
             <div>

@@ -25,7 +25,7 @@ function Slider() {
       <Fade easing="ease-in-out">
         {slideImgs.map((image, i) => (
           <figure key={i}>
-            <Image src={image} key={i} />
+            <Image src={image} key={i} alt={"AVALANCHE Live 画像"} />
           </figure>
         ))}
       </Fade>

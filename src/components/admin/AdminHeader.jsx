@@ -16,7 +16,7 @@ const AdminHeader = () => {
     <div className={styles.adminHeader}>
       <div className={styles.adminHeader__innerBox}>
         <Link href="/">
-          <Image src="/images/logo.png" width="140" height="50" />
+          <Image src="/images/logo.png" width="140" height="50" alt="AVALANCHEロゴ" />
         </Link>
         <h2>管理者ページ</h2>
 

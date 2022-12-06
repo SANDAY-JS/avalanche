@@ -12,6 +12,7 @@ function Footer() {
             width={"300"}
             height={"111"}
             className={styles.logo}
+            alt={"AVALANCHEロゴ"}
           />
         </Link>
       </div>

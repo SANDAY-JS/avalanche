@@ -71,6 +71,7 @@ function Header({}) {
                 src={"/images/logo.png"}
                 width={isPageSmall ? "112" : "168"}
                 height={isPageSmall ? "40" : "60"}
+                alt={"AVALANCHEロゴ"}
               />
             </Link>
           </div>
