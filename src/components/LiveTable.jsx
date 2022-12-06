@@ -36,9 +36,9 @@ const LiveTable = ({event}) => {
       <table className={`${styles.live__table} ${hasFinished && styles.done}`}>
           {hasFinished &&
             event?.comment && 
-              <div className={styles.live__comment}>
-                {event.comment.split('<br>').map((str,i) => <span key={i}>{str}</span>)}
-              </div>
+              <thead className={styles.live__comment}>
+                {event.comment.split('<br>').map((str,i) => <tr key={i}><th>{str}</th></tr>)}
+              </thead>
           }
         <tbody>
           <tr className={styles.live__table__content}>
