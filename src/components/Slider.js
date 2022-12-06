@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import { Fade } from "react-slideshow-image";
 import Image from "next/image";
 import "react-slideshow-image/dist/styles.css";
@@ -16,7 +16,7 @@ function Slider() {
     btns.forEach((btn) => (btn.style.backgroundColor = "transparent"));
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     return adjustStyles();
   }, []);
 
@@ -25,7 +25,7 @@ function Slider() {
       <Fade easing="ease-in-out">
         {slideImgs.map((image, i) => (
           <figure key={i}>
-            <Image src={image} key={i} alt={"AVALANCHE Live 画像"} />
+            <Image src={image} key={i} priority alt={"AVALANCHE Live 画像"} />
           </figure>
         ))}
       </Fade>
