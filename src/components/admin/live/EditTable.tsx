@@ -1,31 +1,54 @@
+import { useRouter } from 'next/router';
 import React, { useState } from 'react'
-import { TiCancel } from "react-icons/ti";
+import { TiCancel, TiEdit } from 'react-icons/ti';
 import { useAuth } from '../../../assets/StateProvider';
-import styles from "../../../styles/pages/admin/live.module.scss";
+import styles from '../../../styles/pages/admin/live.module.scss';
 import BackButton from '../BackButton';
 
-const NewEventTable = ({}) => {
-  const { addOrUpdateEvent } = useAuth();
+type Props = {
+  event: LiveInfoType;
+}
 
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+const EditTable = ({event}: Props): JSX.Element => {
+  const { addOrUpdateEvent, deleteEvent } = useAuth();
+  const router = useRouter()
 
-  const [eventname, setEventname] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [place, setPlace] = useState("");
-  const [detail, setDetail] = useState("");
-  const [comment, setComment] = useState("");
+  const [error, setError] = useState<string>("");
+  const [success, setSuccess] = useState<string>("");
+
+  const [eventName, setEventName] = useState<string>(event?.eventName ?? "");
+  const [date, setDate] = useState<string>(event?.date ?? "");
+  const [time, setTime] = useState<string>(event?.time ?? "");
+  const [place, setPlace] = useState<string>(event?.place ?? "");
+  const [detail, setDetail] = useState<string>(event?.detail ? event.detail.split('<br>')?.join('\n') : "");
+  const [comment, setComment] = useState<string>(event?.comment ? event.comment.split('<br>')?.join('\n') : "");
+
+  const handleDeleteEvent = async () => {
+    const check = confirm('このライブ情報を削除しますか？')
+    if(!check) return;
+
+    setSuccess('')
+    setError('')
+    try {
+      await deleteEvent(event)
+      setSuccess('イベントを削除しました')
+      router.push('/admin/live')
+    } catch (error) {
+      console.error(error);
+      setError('削除に失敗しました。')
+    }
+  }
 
   const resetForm = () => {
     const check = confirm("フォームの内容をすべてリセットしますか？");
     if (!check) return;
 
-    setEventname("");
+    setEventName("");
     setDate("");
     setTime("");
     setPlace("");
     setDetail("");
+    setComment("");
   };
 
   const submitDraft = async () => {
@@ -33,16 +56,21 @@ const NewEventTable = ({}) => {
     if (!check) return;
 
     const newEvent = {
-      eventName: eventname,
+      eventName: eventName,
       date: date,
       time: time,
       place: place,
       detail: detail,
-      comment: comment,
+      comment: comment
     }
 
+    const isDateSame = date === event.date;
+
     try {
-      await addOrUpdateEvent(newEvent);
+      isDateSame ? 
+      await addOrUpdateEvent(newEvent) :
+      await addOrUpdateEvent(newEvent, event.date);
+
       setError("");
       setSuccess("更新が完了しました");
     } catch (e) {
@@ -55,7 +83,7 @@ const NewEventTable = ({}) => {
 
   return (
     <div className={styles.adminLive__newEvent}>
-        <h4 style={{position: 'relative', width: '100%', textAlign: 'center'}}><BackButton /> ライブ情報を追加</h4>
+        <h4 style={{position: 'relative', width: '100%', textAlign: 'center'}}><BackButton /><TiEdit />{' '}編集</h4>
         {error && <p className={styles.adminLive__error}>{error}</p>}
         {success && <p className={styles.adminLive__success}>{success}</p>}
 
@@ -97,8 +125,8 @@ const NewEventTable = ({}) => {
                 onChange={(e) => setDetail(e.target.value)}
                 value={detail}
                 id="detail"
-                cols="50"
-                rows="10"
+                cols={50}
+                rows={10}
             ></textarea>
             </div>
             <div className={styles.adminLive__contents__item}>
@@ -108,17 +136,20 @@ const NewEventTable = ({}) => {
                 onChange={(e) => setComment(e.target.value)}
                 value={comment}
                 id="comment"
-                cols="50"
-                rows="10"
+                cols={50}
+                rows={10}
             ></textarea>
             </div>
         </div>
 
         <div className={styles.adminLive__buttons}>
-            <button className={styles.adminLive__deleteAll} onClick={resetForm}>
-                全て消去
+            <button style={{fontSize: '1.25rem', background: 'red', color: 'white', border: 'none'}} className={styles.adminLive__deleteAll} onClick={handleDeleteEvent}>
+                イベントを削除
             </button>
-            <button className={styles.adminLive__submit} onClick={submitDraft}>
+            <button style={{fontSize: '1.25rem'}} className={styles.adminLive__deleteAll} onClick={resetForm}>
+                全てリセット
+            </button>
+            <button style={{fontSize: '1.25rem'}} className={styles.adminLive__submit} onClick={submitDraft}>
                 更新
             </button>
         </div>
@@ -126,4 +157,4 @@ const NewEventTable = ({}) => {
   )
 }
 
-export default NewEventTable
+export default EditTable

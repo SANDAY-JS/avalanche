@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "../styles/components/News.module.scss";
 import db from "../pages/api/db/news.json";
 
-function News() {
+const News = (): JSX.Element => {
   return (
     <div className={styles.news}>
       <h2>News</h2>

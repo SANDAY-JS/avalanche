@@ -2,7 +2,7 @@
 import { TwitterTimelineEmbed } from "react-twitter-embed";
 import styles from "../styles/components/Sns.module.scss";
 
-const Sns = () => {
+const Sns = (): JSX.Element => {
   return (
     <div className={styles.container}>
       <TwitterTimelineEmbed

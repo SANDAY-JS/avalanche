@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../styles/components/TopPage.module.scss";
 import Slider from "./Slider";
 
-function TopPage() {
+const TopPage = (): JSX.Element => {
   return (
     <div className={styles.toppage}>
       <Slider />

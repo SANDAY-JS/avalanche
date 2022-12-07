@@ -1,8 +1,12 @@
 import { useLayoutEffect, useState } from "react";
 import styles from "../styles/pages/About.module.scss";
 
-function Member({ member }) {
-  const [des, setDes] = useState(null)
+type Props = {
+  member: Member;
+}
+
+const Member = ({ member }: Props): JSX.Element => {
+  const [des, setDes] = useState<string[]>([])
 
   useLayoutEffect(() =>{
     if(!member?.des) return;

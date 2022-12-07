@@ -1,16 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import styles from "../../styles/pages/admin/AdminHeader.module.scss";
 
-const AdminHeader = () => {
+const AdminHeader = (): JSX.Element => {
   const router = useRouter();
   const currentPath = router.pathname;
-
-  useEffect(() => {
-    console.log(currentPath);
-  }, []);
 
   return (
     <div className={styles.adminHeader}>

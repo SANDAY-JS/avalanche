@@ -10,14 +10,14 @@ import img4 from "../../public/images/band_green.jpg";
 
 const slideImgs = [img1, img2, img3, img4];
 
-function Slider() {
+const Slider = (): JSX.Element => {
   const adjustStyles = () => {
     const btns = document.querySelectorAll(".nav.default-nav");
-    btns.forEach((btn) => (btn.style.backgroundColor = "transparent"));
+    btns.forEach((btn: any) => (btn.style.backgroundColor = "transparent"));
   };
 
   useEffect(() => {
-    return adjustStyles();
+    adjustStyles();
   }, []);
 
   return (

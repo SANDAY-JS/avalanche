@@ -1,5 +1,15 @@
 import Head from "next/head";
 
+type Props = {
+  title: string;
+  keywords: string;
+  description: string;
+  ogTitle: string;
+  ogType: string;
+  ogUrl: string;
+  ogImage: string;
+}
+
 const Meta = ({
   title,
   keywords,
@@ -8,7 +18,7 @@ const Meta = ({
   ogType,
   ogUrl,
   ogImage,
-}) => {
+}: Props): JSX.Element => {
   return (
     <Head>
       <meta

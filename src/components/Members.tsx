@@ -2,7 +2,7 @@ import styles from "../styles/components/Members.module.scss";
 import Member from "./Member";
 import membersData from "../assets/memberInfomation";
 
-function Members() {
+const Members = (): JSX.Element => {
   return (
     <div className={styles.members}>
       <h3>Members</h3>

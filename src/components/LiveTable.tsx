@@ -1,18 +1,22 @@
 import React, { useState } from 'react'
 import styles from "../styles/components/Live.module.scss";
 
-const isInThePast = (date) => {
+const isInThePast = (date: Date) => {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
   return date < today;
 }
 
-const LiveTable = ({event}) => {
-  const dateArr = ["日", "月", "火", "水", "木", "金", "土"];
-  const [hasFinished, setHasFinished] = useState(isInThePast(new Date(event?.date)) ?? false)
+type Props = {
+  event: LiveInfoType;
+}
 
-  const adjustDate = (date) => {
+const LiveTable = ({event}: Props): JSX.Element => {
+  const dateArr = ["日", "月", "火", "水", "木", "金", "土"];
+  const [hasFinished, setHasFinished] = useState<boolean>(isInThePast(new Date(event?.date)) ?? false)
+
+  const adjustDate = (date: string) => {
     const baseDate = new Date(date);
     const dayOfWeekNum = baseDate.getDay();
     const dayOfWeek = dateArr[dayOfWeekNum];

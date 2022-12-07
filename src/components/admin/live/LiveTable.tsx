@@ -3,7 +3,12 @@ import { useRouter } from 'next/router';
 import React from 'react'
 import { useAuth } from '../../../assets/StateProvider';
 
-const LiveTable = ({event, index}) => {
+type Props = {
+  event: LiveInfoType;
+  index: number;
+}
+
+const LiveTable = ({event, index}: Props): JSX.Element => {
   const { deleteEvent } = useAuth()
   const router = useRouter()
 

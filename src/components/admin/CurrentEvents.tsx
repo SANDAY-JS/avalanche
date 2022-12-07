@@ -1,20 +1,20 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import { MdDeleteSweep } from "react-icons/md";
 import styles from "../../styles/pages/admin/CurrentEvents.module.scss";
 import Link from "next/link";
 
-const CurrentEvents = () => {
+const CurrentEvents = (): JSX.Element => {
   const router = useRouter();
 
-  const [news, setNews] = useState([]);
-  const [newNews, setNewNews] = useState();
-  const [newUrl, setNewUrl] = useState("");
-  const [error, setError] = useState("");
-  const [submitting, setSubmitting] = useState(false);
+  const [news, setNews] = useState<News[]>([]);
+  const [newNews, setNewNews] = useState<string>("");
+  const [newUrl, setNewUrl] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const [submitting, setSubmitting] = useState<boolean>(false);
 
   useEffect(() => {
     getNews();
@@ -30,7 +30,7 @@ const CurrentEvents = () => {
       .catch((err) => console.error(err));
   };
 
-  const addNews = async (e) => {
+  const addNews = async (e: React.MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!newNews) return console.log("No New Data");
     setSubmitting(true);
@@ -48,7 +48,7 @@ const CurrentEvents = () => {
       })
       .catch((err) => setError(err));
   };
-  const deleteNews = async (index) => {
+  const deleteNews = async (index: number) => {
     if (index === undefined) return console.log("No Index");
     if (!confirm("このニュースを削除しますか？")) return;
 
@@ -65,6 +65,10 @@ const CurrentEvents = () => {
       })
       .catch((err) => setError(err));
   };
+
+  const onChangeNewNews = (text: string) => {
+    setNewNews(text)
+  }
 
   return (
     <div className={styles.container}>
@@ -91,10 +95,10 @@ const CurrentEvents = () => {
       {error && <p>{error}</p>}
       <form className={styles.container__form} onSubmit={addNews}>
         <textarea
-          cols="30"
-          rows="10"
+          cols={30}
+          rows={10}
           placeholder="例：【速報】新曲”ぞうさん”リリース決定！"
-          onChange={(e) => setNewNews(e.target.value)}
+          onChange={(e) => onChangeNewNews(e.target.value)}
         />
         <label htmlFor="url">
           テキストをUrl化する場合入力↓

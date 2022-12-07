@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import {IoArrowBackCircleOutline} from 'react-icons/io5'
 
-const BackButton = () => {
+const BackButton = (): JSX.Element => {
     const router = useRouter()
     const currentPath = router.pathname;
 

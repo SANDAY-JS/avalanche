@@ -1,8 +1,9 @@
+import { NextPage } from "next";
 import React, { useState } from "react";
 import styles from "../styles/components/Contact.module.scss";
 import ContactForm from "./ContactForm";
 
-function Contact() {
+const Contact = (): JSX.Element => {
   const [submitStatus, setSubmitStatus] = useState(false);
 
   return (

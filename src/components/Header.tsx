@@ -6,13 +6,13 @@ import { FaUserAlt } from "react-icons/fa";
 import { RiEditLine } from "react-icons/ri";
 import styles from "../styles/components/Header.module.scss";
 
-function Header({}) {
+const Header = (): JSX.Element => {
   const { currentUser, cookies } = useAuth();
   const hasUser = currentUser || cookies?.User;
   // States
-  const [error, setError] = useState("");
-  const [scrollDir, setScrollDir] = useState("");
-  const [isPageSmall, setIsPageSmall] = useState(true);
+  const [error, setError] = useState<string>("");
+  const [scrollDir, setScrollDir] = useState<string>("");
+  const [isPageSmall, setIsPageSmall] = useState<boolean>(true);
 
   useEffect(() => {
     const threshold = 0;

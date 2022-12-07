@@ -3,35 +3,38 @@ import styles from "../styles/components/Live.module.scss";
 import { db } from "../../firebase";
 import LiveTable from "./LiveTable";
 
-function Live({}) {
-  const [data, setData] = useState([]);
+const Live = (): JSX.Element => {
+  // Live Data
+  const [data, setData] = useState<LiveInfoType[]>([]);
 
   useEffect(() => {
-    fetchDraft();
+    (async() => {
+      await fetchDraft();
+    })()
   }, []);
 
   const fetchDraft = async () => {
     // firebaseからデータを取得
     const isProduction = process.env.NODE_ENV === "production";
 
+    let events: LiveInfoType[] = [];
     await db.collection(isProduction ? "live_info" : "draft").get()
-            .then(querySnapshot => {
-              querySnapshot.docs.forEach(doc => {
-              const newData = data;
-              newData.push(doc.data())
-              newData.sort((a, b) => new Date(a.date) - new Date(b.date))
-              console.log(newData)
-              setData([...newData]);
-            })});
+      .then(querySnapshot => {
+        querySnapshot.docs.forEach(doc => {
+        if(!doc.data()) return;
+        events.push(doc.data() as LiveInfoType)
+        events = events.sort((a, b) => Number(new Date(a.date)) - Number(new Date(b.date)))
+      })})
+      .then(() => setData(events))
   };
 
   return (
     <div className={styles.live} id="live">
       <h2 className={styles.live__table__title}>Live Information</h2>
       <div className={styles.live__container}>
-        {data?.map((event, i) => (
+        {data?.map((event, i) => 
           <LiveTable key={i} event={event} />
-        ))}
+        )}
       </div>
     </div>
   );

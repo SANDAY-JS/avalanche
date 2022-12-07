@@ -2,7 +2,11 @@ import React from "react";
 import styles from "../styles/components/ContactForm.module.css";
 import { useForm, ValidationError } from "@formspree/react";
 
-function ContactForm({setSubmitStatus}) {
+type Props = {
+  setSubmitStatus: React.Dispatch<boolean>;
+}
+
+const ContactForm = ({setSubmitStatus}: Props): JSX.Element => {
   const [state, handleSubmit] = useForm("mzbojwzy");
 
   if (state.succeeded) {
